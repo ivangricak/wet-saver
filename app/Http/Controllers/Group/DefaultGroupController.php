@@ -1,0 +1,74 @@
+<?php
+
+namespace App\Http\Controllers\Group;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class DefaultGroupController extends Controller
+{
+     /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+       //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Group $group)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(DefaultGroup $defgroup)
+    {
+        $categories = Category::all();
+        $users = Auth::user();
+        return view('defgroup.edit', compact('defgroup', 'categories', 'users'));  
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, DefaultGroup $defgroup)
+    {
+        $data = request()->validate([
+            'name' => 'string|required',
+            'category_id' => 'integer|required|exists:categories,id',
+        ]);
+
+        $defgroup->update($data);
+
+        return redirect()->route('home.index');   
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Group $group)
+    {
+        
+    }
+}
