@@ -21,8 +21,8 @@ RUN chown -R www-data:www-data /var/www
 # Використовуємо www-data для Composer
 USER www-data
 
-# Laravel dependencies
-RUN composer install --no-dev --optimize-autoloader
+# Laravel dependencies (без artisan scripts!)
+RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Frontend: Node + npm + sass
 RUN npm install
@@ -39,9 +39,10 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache /var/ww
 # Відкритий порт
 EXPOSE 8000
 
-# Запуск Laravel з очищенням кешу і форсуванням HTTPS
+# Запуск Laravel (artisan тепер виконається тільки тут, коли є env і БД)
 CMD php artisan config:clear && \
     php artisan cache:clear && \
     php artisan route:clear && \
     php artisan view:clear && \
+    php artisan package:discover && \
     php artisan serve --host=0.0.0.0 --port=$PORT
