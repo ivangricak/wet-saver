@@ -20,16 +20,16 @@ RUN npm install
 RUN npm install --save-dev sass
 RUN npm run build    # <-- build для Vite
 
-# Laravel кеш
-RUN php artisan config:clear \
-    && php artisan cache:clear \
-    && php artisan route:clear \
-    && php artisan view:clear
-
 # Права
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
+# Відкритий порт
 EXPOSE 8000
 
-CMD php artisan serve --host=0.0.0.0 --port=$PORT
+# Запуск Laravel з очищенням кешу при старті
+CMD php artisan config:clear && \
+    php artisan cache:clear && \
+    php artisan route:clear && \
+    php artisan view:clear && \
+    php artisan serve --host=0.0.0.0 --port=$PORT
