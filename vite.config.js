@@ -5,9 +5,10 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/sass/app.scss', // Bootstrap + SCSS
-                'resources/css/app.css',    // Додатковий CSS
-                'resources/js/app.js',      // JS
+                'resources/sass/app.scss',    // SCSS з Bootstrap
+                'resources/css/app.css',      // Додатковий CSS
+                'resources/js/bootstrap.js',  // Bootstrap JS
+                'resources/js/app.js',        // Основний JS
             ],
             refresh: true,
         }),

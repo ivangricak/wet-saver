@@ -17,6 +17,7 @@ RUN composer install --no-dev --optimize-autoloader
 
 # Встановлюємо залежності фронтенду
 RUN npm install
+RUN npm install --save-dev sass
 
 # Збираємо assets через Vite (Sass + CSS + JS)
 RUN npm run build
@@ -25,7 +26,7 @@ RUN npm run build
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
-# Встановлюємо порт для Laravel
+# Порт для Laravel
 EXPOSE 8000
 
 # Запуск Laravel з очищенням кешу при старті
