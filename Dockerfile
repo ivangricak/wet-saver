@@ -21,12 +21,6 @@ RUN npm install
 # Збираємо assets через Vite (Sass + CSS + JS)
 RUN npm run build
 
-# Очищення кешу Laravel, щоб Manifest і конфігурації були актуальні
-RUN php artisan config:clear \
-    && php artisan cache:clear \
-    && php artisan route:clear \
-    && php artisan view:clear
-
 # Права на папки storage і bootstrap/cache
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
@@ -34,5 +28,9 @@ RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 # Встановлюємо порт для Laravel
 EXPOSE 8000
 
-# Запуск Laravel
-CMD php artisan serve --host=0.0.0.0 --port=$PORT
+# Запуск Laravel з очищенням кешу при старті
+CMD php artisan config:clear && \
+    php artisan cache:clear && \
+    php artisan route:clear && \
+    php artisan view:clear && \
+    php artisan serve --host=0.0.0.0 --port=$PORT
