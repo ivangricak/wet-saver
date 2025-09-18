@@ -24,28 +24,26 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //COPY LINK FUNCTION
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.copy-link').forEach(el => {
-        el.addEventListener('click', async (e) => {
-            e.stopPropagation();
-            e.preventDefault();
+document.querySelectorAll('.copy').forEach(el => {
+    el.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        e.preventDefault();
 
-            const link = el.dataset.link?.trim() || el.textContent.trim();
-            if (!link) return;
+        const link = el.dataset.link?.trim() || el.textContent.trim();
+        if (!link) return;
 
-            try {
-                await navigator.clipboard.writeText(link);
+        try {
+            await navigator.clipboard.writeText(link);
 
-                const originalText = el.textContent;
-                el.textContent = 'Скопійовано!';
-                setTimeout(() => {
-                    el.textContent = originalText; 
-                }, 1500);
+            const originalText = el.textContent;
+            el.textContent = 'Скопійовано!';
+            setTimeout(() => {
+                el.textContent = originalText; 
+            }, 1500);
 
-            } catch (err) {
-                alert('Не вдалося скопіювати лінк');
-            }
-        });
+        } catch (err) {
+            alert('Не вдалося скопіювати лінк');
+        }
     });
 });
 
