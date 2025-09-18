@@ -15,8 +15,10 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 WORKDIR /var/www
 COPY . .
 
-# Використовуємо www-data для Composer
+# Додаємо права для www-data перед Composer
 RUN chown -R www-data:www-data /var/www
+
+# Використовуємо www-data для Composer
 USER www-data
 
 # Laravel dependencies
@@ -30,9 +32,9 @@ RUN npm run build    # <-- build Vite для SCSS, CSS та JS
 # Повертаємося до root для зміни прав
 USER root
 
-# Права на storage і bootstrap/cache
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
-    && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+# Права на storage, bootstrap/cache та public/build
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache /var/www/public/build \
+    && chmod -R 775 /var/www/storage /var/www/bootstrap/cache /var/www/public/build
 
 # Відкритий порт
 EXPOSE 8000
