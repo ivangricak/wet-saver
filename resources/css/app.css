@@ -158,3 +158,31 @@
 
 
 /* =================================== */
+
+/* Для телефонів */
+@media (max-width: 768px) {
+    .main-container .card {
+        min-width: 100%;
+        max-width: 100%; 
+        min-height: 150px; 
+        max-height: 180px; 
+    }
+
+   
+    /* For opening group */
+    .main-container .card.expanded {
+        flex: 1 1 100%; 
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 200px;
+        max-height: 300px;
+        z-index: 10;
+    }
+
+    /* щоб скрол був тільки вертикальний */
+    .card.expanded .scroll {
+        overflow-x: hidden; 
+        overflow-y: auto;
+        max-height: 300px; /* контрольована висота для скролу */
+    }
+}
