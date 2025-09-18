@@ -15,9 +15,10 @@ COPY . .
 # Встановлюємо залежності Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-# Встановлюємо залежності фронтенду
+# Frontend
 RUN npm install
 RUN npm install --save-dev sass
+RUN npm run build
 
 # Збираємо assets через Vite (Sass + CSS + JS)
 RUN npm run build
