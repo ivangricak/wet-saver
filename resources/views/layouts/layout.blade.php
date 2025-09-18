@@ -6,15 +6,14 @@
     
     {{-- Vite assets --}}
     @vite([
-        'resources/sass/app.scss',    {{-- SCSS з Bootstrap --}}
-        'resources/css/app.css',      {{-- Додатковий CSS --}}
-        'resources/js/bootstrap.js',  {{-- Bootstrap JS --}}
-        'resources/js/app.js'         {{-- Основний JS --}}
+        asset('resources/sass/app.scss'),    {{-- SCSS з Bootstrap --}}
+        asset('resources/css/app.css'),      {{-- Додатковий CSS --}}
+        asset('resources/js/bootstrap.js'),  {{-- Bootstrap JS --}}
+        asset('resources/js/app.js')         {{-- Основний JS --}}
     ])
 
     {{-- Bootstrap Icons --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
     <title>{{ config('app.name', 'Nexora') }}</title>
 </head>
 <body>
