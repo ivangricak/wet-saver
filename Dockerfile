@@ -8,26 +8,36 @@ RUN apt-get update && apt-get install -y \
 # Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# Дозволяємо Composer працювати під root
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 # Робоча директорія
 WORKDIR /var/www
 COPY . .
 
+# Використовуємо www-data для Composer
+RUN chown -R www-data:www-data /var/www
+USER www-data
+
 # Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Frontend
+# Frontend: Node + npm + sass
 RUN npm install
 RUN npm install --save-dev sass
-RUN npm run build    # <-- build для Vite
+RUN npm run build    # <-- build Vite для SCSS, CSS та JS
 
-# Права
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
-RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+# Повертаємося до root для зміни прав
+USER root
+
+# Права на storage і bootstrap/cache
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
+    && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
 # Відкритий порт
 EXPOSE 8000
 
-# Запуск Laravel з очищенням кешу при старті
+# Запуск Laravel з очищенням кешу і форсуванням HTTPS
 CMD php artisan config:clear && \
     php artisan cache:clear && \
     php artisan route:clear && \
