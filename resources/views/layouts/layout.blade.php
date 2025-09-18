@@ -9,7 +9,7 @@
         'resources/sass/app.scss',    {{-- SCSS з Bootstrap --}}
         'resources/css/app.css',      {{-- Додатковий CSS --}}
         'resources/js/bootstrap.js',  {{-- Bootstrap JS --}}
-        'resources/js/app.js         {{-- Основний JS --}}
+        'resources/js/app.js'        {{-- Основний JS --}}
     ])
 
     {{-- Bootstrap Icons --}}
