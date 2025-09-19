@@ -56,21 +56,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const defInput = document.getElementById('def_group_id');
     const normalInput = document.getElementById('group_id');
 
-    select.addEventListener('change', () => {
+    // Функція для встановлення hidden полів
+    const setHiddenFields = () => {
         const selectedOption = select.selectedOptions[0];
-
         if (!selectedOption || !selectedOption.dataset.type) {
             defInput.value = '';
             normalInput.value = '';
             return;
         }
-
         if (selectedOption.dataset.type === 'def') {
             defInput.value = selectedOption.value;
             normalInput.value = '';
-        } else if (selectedOption.dataset.type === 'normal') {
+        } else {
             defInput.value = '';
             normalInput.value = selectedOption.value;
         }
-    });
+    }
+
+    // Виклик при завантаженні
+    setHiddenFields();
+
+    // Виклик при зміні select
+    select.addEventListener('change', setHiddenFields);
 });
