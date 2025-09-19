@@ -14,7 +14,7 @@
         </select>
         <label for="category_selector" class="form-label">Groups</label>
         <select class="form-select" id="category_selector" name="group_selector">
-            <option value="" selected>-- Select group --</option>
+            <!-- <option value="" selected>-- Select group --</option> -->
             @foreach($defgroups as $defgroup)
                 <option value="{{$defgroup->id}}" data-type="def"> {{$defgroup->name}} </option>
             @endforeach
