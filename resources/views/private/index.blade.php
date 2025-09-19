@@ -43,9 +43,7 @@
                                 <button class="copy" data-link="{{$item->link}}" type="button"> copy </button>
                             </div>
                         @empty
-                            <div class="d-flex align-items-center bg-secondary bg-opacity-50 rounded p-2 mb-2">
-                                <span>this group has not got items!</span>
-                            </div>
+                            <span>this group has not got items!</span>
                         @endforelse
                     </div>
                 </div>

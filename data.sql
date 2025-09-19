@@ -214,3 +214,34 @@ INSERT INTO group_user (group_id, user_id, created_at, updated_at) VALUES
 (3, 1, NULL, NULL),
 (16, 3, NULL, NULL),
 (17, 3, NULL, NULL);
+
+-- =========================
+-- Синхронізація sequence після імпорту
+-- =========================
+
+-- Categories
+SELECT setval(pg_get_serial_sequence('categories', 'id'), COALESCE(MAX(id), 1)) FROM categories;
+
+-- Users
+SELECT setval(pg_get_serial_sequence('users', 'id'), COALESCE(MAX(id), 1)) FROM users;
+
+-- Tags
+SELECT setval(pg_get_serial_sequence('tags', 'id'), COALESCE(MAX(id), 1)) FROM tags;
+
+-- Default groups
+SELECT setval(pg_get_serial_sequence('default_groups', 'id'), COALESCE(MAX(id), 1)) FROM default_groups;
+
+-- Groups
+SELECT setval(pg_get_serial_sequence('groups', 'id'), COALESCE(MAX(id), 1)) FROM groups;
+
+-- Items
+SELECT setval(pg_get_serial_sequence('items', 'id'), COALESCE(MAX(id), 1)) FROM items;
+
+-- Failed jobs
+SELECT setval(pg_get_serial_sequence('failed_jobs', 'id'), COALESCE(MAX(id), 1)) FROM failed_jobs;
+
+-- Jobs
+SELECT setval(pg_get_serial_sequence('jobs', 'id'), COALESCE(MAX(id), 1)) FROM jobs;
+
+-- Migrations
+SELECT setval(pg_get_serial_sequence('migrations', 'id'), COALESCE(MAX(id), 1)) FROM migrations;

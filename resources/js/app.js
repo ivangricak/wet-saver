@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //COPY LINK FUNCTION
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.copy-link').forEach(el => {
+    document.querySelectorAll('.copy').forEach(el => {
         el.addEventListener('click', async (e) => {
             e.stopPropagation();
             e.preventDefault();
@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 await navigator.clipboard.writeText(link);
 
                 const originalText = el.textContent;
-                el.textContent = 'Скопійовано!';
+                el.textContent = 'Done!';
                 setTimeout(() => {
                     el.textContent = originalText; 
                 }, 1500);
 
             } catch (err) {
-                alert('Не вдалося скопіювати лінк');
+                alert('Error!');
             }
         });
     });
