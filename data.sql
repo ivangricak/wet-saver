@@ -168,15 +168,16 @@ CREATE TABLE sessions (
 -- =========================
 
 INSERT INTO categories (id, name, created_at, updated_at, deleted_at) VALUES
-(1, 'first', NULL, NULL, NULL),
-(2, 'second', NULL, NULL, NULL);
+(1, 'category_1', NULL, NULL, NULL),
+(2, 'category_2', NULL, NULL, NULL);
 
 INSERT INTO users (id, nick, login, password, login_verified_at, remember_token, created_at, updated_at) VALUES
 (1, 'max', 'max', '$2y$12$3BwZvkF6OARg.0waAA2zd.L0vwiRn8CDpfiqrwbhkKuDjKiqYRdEi', NULL, NULL, '2025-08-26 17:56:41', '2025-08-26 17:56:41'),
 (3, 'ivan', 'ivan', '$2y$12$ED4UA67scsoIavrHI2w/auI3jyLuu2SwwyhsnCkMv0d2N6PLVnA16', NULL, NULL, '2025-09-02 16:38:51', '2025-09-02 16:38:51');
 
 INSERT INTO tags (id, name, created_at, updated_at, deleted_at) VALUES
-(1, 'tag', NULL, NULL, NULL);
+(1, 'tag1', NULL, NULL, NULL),
+(2, 'tag2', NULL, NULL, NULL);
 
 INSERT INTO default_groups (id, name, user_id, category_id, deleted_at, created_at, updated_at) VALUES
 (1, 'default group', NULL, 1, NULL, '2025-08-30 16:28:41', '2025-08-30 16:28:41'),
