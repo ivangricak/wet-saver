@@ -39,7 +39,7 @@ class ItemController extends Controller
     {
         $data = request()->validate([
             'group_id' => 'nullable|integer|exists:groups,id|required_without:default_group_id',
-            'default_group_id' => 'nullable|integer|exists:default_groups,id|required_without:group_id',
+            'default_group_id' => 'nullable|integer|exists:groups,id|required_without:group_id',
 
             'name' => 'string|required',
             'description' => 'string|required',
