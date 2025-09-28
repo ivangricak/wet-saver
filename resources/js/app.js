@@ -24,29 +24,21 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //COPY LINK FUNCTION
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.copy').forEach(el => {
-        el.addEventListener('click', async (e) => {
-            e.stopPropagation();
-            e.preventDefault();
+document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("copy")) {
+        let btn = e.target;
+        let link = btn.getAttribute("data-link");
 
-            const link = el.dataset.link?.trim() || el.textContent.trim();
-            if (!link) return;
+        navigator.clipboard.writeText(link).then(() => {
+            let originalText = btn.textContent;
+            btn.textContent = "Done";
 
-            try {
-                await navigator.clipboard.writeText(link);
-
-                const originalText = el.textContent;
-                el.textContent = 'Done!';
-                setTimeout(() => {
-                    el.textContent = originalText; 
-                }, 1500);
-
-            } catch (err) {
-                alert('Error!');
-            }
+            // через 2 секунди повертаємо назад "copy"
+            setTimeout(() => {
+                btn.textContent = originalText;
+            }, 1000);
         });
-    });
+    }
 });
 
 
@@ -138,10 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
+
 document.addEventListener('click', function(e) {
     if(e.target.matches('.delete-btn')) {
         const itemId = e.target.dataset.id;
-        
+
         if(!confirm('Ви точно хочете видалити цей item?')) {
             return; // якщо користувач натиснув "Cancel", нічого не робимо
         }
@@ -187,4 +181,257 @@ document.addEventListener('click', function(e) {
         })
         .catch(err => console.error(err));
     }
+});
+
+
+
+// CREATE ITEM
+document.addEventListener('click', function(e) {
+
+    // Відкриття форми
+    if (e.target.matches('.create-item')) {
+        const groupId = e.target.dataset.groupId;
+
+        // Перевіряємо, чи форма вже існує
+        if (!document.querySelector('.created-div')) {
+            document.body.insertAdjacentHTML('beforeend', `
+                <form class="created-div">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">State:</label>
+                        <select class="form-select" name="state">
+                            <option value="1">Public</option>
+                            <option value="0">Private</option>
+                        </select>
+                    </div>
+
+                    <input type="hidden" name="default_group_id" value="">
+                    <input type="hidden" name="group_id" value="${groupId}">
+
+                    <div class="mb-3">
+                        <label class="form-label">Link</label>
+                        <input type="text" class="form-control" name="link" placeholder="link">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" rows="3" name="description"></textarea>
+                    </div>
+
+                    <button type="button" class="create btn btn-success m-2">Create</button>
+                    <button type="button" class="close-div btn btn-danger m-2">Закрити</button>
+                </form>
+            `);
+
+            const formDiv = document.querySelector('.created-div');
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            formDiv.querySelector('.create').addEventListener('click', function() {
+                const formData = new FormData(formDiv);
+
+                fetch('/item/create', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('JSON parsed:', data);
+
+                    const groupId = formData.get('group_id');
+
+                    loadGroupItems(groupId);
+
+                    formDiv.remove();
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    alert('Сталася помилка при створенні item-а');
+                });
+            });
+        }
+    }
+
+    // Закриття форми
+    if (e.target.matches('.close-div')) {
+        const div = e.target.closest('.created-div');
+        if (div) div.remove();
+    }
+});
+
+
+function loadGroupItems(groupId) {
+    let container = document.getElementById(`group-${groupId}`);
+
+    fetch(`/groups/${groupId}/items`)
+        .then(res => res.json())
+        .then(data => {
+            container.innerHTML = "";
+
+            if (data.items.length === 0) {
+                container.innerHTML = "<div>this group has not got items!</div>";
+            } else {
+                data.items.forEach(item => {
+                    let tag = item.tags.length > 0 ? item.tags[0].name : "";
+                    container.insertAdjacentHTML("beforeend", `
+                        <div class="item-copy">
+                            <div class="item" data-bs-toggle="modal" data-bs-target="#itemModal${item.id}">
+                                <span class="tag">${tag}</span>
+                                <span>${item.name}</span>
+                            </div>
+                            <button class="copy" data-link="${item.link}" type="button">copy</button>
+                        </div>
+                    `);
+                });
+            }
+        })
+        .catch(err => console.error(err));
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".items-container").forEach(div => {
+        let groupId = div.dataset.groupId;
+        loadGroupItems(groupId);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+//DEFAULT GROUPS 
+
+
+// CREATE ITEM
+document.addEventListener('click', function(e) {
+
+    // Відкриття форми
+    if (e.target.matches('.def-create-item')) {
+        const defgroupId = e.target.dataset.defgroupId;
+
+        // Перевіряємо, чи форма вже існує
+        if (!document.querySelector('.created-div')) {
+            document.body.insertAdjacentHTML('beforeend', `
+                <form class="created-div">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">State:</label>
+                        <select class="form-select" name="state">
+                            <option value="1">Public</option>
+                            <option value="0">Private</option>
+                        </select>
+                    </div>
+
+                    <input type="hidden" name="default_group_id" value="${defgroupId}">
+                    <input type="hidden" name="group_id" value="">
+
+                    <div class="mb-3">
+                        <label class="form-label">Link</label>
+                        <input type="text" class="form-control" name="link" placeholder="link">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" rows="3" name="description"></textarea>
+                    </div>
+
+                    <button type="button" class="create btn btn-success m-2">Create</button>
+                    <button type="button" class="close-div btn btn-danger m-2">Закрити</button>
+                </form>
+            `);
+
+            const formDiv = document.querySelector('.created-div');
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            formDiv.querySelector('.create').addEventListener('click', function() {
+                const formData = new FormData(formDiv);
+
+                fetch('/item/create', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('JSON parsed:', data);
+
+                    const defgroupId = formData.get('default_group_id');
+
+                    loadDefGroupItems(defgroupId);
+
+                    formDiv.remove();
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    alert('Сталася помилка при створенні item-а');
+                });
+            });
+        }
+    }
+
+    // Закриття форми
+    if (e.target.matches('.close-div')) {
+        const div = e.target.closest('.created-div');
+        if (div) div.remove();
+    }
+});
+
+function loadDefGroupItems(defgroupId) {
+    let container = document.getElementById(`defgroup-${defgroupId}`);
+    
+    fetch(`/defgroups/${defgroupId}/items`)
+        .then(res => res.json())
+        .then(data => {
+            container.innerHTML = "";
+
+            if (data.items.length === 0) {
+                container.innerHTML = "<div>this group has not got items!</div>";
+            } else {
+                data.items.forEach(item => {
+                    let tag = item.tags.length > 0 ? item.tags[0].name : "";
+                    console.log(data);
+                    container.insertAdjacentHTML("beforeend", `
+                        <div class="item-copy">
+                            <div class="item" data-bs-toggle="modal" data-bs-target="#itemModal${item.id}">
+                                <span class="tag">${tag}</span>
+                                <span>${item.name}</span>
+                            </div>
+                            <button class="copy" data-link="${item.link}" type="button">copy</button>
+                        </div>
+                    `);
+                
+                });
+            }
+        })
+        .catch(err => console.error(err));
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".def-items-container").forEach(div => {
+        let defgroupId = div.dataset.defgroupId;
+        loadDefGroupItems(defgroupId);
+    });
 });

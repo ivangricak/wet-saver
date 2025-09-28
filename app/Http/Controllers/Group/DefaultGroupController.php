@@ -11,6 +11,17 @@ class DefaultGroupController extends Controller
      /**
      * Display a listing of the resource.
      */
+
+    public function itemsJson($id)
+    {
+        $user = auth()->user();
+        $defgroup = $user->defaultgroups()->with('items.tags')->findOrFail($id);
+
+        return response()->json([
+            'items' => $defgroup->items
+        ]);
+    }
+
     public function index()
     {
        //

@@ -21,30 +21,14 @@
                             </button>
                             <ul class="dropdown-menu">
                                 <li><button onclick="window.location.href='{{route('item.view.create')}}'">create item</button></li>
+
+                                <li><button type="submit" class="def-create-item" data-defgroup-id="{{$defgroup->id}}" >create item</button></li>
                                 <!-- <li><hr class="dropdown-divider"></li> -->
                             </ul>
                         </div>
                     </div>
-                    <div class="scroll" data-bs-spy="scroll" data-bs-offset="0" class="scrollspy-example" tabindex="0">
-                        @forelse($defgroup->items as $item)
-                            <div class="item-copy">
-                                <div class="item"
-                                    data-bs-toggle="modal" data-bs-target="#itemModal{{$item->id}}">
-                                    <span class="tag">
-                                        @foreach($item->tags->take(1) as $tag)
-                                            {{$tag->name}}
-                                        @endforeach
-                                    </span>
-                                    <span class="me-3">{{$item->name}}</span>
-                                    <span class="copy-link" data-link="{{$item->link}}" role="button">
-                                        {{$item->link}}
-                                    </span>
-                                </div>
-                                <button class="copy" data-link="{{$item->link}}" type="button"> copy </button>
-                            </div>
-                        @empty
-                            <span>this group has not got items!</span>
-                        @endforelse
+                    <div class="scroll def-items-container" id="defgroup-{{ $defgroup->id }}" data-defgroup-id="{{ $defgroup->id }}">
+                        <!-- Тут JS підвантажить елементи -->
                     </div>
                 </div>
             @endforeach
@@ -64,7 +48,16 @@
                             </button>
                             <ul class="dropdown-menu">
                                 <li><button onclick="window.location.href='{{route('group.view.edit', $group->id)}}'">edit group</button></li>
+
+
+
                                 <li><button onclick="window.location.href='{{route('item.view.create')}}'">create item</button></li>
+
+
+                                <li><button type="submit" class="create-item" data-group-id="{{$group->id}}" >create item</button></li>
+
+
+
                                 <li><hr class="dropdown-divider"></li>
                                 <form action="{{ route('groups.destroy', $group->id) }}" method="post" style="display:inline;">
                                     @csrf
@@ -74,22 +67,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="scroll" data-bs-spy="scroll" data-bs-offset="0" class="scrollspy-example" tabindex="0">
-                        @forelse($group->items as $item)
-                            <div class="item-copy">
-                                <div class="item" data-bs-toggle="modal" data-bs-target="#itemModal{{$item->id}}">
-                                    <span class="tag">
-                                        @foreach($item->tags->take(1) as $tag)
-                                            {{$tag->name}}
-                                        @endforeach
-                                    </span>
-                                    <span>{{$item->name}}</span>
-                                </div>
-                                <button class="copy" data-link="{{$item->link}}" type="button"> copy </button>
-                            </div>
-                        @empty
-                            <div>this group has not got items!</div>
-                        @endforelse
+                    <div class="scroll items-container" id="group-{{ $group->id }}" data-group-id="{{ $group->id }}">
+                        <!-- Тут JS підвантажить елементи -->
                     </div>
                 </div>
             @endforeach

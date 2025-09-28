@@ -9,8 +9,8 @@
         </div>
         <label for="category_selector" class="form-label">State:</label>
         <select class="form-select mb-2" aria-label="Default select example" name="state">
-                <option value="1">Public</option>
-                <option value="0">Private</option>
+                <option value="1" {{$group->state === 1 ? 'selected' : ''}}>Public</option>
+                <option value="0" {{$group->state === 0 ? 'selected' : ''}}>Private</option>
         </select>
         <label for="category_selector" class="form-label">Categories</label>
         <select class="form-select" aria-label="Default select example" name="category_id">

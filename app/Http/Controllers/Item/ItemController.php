@@ -54,6 +54,15 @@ class ItemController extends Controller
             $item->tags()->attach($data['tags']); // sync замінює існуючі, attach додає
         }
 
+        // Перевіряємо, чи запит був AJAX / fetch
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'item' => $item
+            ]);
+        }
+
+        // Інакше звичайний редирект
         return redirect()->route('home.index');
     }
 

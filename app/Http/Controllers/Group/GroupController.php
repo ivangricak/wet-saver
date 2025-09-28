@@ -15,6 +15,26 @@ class GroupController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function itemsJson($id)
+    {
+        $user = auth()->user();
+        $group = $user->groups()->with('items.tags')->findOrFail($id);
+
+        return response()->json([
+            'items' => $group->items
+        ]);
+    }
+
+    public function defItemsJson($id)
+    {
+        $user = auth()->user();
+        $defgroup = $user->defgroups()->with('items.tags')->findOrFail($id);
+
+        return response()->json([
+            'items' => $defgroup->items
+        ]);
+    }
+
     public function index()
     {
        //

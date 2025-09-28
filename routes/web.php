@@ -7,6 +7,7 @@ use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Group\GroupController;
+use App\Http\Controllers\Group\DefaultGroupController;
 use App\Http\Controllers\Online\MainOnlineController;
 use App\Http\Controllers\Item\ItemController;
 
@@ -41,8 +42,12 @@ Route::delete('/groups/{group}', [GroupController::class, 'destroy'])->name('gro
 Route::get('/defgroups/{defgroup}/edit', [GroupController::class, 'edit'])->name('defgroup.view.edit');
 Route::put('/defgroup/{defgroup}', [GroupController::class, 'update'])->name('defgroups.update');
 
+Route::get('/defgroups/{id}/items', [DefaultGroupController::class, 'itemsJson'])->name('groups.items.json');
+
 //ITEM MOVING
 //CREATING
+Route::get('/groups/{id}/items', [GroupController::class, 'itemsJson'])->name('groups.items.json');
+
 Route::get('/item/create', [ItemController::class, 'create'])->name('item.view.create');
 Route::post('/item/create', [ItemController::class, 'store'])->name('item.create');
 Route::put('/items/{item}', [ItemController::class, 'update']);

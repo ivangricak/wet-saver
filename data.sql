@@ -1,5 +1,5 @@
 -- =========================
--- PostgreSQL дамп бази saver
+-- PostgreSQL дамп бази saver (оновлений з MySQL змін)
 -- =========================
 
 DROP SCHEMA public CASCADE;
@@ -65,6 +65,7 @@ CREATE TABLE groups (
     id BIGSERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     category_id BIGINT REFERENCES categories(id) ON DELETE CASCADE,
+    state BOOLEAN NOT NULL DEFAULT TRUE,
     created_at TIMESTAMP,
     updated_at TIMESTAMP,
     deleted_at TIMESTAMP
@@ -164,85 +165,81 @@ CREATE TABLE sessions (
 );
 
 -- =========================
--- Тепер вставка даних у правильному порядку
+-- Вставка даних
 -- =========================
 
+-- Categories
 INSERT INTO categories (id, name, created_at, updated_at, deleted_at) VALUES
-(1, 'category_1', NULL, NULL, NULL),
-(2, 'category_2', NULL, NULL, NULL);
+(1, 'first', NULL, NULL, NULL),
+(2, 'second', NULL, NULL, NULL);
 
+-- Users
 INSERT INTO users (id, nick, login, password, login_verified_at, remember_token, created_at, updated_at) VALUES
 (1, 'max', 'max', '$2y$12$3BwZvkF6OARg.0waAA2zd.L0vwiRn8CDpfiqrwbhkKuDjKiqYRdEi', NULL, NULL, '2025-08-26 17:56:41', '2025-08-26 17:56:41'),
-(3, 'ivan', 'ivan', '$2y$12$ED4UA67scsoIavrHI2w/auI3jyLuu2SwwyhsnCkMv0d2N6PLVnA16', NULL, NULL, '2025-09-02 16:38:51', '2025-09-02 16:38:51');
+(3, 'ivan', 'ivan', '$2y$12$ED4UA67scsoIavrHI2w/auI3jyLuu2SwwyhsnCkMv0d2N6PLVnA16', NULL, NULL, '2025-09-02 16:38:51', '2025-09-02 16:38:51'),
+(4, 'o', 'o', '$2y$12$POpm7vJeFNV3oFVgJoazUO1Do7MxiOojbQ988Y7fGwvv9mcaWJN3u', NULL, NULL, '2025-09-27 10:52:32', '2025-09-27 10:52:32'),
+(5, 'test', 'test', '$2y$12$wm/5x12qdmr/1eutqfKuEe1aEGXmN/dVKRSrQ7ogyGFGP852iN4AS', NULL, NULL, '2025-09-27 15:35:14', '2025-09-27 15:35:14');
 
+-- Tags
 INSERT INTO tags (id, name, created_at, updated_at, deleted_at) VALUES
-(1, 'tag1', NULL, NULL, NULL),
+(1, 'tag1', NULL, NULL, NULL);
 (2, 'tag2', NULL, NULL, NULL);
 
+-- Default Groups
 INSERT INTO default_groups (id, name, user_id, category_id, deleted_at, created_at, updated_at) VALUES
 (1, 'default group', NULL, 1, NULL, '2025-08-30 16:28:41', '2025-08-30 16:28:41'),
-(2, 'default group', 3, 1, NULL, '2025-09-02 16:38:51', '2025-09-02 16:38:51');
+(2, 'default group', 3, 1, NULL, '2025-09-02 16:38:51', '2025-09-02 16:38:51'),
+(3, 'default group', 4, 1, NULL, '2025-09-27 10:52:32', '2025-09-27 10:52:32'),
+(4, 'default group', 5, 1, NULL, '2025-09-27 15:35:14', '2025-09-27 15:35:14');
 
-INSERT INTO groups (id, name, category_id, created_at, updated_at, deleted_at) VALUES
-(1, 'links', 1, '2025-08-30 13:06:02', '2025-08-30 13:06:02', NULL),
-(3, 'new people', 1, '2025-08-30 16:14:42', '2025-08-30 16:14:42', NULL),
-(6, 'ivan', 1, '2025-09-01 13:48:59', '2025-09-01 13:48:59', NULL),
-(16, 'o', 1, '2025-09-15 16:46:50', '2025-09-15 16:46:50', NULL),
-(17, 'Ivan-polygon-safe', 2, '2025-09-15 16:46:57', '2025-09-15 16:46:57', NULL);
+-- Groups
+INSERT INTO groups (id, name, category_id, state, created_at, updated_at, deleted_at) VALUES
+(1, 'links', 1, TRUE, '2025-08-30 13:06:02', '2025-08-30 13:06:02', NULL),
+(3, 'new people', 1, TRUE, '2025-08-30 16:14:42', '2025-08-30 16:14:42', NULL),
+(6, 'ivan', 1, TRUE, '2025-09-01 13:48:59', '2025-09-01 13:48:59', NULL),
+(16, 'o', 1, TRUE, '2025-09-15 16:46:50', '2025-09-15 16:46:50', NULL),
+(17, 'Ivan-polygon-safe', 2, TRUE, '2025-09-15 16:46:57', '2025-09-15 16:46:57', NULL),
+(23, 'dsasd', 1, TRUE, '2025-09-27 15:49:45', '2025-09-27 15:49:45', NULL),
+(26, 'oihil', 1, TRUE, '2025-09-27 15:57:00', '2025-09-27 15:57:00', NULL),
+(27, 'ачвс', 1, TRUE, '2025-09-28 09:45:28', '2025-09-28 09:45:28', NULL);
 
+-- Items
 INSERT INTO items (id, group_id, default_group_id, name, description, link, state, created_at, updated_at, deleted_at) VALUES
-(1, 6, NULL, 'ivan', 'dvs', 'gfd', TRUE, '2025-09-01 15:52:00', '2025-09-01 15:52:00', NULL),
-(2, 6, NULL, 'Іван Грицак', 'asihiuhiho', 'link', TRUE, '2025-09-01 16:24:15', '2025-09-01 16:24:15', NULL),
-(3, 6, NULL, 'f', 'gg is it !!', 'gg', TRUE, '2025-09-01 16:24:48', '2025-09-01 16:24:48', NULL),
-(8, NULL, 2, 'ivan', 'vdfvx', 'link', TRUE, '2025-09-03 16:51:23', '2025-09-03 16:51:23', NULL),
-(9, NULL, 2, 'Іван Грицак', 'dvzzd', 'link', TRUE, '2025-09-03 16:54:46', '2025-09-03 16:54:46', NULL),
-(10, NULL, 2, 'ivan', 'ds', 'das', TRUE, '2025-09-10 16:56:57', '2025-09-10 16:56:57', NULL),
-(12, NULL, 2, 'df', 'dz', 'dfv zd', TRUE, '2025-09-10 17:14:52', '2025-09-10 17:14:52', NULL),
-(13, NULL, 2, 'Іван Грицак', 'sa', 'as', TRUE, '2025-09-10 17:15:35', '2025-09-10 17:15:35', NULL);
+(343, 23, NULL, 'ile', 'new change', 'dfauhlijh', TRUE, '2025-09-27 15:56:53', '2025-09-27 17:30:26', NULL),
+(344, 26, NULL, 'ilhl', 'lihliuh', 'hiulu', TRUE, '2025-09-27 15:57:11', '2025-09-27 15:57:11', NULL),
+(355, NULL, 2, 'щшжо', 'шдщ', 'жщшр', FALSE, '2025-09-28 09:44:01', '2025-09-28 09:44:53', NULL);
 
+-- Item_Tag
 INSERT INTO item_tag (item_id, tag_id, created_at, updated_at) VALUES
-(1, 1, NULL, NULL),
-(2, 1, NULL, NULL),
-(3, 1, NULL, NULL),
-(8, 1, NULL, NULL),
-(9, 1, NULL, NULL),
-(10, 1, NULL, NULL),
-(12, 1, NULL, NULL),
-(13, 1, NULL, NULL);
+(343, 1, NULL, NULL),
+(344, 1, NULL, NULL),
+(355, 1, NULL, NULL);
 
+-- Group_User
 INSERT INTO group_user (group_id, user_id, created_at, updated_at) VALUES
 (1, 1, NULL, NULL),
 (3, 1, NULL, NULL),
 (16, 3, NULL, NULL),
-(17, 3, NULL, NULL);
+(17, 3, NULL, NULL),
+(23, 5, NULL, NULL),
+(26, 5, NULL, NULL),
+(27, 3, NULL, NULL);
+
+-- Sessions
+INSERT INTO sessions (id, user_id, ip_address, user_agent, payload, last_activity) VALUES
+('KTejyA6KrezriWL6jIuIUR7xjWFxU0mNsjV9swKy', 3, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)...', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoibnRSSWxCSlRwQUcxcTBtcVhuTlZJNDM5N2xoZWMzT08wbVJuUVhvTyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9ob21lIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mzt9', 1759052543),
+('qmwlcUxDmQFGtw1zRRK8mqIF0ezm3MN69CJYHZkC', 3, '127.0.0.1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X)...', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoieXg0NDNQQUh3ejVqaXlRcDdISXY4ZGVOOFZGdEc3a1M1cHdneGVsUiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9ob21lIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mzt9', 1759060270);
 
 -- =========================
--- Синхронізація sequence після імпорту
+-- Синхронізація sequence
 -- =========================
 
--- Categories
 SELECT setval(pg_get_serial_sequence('categories', 'id'), COALESCE(MAX(id), 1)) FROM categories;
-
--- Users
 SELECT setval(pg_get_serial_sequence('users', 'id'), COALESCE(MAX(id), 1)) FROM users;
-
--- Tags
 SELECT setval(pg_get_serial_sequence('tags', 'id'), COALESCE(MAX(id), 1)) FROM tags;
-
--- Default groups
 SELECT setval(pg_get_serial_sequence('default_groups', 'id'), COALESCE(MAX(id), 1)) FROM default_groups;
-
--- Groups
 SELECT setval(pg_get_serial_sequence('groups', 'id'), COALESCE(MAX(id), 1)) FROM groups;
-
--- Items
 SELECT setval(pg_get_serial_sequence('items', 'id'), COALESCE(MAX(id), 1)) FROM items;
-
--- Failed jobs
 SELECT setval(pg_get_serial_sequence('failed_jobs', 'id'), COALESCE(MAX(id), 1)) FROM failed_jobs;
-
--- Jobs
 SELECT setval(pg_get_serial_sequence('jobs', 'id'), COALESCE(MAX(id), 1)) FROM jobs;
-
--- Migrations
 SELECT setval(pg_get_serial_sequence('migrations', 'id'), COALESCE(MAX(id), 1)) FROM migrations;
