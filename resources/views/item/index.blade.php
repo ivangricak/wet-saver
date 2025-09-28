@@ -12,6 +12,11 @@
                 <option value="{{ $tag->id }}">{{ $tag->name }}</option>
             @endforeach
         </select>
+        <label for="category_selector" class="form-label">State:</label>
+        <select class="form-select mb-2" aria-label="Default select example" name="state">
+                <option value="1">Public</option>
+                <option value="0">Private</option>
+        </select>
         <label for="category_selector" class="form-label">Groups</label>
         <select class="form-select" id="category_selector" name="group_selector">
             <!-- <option value="" selected>-- Select group --</option> -->

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Auth\Login\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -41,11 +42,9 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request) {
-        $credentails = request()->validate([
-            'login' => ['required', 'string'],
-            'password' => ['required', 'string'],
-        ]);
+    public function login(LoginRequest $request) 
+    {
+        $credentails = $request->validated();
 
         if(Auth::attempt($credentails)){
             $request->session()->regenerate();

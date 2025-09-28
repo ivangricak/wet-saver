@@ -79,3 +79,112 @@ document.addEventListener('DOMContentLoaded', () => {
     // Виклик при зміні select
     select.addEventListener('change', setHiddenFields);
 });
+
+
+// UPDATE ITEM
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.edit-save-btn').forEach(function(button) {
+        button.addEventListener('click', function() {
+            let itemId = this.getAttribute('data-id');
+            let modal = document.getElementById('itemModal' + itemId);
+            // Вибираємо лише link і description
+            let fields = modal.querySelectorAll('.item-field[data-field]:not([data-field="tags"])');
+
+            if(this.textContent === "Edit") {
+                fields.forEach(field => {
+                    if(field.tagName === 'SELECT') {
+                        field.removeAttribute('disabled'); // select можна змінювати
+                    } else {
+                        field.removeAttribute('readonly'); // input/textarea
+                    }
+                });
+                this.textContent = "Save";
+            } else if(this.textContent === "Save") {
+                let data = {};
+                fields.forEach(field => {
+                    let key = field.getAttribute('data-field');
+                    data[key] = field.value;
+                });
+
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                fetch(`/items/${itemId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(res => {
+                    if(res.success){
+                        fields.forEach(field => {
+                                if(field.tagName === 'SELECT' && field.getAttribute('data-field') === 'state') {
+                                    field.setAttribute('disabled', true);
+                                } else {
+                                    field.setAttribute('readonly', true);
+                                }
+                            });
+                            button.textContent = "Edit";
+                    } else {
+                        alert('Error updating item');
+                    }
+                })
+                .catch(err => console.error(err));
+            }
+        });
+    });
+});
+
+
+document.addEventListener('click', function(e) {
+    if(e.target.matches('.delete-btn')) {
+        const itemId = e.target.dataset.id;
+        
+        if(!confirm('Ви точно хочете видалити цей item?')) {
+            return; // якщо користувач натиснув "Cancel", нічого не робимо
+        }
+        
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        fetch(`/items/${itemId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.success){
+                console.log(`Item ${itemId} deleted in DB`);
+
+                // 1️⃣ Видаляємо модалку
+                const modalEl = document.getElementById(`itemModal${itemId}`);
+                modalEl?.remove();
+
+                // 2️⃣ Видаляємо backdrop (якщо є)
+                document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
+
+                // 3️⃣ Видаляємо елемент списку item-copy
+                const listItemEl = document.querySelector(`.item-copy .item[data-bs-target="#itemModal${itemId}"]`);
+                if(listItemEl){
+                    const itemCopy = listItemEl.closest('.item-copy');
+                    if(itemCopy){
+                        // Прибираємо expanded з батьківської card
+                        const cardEl = itemCopy.closest('.card');
+                        cardEl?.classList.remove('expanded');
+
+                        // Видаляємо item-copy
+                        itemCopy.remove();
+                    }
+                }
+
+            } else {
+                alert('Помилка при видаленні: ' + data.message);
+            }
+        })
+        .catch(err => console.error(err));
+    }
+});

@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Item\StoreRequest;
 
 class ItemController extends Controller
 {
@@ -35,20 +36,9 @@ class ItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        $data = request()->validate([
-            'group_id' => 'nullable|integer|exists:groups,id|required_without:default_group_id',
-            'default_group_id' => 'nullable|integer|exists:default_groups,id|required_without:group_id',
-
-            'name' => 'string|required',
-            'description' => 'string|required',
-            'link' => 'string|required',
-            'state' => 'integer|nullable',
-
-            'tags' => 'array|nullable',          // масив id тегів
-            'tags.*' => 'integer|exists:tags,id' // перевірка кожного id
-        ]);
+        $data = $request->validated();
 
         $data['state'] = $data['state'] ?? 1;
 
@@ -86,16 +76,41 @@ class ItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Item $item)
     {
-        //
+        $request->validate([
+            'link' => 'nullable|string',
+            'state' => 'integer|nullable',
+            'description' => 'nullable|string',
+        ]);
+    
+        $item->link = $request->link;
+        $item->description = $request->description;
+        $item->state = $request->state; 
+        $item->save(); 
+
+    return response()->json(['success' => true, 'item' => $item]);
     }
+    
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Item $item)
     {
-        //
+        try {
+            $item->delete(); // видаляємо з БД
+            return response()->json([
+                'success' => true,
+                'item_id' => $item->id
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
+    
+
 }

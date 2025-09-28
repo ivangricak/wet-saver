@@ -9,6 +9,7 @@ class Group extends Model
     protected $fillable = [
         'name',
         'category_id',
+        'state',
     ];
 
     public function items() {

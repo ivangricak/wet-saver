@@ -7,6 +7,11 @@
             <label for="nameinput" class="form-label">Name</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ old('name', $group->name) }}" name="name" placeholder="name">
         </div>
+        <label for="category_selector" class="form-label">State:</label>
+        <select class="form-select mb-2" aria-label="Default select example" name="state">
+                <option value="1">Public</option>
+                <option value="0">Private</option>
+        </select>
         <label for="category_selector" class="form-label">Categories</label>
         <select class="form-select" aria-label="Default select example" name="category_id">
             @foreach($categories as $category)

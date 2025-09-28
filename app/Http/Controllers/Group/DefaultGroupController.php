@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Group;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\DefGroup\UpdateRequest;
 
 class DefaultGroupController extends Controller
 {
@@ -52,12 +53,9 @@ class DefaultGroupController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DefaultGroup $defgroup)
+    public function update(UpdateRequest $request, DefaultGroup $defgroup)
     {
-        $data = request()->validate([
-            'name' => 'string|required',
-            'category_id' => 'integer|required|exists:categories,id',
-        ]);
+        $data = $request->validated();
 
         $defgroup->update($data);
 

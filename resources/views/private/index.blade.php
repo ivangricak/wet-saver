@@ -98,29 +98,49 @@
 
     <!-- Модалки для item -->
     @foreach(array_merge($defgroups->all(), $groups->all()) as $group)
-        @foreach($group->items as $item)
-            <div class="modal fade" id="itemModal{{$item->id}}" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-fullscreen">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">{{$item->name}}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
+    @foreach($group->items as $item)
+        <div class="modal fade" id="itemModal{{$item->id}}" tabindex="-1">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{$item->name}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- Tags (тільки для перегляду) -->
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" value="{{ $item->tags->pluck('name')->implode(', ') }}" readonly>
+                            <input type="text" class="form-control item-field" data-field="tags" value="{{ $item->tags->pluck('name')->implode(', ') }}" readonly>
                         </div>
+
+                        <!-- State -->
+                        <!-- <label for="category_selector" class="form-label">State:</label> -->
+                        <select class="form-select mb-2 item-field" aria-label="Default select example" data-field="state" name="state" disabled>
+                                <option value="1" {{$item->state == 1 ? 'selected' : ''}}>Public</option>
+                                <option value="0" {{$item->state == 0 ? 'selected' : ''}}>Private</option>
+                        </select>
+
+                        <!-- Link -->
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" value="{{ $item->link }}" readonly>
+                            <input type="text" class="form-control item-field" data-field="link" value="{{ $item->link }}" readonly>
                             <button class="btn btn-outline-secondary" onclick="navigator.clipboard.writeText('{{ $item->link }}')">📋 Копіювати</button>
                         </div>
+
+                        <!-- Description -->
                         <div class="input-group mb-3">
-                            <textarea class="form-control" rows="3" readonly>{{$item->description}}</textarea>
+                            <textarea class="form-control item-field" rows="3" data-field="description" readonly>{{$item->description}}</textarea>
                         </div>
+
+                        <button class="btn btn-primary edit-save-btn" data-id="{{$item->id}}">Edit</button>
+                        <button class="btn btn-danger delete-btn" data-id="{{$item->id}}">Delete</button>
+
                     </div>
                 </div>
             </div>
-        @endforeach
+        </div>
     @endforeach
+@endforeach
+
 
 </div>
 

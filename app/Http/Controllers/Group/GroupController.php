@@ -7,6 +7,8 @@ use App\Models\Group;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Group\StoreRequest;
+use App\Http\Requests\Group\UpdateRequest;
 
 class GroupController extends Controller
 {
@@ -31,12 +33,9 @@ class GroupController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        $data = request()->validate([
-            'name' => 'string|required',
-            'category_id' => 'integer|required|exists:categories,id',
-        ]);
+        $data = $request->validated();
 
         $group = Group::create($data);
         
@@ -68,12 +67,9 @@ class GroupController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Group $group)
+    public function update(UpdateRequest $request, Group $group)
     {
-        $data = request()->validate([
-            'name' => 'string|required',
-            'category_id' => 'integer|required|exists:categories,id',
-        ]);
+        $data = $request->validated();
 
         $group->update($data);
 
@@ -85,11 +81,15 @@ class GroupController extends Controller
      */
     public function destroy(Group $group)
     {
+
+        if(! $group->users->contains(auth()->id())){
+            abort(403, 'Ви не належите до цієї групи.');
+        }
+
         $group->users()->detach();
         $group->items()->delete();
-
         $group->delete();
 
-        return redirect()->route('home.index');
+        return redirect()->route('home.index')->with('status', 'Групу успішно видалено.');;
     }
 }

@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\DefaultGroup;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Auth\Register\StoreRequest;
 
 class RegisterController extends Controller
 {
@@ -29,13 +30,9 @@ class RegisterController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        $data = request()->validate([
-            'nick' => 'string|required',
-            'login' => 'string|required|unique:users,login',
-            'password' => 'string|required|confirmed',
-        ]);
+        $data = $request->validated();
         $data['password'] = bcrypt($data['password']);
 
         $user = User::create($data);

@@ -32,7 +32,7 @@ Route::get('/group/create', [GroupController::class, 'create'])->name('group.vie
 Route::post('/group/create', [GroupController::class, 'store'])->name('groups.create');
 //EDITING
 Route::get('/groups/{group}/edit', [GroupController::class, 'edit'])->name('group.view.edit');
-Route::put('/group/{group}', [GroupController::class, 'update'])->name('groups.update');
+Route::put('/groups/{group}', [GroupController::class, 'update'])->name('groups.update');
 //DELETE
 Route::delete('/groups/{group}', [GroupController::class, 'destroy'])->name('groups.destroy');
 
@@ -45,7 +45,9 @@ Route::put('/defgroup/{defgroup}', [GroupController::class, 'update'])->name('de
 //CREATING
 Route::get('/item/create', [ItemController::class, 'create'])->name('item.view.create');
 Route::post('/item/create', [ItemController::class, 'store'])->name('item.create');
-
+Route::put('/items/{item}', [ItemController::class, 'update']);
+//DELETE
+Route::delete('/items/{item}', [ItemController::class, 'destroy']);
 
 //PRIVATE
 Route::get('/home', [MainController::class, 'index'])->name('home.index');
