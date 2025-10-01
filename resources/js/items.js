@@ -51,7 +51,7 @@ document.addEventListener('click', function(e) {
 
 
 
-//CREATE ITEM
+//SHOW ITEM
 export function ShowItems() {
     const modal = document.getElementById('itemModal');
     const modalTitle = document.getElementById('itemModalTitle');
@@ -60,34 +60,30 @@ export function ShowItems() {
     modal.addEventListener('show.bs.modal', event => {
         const trigger = event.relatedTarget;
         const itemId = parseInt(trigger.dataset.itemId);
-        const groupId = trigger.dataset.groupId;
+        const groupId = parseInt(trigger.dataset.groupId);
+        const itemsInGroup = window.groupItemsCache[groupId];
 
         modalTitle.textContent = "Завантаження...";
         modalBody.innerHTML = '<p>Завантаження даних...</p>';
 
-        let item = groupItemsCache[groupId]?.find(i => i.id === itemId);
+        let item = itemsInGroup?.find(i => parseInt(i.id) === itemId);
 
         if(item) {
+            console.log("used cash: ", item);
             renderModal(item);
         } else {
-        fetch(`/items/${itemId}`)
-            .then(res => res.json())
-            .then(data => {
-                if(!groupItemsCache[groupId]) groupItemsCache[groupId]=[];
-                groupItemsCache[groupId].push(data);
-
-                renderModal(data);
-            })
-            .catch(err => {
-                modalTitle.textContent = 'Помилка';
-                modalBody.innerHTML = '<p>Не вдалося завантажити дані.</p>';
-                console.error(err);
-            });
-            
-        } 
-            
+            fetch(`/items/${itemId}`)
+                .then(res => res.json())
+                .then(data => {
+                    console.log("used fetch: ", data);
+                    
+                    if(!window.groupItemsCache[groupId]) window.groupItemsCache[groupId] = [];
+                    window.groupItemsCache[groupId].push(data);
+                    
+                    renderModal(data);
+                });
+        }
         function renderModal(item) {
-
             console.log(item);
             modalTitle.textContent = item.name;
             modalBody.innerHTML = `

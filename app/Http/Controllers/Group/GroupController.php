@@ -25,16 +25,6 @@ class GroupController extends Controller
         ]);
     }
 
-    public function defItemsJson($id)
-    {
-        $user = auth()->user();
-        $defgroup = $user->defgroups()->with('items.tags')->findOrFail($id);
-
-        return response()->json([
-            'items' => $defgroup->items
-        ]);
-    }
-
     public function index()
     {
        //

@@ -90,8 +90,7 @@ function loadGroupItems(groupId) {
         .then(data => {
             container.innerHTML = "";
             groupItemsCache[groupId] = data.items
-            console.log(groupItemsCache);
-            console.log(data);
+            console.log('group: ', data);
             if (data.items.length === 0) {
                 container.innerHTML = "<div>this group has not got items!</div>";
             } else {
@@ -102,7 +101,8 @@ function loadGroupItems(groupId) {
                             <div class="item" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#itemModal"
-                                data-item-id="${item.id}">
+                                data-item-id="${item.id}"
+                                data-group-id="${item.group_id || item.default_group_id}">
                                 <span class="tag">${tag}</span>
                                 <span>${item.name}</span>
                             </div>

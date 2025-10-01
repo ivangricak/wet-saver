@@ -39,8 +39,9 @@ Route::delete('/groups/{group}', [GroupController::class, 'destroy'])->name('gro
 
 //DEFAULT GROUP MOVING
 //EDITING
-Route::get('/defgroups/{defgroup}/edit', [GroupController::class, 'edit'])->name('defgroup.view.edit');
-Route::put('/defgroup/{defgroup}', [GroupController::class, 'update'])->name('defgroups.update');
+//!!!!! поки що цього не має но всеодно там має бути defgroup а не group
+// Route::get('/defgroups/{defgroup}/edit', [GroupController::class, 'edit'])->name('defgroup.view.edit'); 
+// Route::put('/defgroup/{defgroup}', [GroupController::class, 'update'])->name('defgroups.update');
 
 Route::get('/defgroups/{id}/items', [DefaultGroupController::class, 'itemsJson'])->name('groups.items.json');
 
