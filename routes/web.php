@@ -51,6 +51,7 @@ Route::get('/groups/{id}/items', [GroupController::class, 'itemsJson'])->name('g
 Route::get('/item/create', [ItemController::class, 'create'])->name('item.view.create');
 Route::post('/item/create', [ItemController::class, 'store'])->name('item.create');
 Route::put('/items/{item}', [ItemController::class, 'update']);
+Route::get('/items/{item}', [ItemController::class, 'showJson']);
 //DELETE
 Route::delete('/items/{item}', [ItemController::class, 'destroy']);
 

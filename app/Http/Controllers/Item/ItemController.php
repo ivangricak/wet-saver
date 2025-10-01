@@ -36,6 +36,19 @@ class ItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
+    public function showJson(Item $item)
+    {
+        return response()->json([
+            'id' => $item->id,
+            'name' => $item->name,
+            'tags' => $item->tags->pluck('name'),
+            'state' => $item->state,
+            'link' => $item->link,
+            'description' => $item->description,
+        ]);
+    }
+
     public function store(StoreRequest $request)
     {
         $data = $request->validated();

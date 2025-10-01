@@ -282,7 +282,10 @@ function loadGroupItems(groupId) {
                     let tag = item.tags.length > 0 ? item.tags[0].name : "";
                     container.insertAdjacentHTML("beforeend", `
                         <div class="item-copy">
-                            <div class="item" data-bs-toggle="modal" data-bs-target="#itemModal${item.id}">
+                            <div class="item" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#itemModal"
+                                data-item-id="${item.id}">
                                 <span class="tag">${tag}</span>
                                 <span>${item.name}</span>
                             </div>
@@ -319,7 +322,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // CREATE ITEM
 document.addEventListener('click', function(e) {
-
     // Відкриття форми
     if (e.target.matches('.def-create-item')) {
         const defgroupId = e.target.dataset.defgroupId;
@@ -405,23 +407,26 @@ function loadDefGroupItems(defgroupId) {
         .then(res => res.json())
         .then(data => {
             container.innerHTML = "";
-
+            console.log(data);
             if (data.items.length === 0) {
                 container.innerHTML = "<div>this group has not got items!</div>";
             } else {
                 data.items.forEach(item => {
                     let tag = item.tags.length > 0 ? item.tags[0].name : "";
-                    console.log(data);
+                    
                     container.insertAdjacentHTML("beforeend", `
                         <div class="item-copy">
-                            <div class="item" data-bs-toggle="modal" data-bs-target="#itemModal${item.id}">
+                            <div class="item" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#itemModal"
+                                data-item-id="${item.id}">
                                 <span class="tag">${tag}</span>
                                 <span>${item.name}</span>
                             </div>
                             <button class="copy" data-link="${item.link}" type="button">copy</button>
                         </div>
                     `);
-                
+
                 });
             }
         })
@@ -433,5 +438,50 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".def-items-container").forEach(div => {
         let defgroupId = div.dataset.defgroupId;
         loadDefGroupItems(defgroupId);
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", ()=> {
+    const modal = document.getElementById('itemModal');
+    const modalTitle = document.getElementById('itemModalTitle');
+    const modalBody = document.getElementById('itemModalBody');
+
+    modal.addEventListener('show.bs.modal', event => {
+        const trigger = event.relatedTarget;
+        const itemId = trigger.dataset.itemId; // правильно
+
+        modalTitle.textContent = "Завантаження...";
+        modalBody.innerHTML = '<p>Завантаження даних...</p>';
+
+        // Використовуємо правильну змінну itemId
+        fetch(`/items/${itemId}`)
+            .then(res => res.json())
+            .then(data => {
+                modalTitle.textContent = data.name;
+                modalBody.innerHTML = `
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control item-field" data-field="tags" value="${data.tags.join(', ')}" readonly>
+                    </div>
+                    <select class="form-select mb-2 item-field" data-field="state" disabled>
+                        <option value="1" ${data.state == 1 ? 'selected' : ''}>Public</option>
+                        <option value="0" ${data.state == 0 ? 'selected' : ''}>Private</option>
+                    </select>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control item-field" data-field="link" value="${data.link}" readonly>
+                        <button class="btn btn-outline-secondary" onclick="navigator.clipboard.writeText('${data.link}')">📋 Копіювати</button>
+                    </div>
+                    <div class="input-group mb-3">
+                        <textarea class="form-control item-field" rows="3" data-field="description" readonly>${data.description}</textarea>
+                    </div>
+                    <button class="btn btn-primary edit-save-btn" data-id="${data.id}">Edit</button>
+                    <button class="btn btn-danger delete-btn" data-id="${data.id}">Delete</button>
+                `;
+            })
+            .catch(err => {
+                modalTitle.textContent = 'Помилка';
+                modalBody.innerHTML = '<p>Не вдалося завантажити дані.</p>';
+                console.error(err);
+            });
     });
 });

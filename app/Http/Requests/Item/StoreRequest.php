@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
             'default_group_id' => 'nullable|integer|exists:default_groups,id|required_without:group_id',
 
             'name' => 'string|required',
-            'description' => 'string|required',
+            'description' => 'string|nullable',
             'link' => 'string|required',
             'state' => 'integer|nullable',
 
