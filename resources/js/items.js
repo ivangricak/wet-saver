@@ -51,7 +51,7 @@ document.addEventListener('click', function(e) {
 
 
 
-//CREATE ITEM
+//SHOW ITEM
 export function ShowItems() {
     const modal = document.getElementById('itemModal');
     const modalTitle = document.getElementById('itemModalTitle');
