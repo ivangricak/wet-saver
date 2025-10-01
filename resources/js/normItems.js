@@ -89,6 +89,8 @@ function loadGroupItems(groupId) {
         .then(res => res.json())
         .then(data => {
             container.innerHTML = "";
+            groupItemsCache[groupId] = data.items
+            console.log(groupItemsCache);
             console.log(data);
             if (data.items.length === 0) {
                 container.innerHTML = "<div>this group has not got items!</div>";

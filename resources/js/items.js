@@ -51,7 +51,7 @@ document.addEventListener('click', function(e) {
 
 
 
-//SHOW ITEM
+//CREATE ITEM
 export function ShowItems() {
     const modal = document.getElementById('itemModal');
     const modalTitle = document.getElementById('itemModalTitle');
@@ -59,40 +59,56 @@ export function ShowItems() {
 
     modal.addEventListener('show.bs.modal', event => {
         const trigger = event.relatedTarget;
-        const itemId = trigger.dataset.itemId;
+        const itemId = parseInt(trigger.dataset.itemId);
+        const groupId = trigger.dataset.groupId;
 
         modalTitle.textContent = "Завантаження...";
         modalBody.innerHTML = '<p>Завантаження даних...</p>';
 
+        let item = groupItemsCache[groupId]?.find(i => i.id === itemId);
+
+        if(item) {
+            renderModal(item);
+        } else {
         fetch(`/items/${itemId}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                modalTitle.textContent = data.name;
-                modalBody.innerHTML = `
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control item-field" data-field="tags" value="${data.tags.join(', ')}" readonly>
-                    </div>
-                    <select class="form-select mb-2 item-field" data-field="state" disabled>
-                        <option value="1" ${data.state == 1 ? 'selected' : ''}>Public</option>
-                        <option value="0" ${data.state == 0 ? 'selected' : ''}>Private</option>
-                    </select>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control item-field" data-field="link" value="${data.link}" readonly>
-                        <button class="btn btn-outline-secondary" onclick="navigator.clipboard.writeText('${data.link}')">📋 Копіювати</button>
-                    </div>
-                    <div class="input-group mb-3">
-                        <textarea class="form-control item-field" rows="3" data-field="description" readonly>${data.description}</textarea>
-                    </div>
-                    <button class="btn btn-primary edit-save-btn" data-id="${data.id}">Edit</button>
-                    <button class="btn btn-danger delete-btn" data-id="${data.id}">Delete</button>
-                `;
+                if(!groupItemsCache[groupId]) groupItemsCache[groupId]=[];
+                groupItemsCache[groupId].push(data);
+
+                renderModal(data);
             })
             .catch(err => {
                 modalTitle.textContent = 'Помилка';
                 modalBody.innerHTML = '<p>Не вдалося завантажити дані.</p>';
                 console.error(err);
             });
+            
+        } 
+            
+        function renderModal(item) {
+
+            console.log(item);
+            modalTitle.textContent = item.name;
+            modalBody.innerHTML = `
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control item-field" data-field="tags" value="${item.tags.join(', ')}" readonly>
+                </div>
+                <select class="form-select mb-2 item-field" data-field="state" disabled>
+                    <option value="1" ${item.state == 1 ? 'selected' : ''}>Public</option>
+                    <option value="0" ${item.state == 0 ? 'selected' : ''}>Private</option>
+                </select>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control item-field" data-field="link" value="${item.link}" readonly>
+                    <button class="btn btn-outline-secondary" onclick="navigator.clipboard.writeText('${item.link}')">📋 Копіювати</button>
+                </div>
+                <div class="input-group mb-3">
+                    <textarea class="form-control item-field" rows="3" data-field="description" readonly>${item.description}</textarea>
+                </div>
+                <button class="btn btn-primary edit-save-btn" data-id="${item.id}">Edit</button>
+                <button class="btn btn-danger delete-btn" data-id="${item.id}">Delete</button>
+            `;
+        }
     });
 };
 
