@@ -7,10 +7,13 @@
 
     {{-- Vite assets --}}
     @vite([
-        'resources/sass/app.scss',    {{-- SCSS з Bootstrap --}}
-        'resources/css/app.css',      {{-- Додатковий CSS --}}
-        'resources/js/bootstrap.js',  {{-- Bootstrap JS --}}
-        'resources/js/app.js'         {{-- Основний JS --}}
+        'resources/sass/app.scss',
+        'resources/css/app.css',
+        'resources/js/bootstrap.js',
+        'resources/js/app.js',
+        'resources/js/items.js',
+        'resources/js/defItems.js',
+        'resources/js/normItems.js'
         
     ])
 
