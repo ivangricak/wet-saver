@@ -11,10 +11,6 @@
         'resources/css/app.css',
         'resources/js/bootstrap.js',
         'resources/js/app.js',
-        'resources/js/items.js',
-        'resources/js/defItems.js',
-        'resources/js/normItems.js'
-        
     ])
 
     {{-- Bootstrap Icons --}}
