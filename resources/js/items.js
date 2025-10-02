@@ -110,58 +110,61 @@ export function ShowItems() {
 
 
 // UPDATE ITEM
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.edit-save-btn').forEach(function(button) {
-        button.addEventListener('click', function() {
-            let itemId = this.getAttribute('data-id');
-            let modal = document.getElementById('itemModal' + itemId);
-            let fields = modal.querySelectorAll('.item-field[data-field]:not([data-field="tags"])');
+document.addEventListener('click', function(e) {
+    if(e.target.classList.contains('edit-save-btn')){
+        let button = e.target;
+        let itemId = button.getAttribute('data-id');
 
-            if(this.textContent === "Edit") {
-                fields.forEach(field => {
-                    if(field.tagName === 'SELECT') {
-                        field.removeAttribute('disabled');
-                    } else {
-                        field.removeAttribute('readonly');
-                    }
-                });
-                this.textContent = "Save";
-            } else if(this.textContent === "Save") {
-                let data = {};
-                fields.forEach(field => {
-                    let key = field.getAttribute('data-field');
-                    data[key] = field.value;
-                });
+        let modal = document.getElementById('itemModal');
+        let fields = modal.querySelectorAll('.item-field[data-field]:not([data-field="tags"])');
 
-                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    
+    // let itemId = this.getAttribute('data-id');
 
-                fetch(`/items/${itemId}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': csrfToken
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => response.json())
-                .then(res => {
-                    if(res.success){
-                        fields.forEach(field => {
-                                if(field.tagName === 'SELECT' && field.getAttribute('data-field') === 'state') {
-                                    field.setAttribute('disabled', true);
-                                } else {
-                                    field.setAttribute('readonly', true);
-                                }
-                            });
-                            button.textContent = "Edit";
-                    } else {
-                        alert('Error updating item');
-                    }
-                })
-                .catch(err => console.error(err));
-            }
-        });
-    });
+        if(button.textContent === "Edit") {
+            fields.forEach(field => {
+                if(field.tagName === 'SELECT') {
+                    field.removeAttribute('disabled');
+                } else {
+                    field.removeAttribute('readonly');
+                }
+            });
+            button.textContent = "Save";
+        } else if(button.textContent === "Save") {
+            let data = {};
+            fields.forEach(field => {
+                let key = field.getAttribute('data-field');
+                data[key] = field.value;
+            });
+
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            fetch(`/items/${itemId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(res => {
+                if(res.success){
+                    fields.forEach(field => {
+                            if(field.tagName === 'SELECT' && field.getAttribute('data-field') === 'state') {
+                                field.setAttribute('disabled', true);
+                            } else {
+                                field.setAttribute('readonly', true);
+                            }
+                        });
+                        button.textContent = "Edit";
+                } else {
+                    alert('Error updating item');
+                }
+            })
+            .catch(err => console.error(err));
+        }
+    }
 });
 
 

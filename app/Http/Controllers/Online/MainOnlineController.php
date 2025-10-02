@@ -16,12 +16,17 @@ class MainOnlineController extends Controller
         }
 
         // Всі групи користувача
-        $groups = Group::where('state', 1)->whereHas('items')->get();
+        $groups = Group::where('state', 1)
+            ->whereHas('items', function ($q) {
+                $q->where('state', 1);
+            })
+            ->with(['items' => function($q) {
+                $q->where('state', 1);
+            }])
+            ->get();
 
         // Збираємо всі items цих груп
-        $items = $groups->flatMap(function($group) {
-            return $group->items;
-        });
+        $items = $groups->flatMap->items;
 
         return view('online.index', compact('groups', 'items'));
     }

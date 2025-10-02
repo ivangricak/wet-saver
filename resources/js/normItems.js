@@ -95,7 +95,9 @@ function loadGroupItems(groupId) {
                 container.innerHTML = "<div>this group has not got items!</div>";
             } else {
                 data.items.forEach(item => {
+
                     let tag = item.tags.length > 0 ? item.tags[0].name : "";
+                    
                     container.insertAdjacentHTML("beforeend", `
                         <div class="item-copy">
                             <div class="item" 
