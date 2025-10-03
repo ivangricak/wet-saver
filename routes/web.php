@@ -37,6 +37,12 @@ Route::put('/groups/{group}', [GroupController::class, 'update'])->name('groups.
 //DELETE
 Route::delete('/groups/{group}', [GroupController::class, 'destroy'])->name('groups.destroy');
 
+// web.php або api.php
+Route::get('/categories', function() {
+    return response()->json(\App\Models\Category::all());
+});
+
+
 //DEFAULT GROUP MOVING
 //EDITING
 //!!!!! поки що цього не має но всеодно там має бути defgroup а не group

@@ -55,3 +55,127 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+//DELETE GROUP
+document.addEventListener('click', function(e) {
+    if(e.target.matches('.delete-btn-group')) {
+        const groupId = e.target.dataset.id;
+        console.log(groupId);
+        if(!confirm('Ви точно хочете видалити цей item?')) {
+            return;
+        }
+        
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        fetch(`/groups/${groupId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.success){
+                console.log(`Item ${groupId} deleted in DB`);
+
+                // прибираємо сам item з DOM
+                const listItemEl = document.querySelector(`.card .delete-btn-group[data-id="${groupId}"]`);
+                if(listItemEl){
+                    const groupContainer = listItemEl.closest('.card');
+                    groupContainer?.remove();
+                }
+
+            } else {
+                alert('Помилка при видаленні: ' + data.message);
+            }
+        })
+        .catch(err => console.error(err));
+    }
+});
+
+
+
+
+
+
+
+
+//CREATE GROUP
+document.addEventListener('click', function(e) {
+
+    if (e.target.matches('.create-group')) {
+        // перевіряємо, чи форма вже відкрита
+        if (!document.querySelector('.created-div')) {
+            document.body.insertAdjacentHTML('beforeend', `
+                <form class="created-div p-3 border bg-light rounded" style="max-width:400px; margin:20px auto;">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Group name">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">State:</label>
+                        <select class="form-select" name="state">
+                            <option value="1">Public</option>
+                            <option value="0">Private</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Categories</label>
+                        <select class="form-select category-select" name="category_id"></select>
+                    </div>
+
+                    <button type="button" class="create btn btn-success m-2">Create</button>
+                    <button type="button" class="close-div btn btn-danger m-2">Закрити</button>
+                </form>
+            `);
+
+            // заповнюємо селект категоріями з бази
+            const select = document.querySelector('.category-select');
+            window.categories.forEach(cat => {
+                select.insertAdjacentHTML("beforeend", `<option value="${cat.id}">${cat.name}</option>`);
+            });
+
+            // беремо форму та токен
+            const formDiv = document.querySelector('.created-div');
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            // обробка створення групи
+            formDiv.querySelector('.create').addEventListener('click', function() {
+                const formData = new FormData(formDiv);
+
+                fetch('/group/create', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('JSON parsed:', data);
+
+                    if (data.success) {
+                        alert('Групу успішно створено!');
+                        formDiv.remove();
+                        // TODO: Можна одразу додати нову групу на сторінку без перезавантаження
+                    } else {
+                        alert('Помилка при створенні групи');
+                    }
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    alert('Сталася помилка при створенні групи');
+                });
+            });
+        }
+    }
+
+    // Закриття форми
+    if (e.target.matches('.close-div')) {
+        const div = e.target.closest('.created-div');
+        if (div) div.remove();
+    }
+});

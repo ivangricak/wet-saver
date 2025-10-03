@@ -2,11 +2,10 @@ import './bootstrap';
 
 // CREATE ITEM
 document.addEventListener('click', function(e) {
-    // Відкриття форми
+
     if (e.target.matches('.def-create-item')) {
         const defgroupId = e.target.dataset.defgroupId;
 
-        // Перевіряємо, чи форма вже існує
         if (!document.querySelector('.created-div')) {
             document.body.insertAdjacentHTML('beforeend', `
                 <form class="created-div">

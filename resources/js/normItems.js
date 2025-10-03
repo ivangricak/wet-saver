@@ -3,11 +3,9 @@ import './bootstrap';
 // CREATE ITEM
 document.addEventListener('click', function(e) {
 
-    // Відкриття форми
     if (e.target.matches('.create-item')) {
         const groupId = e.target.dataset.groupId;
 
-        // Перевіряємо, чи форма вже існує
         if (!document.querySelector('.created-div')) {
             document.body.insertAdjacentHTML('beforeend', `
                 <form class="created-div">
@@ -97,7 +95,7 @@ function loadGroupItems(groupId) {
                 data.items.forEach(item => {
 
                     let tag = item.tags.length > 0 ? item.tags[0].name : "";
-                    
+
                     container.insertAdjacentHTML("beforeend", `
                         <div class="item-copy">
                             <div class="item" 

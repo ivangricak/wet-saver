@@ -24,21 +24,15 @@ document.addEventListener('click', function(e) {
             if(data.success){
                 console.log(`Item ${itemId} deleted in DB`);
 
-                const modalEl = document.getElementById(`itemModal${itemId}`);
-                modalEl?.remove();
+                const modalEl = document.getElementById('itemModal');
+                const modalInstance = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+                modalInstance.hide();
 
-                document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
-
-                const listItemEl = document.querySelector(`.item-copy .item[data-bs-target="#itemModal${itemId}"]`);
+                // прибираємо сам item з DOM
+                const listItemEl = document.querySelector(`.item-copy .item[data-item-id="${itemId}"]`);
                 if(listItemEl){
                     const itemCopy = listItemEl.closest('.item-copy');
-                    if(itemCopy){
-
-                        const cardEl = itemCopy.closest('.card');
-                        cardEl?.classList.remove('expanded');
-
-                        itemCopy.remove();
-                    }
+                    itemCopy?.remove();
                 }
 
             } else {
@@ -87,6 +81,7 @@ export function ShowItems() {
             console.log(item);
             modalTitle.textContent = item.name;
             modalBody.innerHTML = `
+            <div class="item-data">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control item-field" data-field="tags" value="${item.tags.join(', ')}" readonly>
                 </div>
@@ -103,6 +98,7 @@ export function ShowItems() {
                 </div>
                 <button class="btn btn-primary edit-save-btn" data-id="${item.id}">Edit</button>
                 <button class="btn btn-danger delete-btn" data-id="${item.id}">Delete</button>
+            </div>
             `;
         }
     });

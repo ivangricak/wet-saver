@@ -100,6 +100,17 @@ class GroupController extends Controller
         $group->items()->delete();
         $group->delete();
 
-        return redirect()->route('home.index')->with('status', 'Групу успішно видалено.');;
+        try {
+            return response()->json([
+                'success' => true,
+                'group_id' => $group->id
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
+        // return redirect()->route('home.index')->with('status', 'Групу успішно видалено.');
     }
 }

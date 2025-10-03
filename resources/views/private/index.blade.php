@@ -4,6 +4,7 @@
 
     <div class="bd-highlight mb-3">
         <button class="btn btn-primary p-2 border" onclick="window.location.href='{{route('group.view.create')}}'">Create new group</button>
+        <!-- <button class="btn btn-primary p-2 border create-group">Create new group1</button> -->
         <!-- <button class="btn btn-primary p-2 border" onclick="window.location.href='{{route('item.view.create')}}'">Create new item</button> -->
     </div>
 
@@ -54,11 +55,16 @@
                                 <li><button type="submit" class="create-item" data-group-id="{{$group->id}}" >create item</button></li>
 
                                 <li><hr class="dropdown-divider"></li>
-                                <form action="{{ route('groups.destroy', $group->id) }}" method="post" style="display:inline;">
+
+                                <!-- OLD DELETER FRO GROUPS -->
+                                <!-- <form action="{{ route('groups.destroy', $group->id) }}" method="post" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" onclick="return confirm('Are you sure?')">Delete Group</button>
-                                </form>
+                                </form> -->
+
+
+                                <li><button type="submit"  class="delete-btn-group" data-id="{{ $group->id }}">Delete Group</button></li>
                             </ul>
                         </div>
                     </div>
