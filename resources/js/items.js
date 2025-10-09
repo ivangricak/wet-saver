@@ -109,7 +109,7 @@ export function ShowItems() {
 document.addEventListener('click', function(e) {
     if(e.target.classList.contains('edit-save-btn')){
         let button = e.target;
-        let itemId = button.getAttribute('data-id');
+        let itemId = parseInt(button.getAttribute('data-id'));
 
         let modal = document.getElementById('itemModal');
         let fields = modal.querySelectorAll('.item-field[data-field]:not([data-field="tags"])');
@@ -146,6 +146,7 @@ document.addEventListener('click', function(e) {
             .then(response => response.json())
             .then(res => {
                 if(res.success){
+
                     fields.forEach(field => {
                             if(field.tagName === 'SELECT' && field.getAttribute('data-field') === 'state') {
                                 field.setAttribute('disabled', true);
@@ -154,6 +155,14 @@ document.addEventListener('click', function(e) {
                             }
                         });
                         button.textContent = "Edit";
+
+                        const groupId = res.item.group_id || res.item.default_group_id;
+                            if(window.groupItemsCache[groupId]){
+                                const cachedItem = window.groupItemsCache[groupId].find(i => i.id === itemId);
+                                if(cachedItem){
+                                    Object.assign(cachedItem, res.item); // перезаписуємо всі поля
+                                }
+                            }
                 } else {
                     alert('Error updating item');
                 }

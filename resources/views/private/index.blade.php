@@ -3,8 +3,8 @@
 <div class="container pt-3 d-flex flex-column">
 
     <div class="bd-highlight mb-3">
-        <button class="btn btn-primary p-2 border" onclick="window.location.href='{{route('group.view.create')}}'">Create new group</button>
-        <!-- <button class="btn btn-primary p-2 border create-group">Create new group1</button> -->
+        <!-- <button class="btn btn-primary p-2 border" onclick="window.location.href='{{route('group.view.create')}}'">Create new group</button> -->
+        <button class="btn btn-primary p-2 border create-group">Create group</button>
         <!-- <button class="btn btn-primary p-2 border" onclick="window.location.href='{{route('item.view.create')}}'">Create new item</button> -->
     </div>
 
@@ -39,8 +39,8 @@
     <!-- simple groups -->
     <div class="groups">
         <div class="main-container mt-4">
-            @foreach($groups as $group)
-                <div class="card">
+            <!-- @foreach($groups as $group) -->
+                <!-- <div class="card">
                     <div class="title-row">
                         <h5> {{ $group->name }} </h5>
                         <div class="dropdown">
@@ -48,13 +48,13 @@
                                 <i class="bi bi-three-dots-vertical"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><button onclick="window.location.href='{{route('group.view.edit', $group->id)}}'">edit group</button></li>
+                                <li><button onclick="window.location.href='{{route('group.view.edit', $group->id)}}'">edit group</button></li> -->
 
                                 <!-- <li><button onclick="window.location.href='{{route('item.view.create')}}'">create item</button></li> -->
 
-                                <li><button type="submit" class="create-item" data-group-id="{{$group->id}}" >create item</button></li>
+                                <!-- <li><button type="submit" class="create-item" data-group-id="{{$group->id}}" >create item</button></li>
 
-                                <li><hr class="dropdown-divider"></li>
+                                <li><hr class="dropdown-divider"></li> -->
 
                                 <!-- OLD DELETER FRO GROUPS -->
                                 <!-- <form action="{{ route('groups.destroy', $group->id) }}" method="post" style="display:inline;">
@@ -63,16 +63,16 @@
                                     <button type="submit" onclick="return confirm('Are you sure?')">Delete Group</button>
                                 </form> -->
 
-
+<!-- 
                                 <li><button type="submit"  class="delete-btn-group" data-id="{{ $group->id }}">Delete Group</button></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="scroll items-container" id="group-{{ $group->id }}" data-group-id="{{ $group->id }}">
+                    <div class="scroll items-container" id="group-{{ $group->id }}" data-group-id="{{ $group->id }}"> -->
                         <!-- Тут JS підвантажить елементи -->
-                    </div>
+                    <!-- </div>
                 </div>
-            @endforeach
+            @endforeach -->
         </div>
     </div>
 

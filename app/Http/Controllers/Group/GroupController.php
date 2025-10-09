@@ -27,7 +27,12 @@ class GroupController extends Controller
 
     public function index()
     {
-       //
+       $user = auth()->user();
+       $groups = $user->groups ?? collect();
+
+       return response()->json([
+        'groups' => $groups
+       ]);
     }
 
     /**
@@ -52,6 +57,13 @@ class GroupController extends Controller
         $user = auth()->user();
 
         $group->users()->attach($user->id);
+
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'group' => $group
+            ]);
+        }
 
         return redirect()->route('home.index');
     }
@@ -83,7 +95,12 @@ class GroupController extends Controller
 
         $group->update($data);
 
-        return redirect()->route('home.index');
+        return response()->json([
+            'success' => true,
+            'group' => $group
+        ]);
+
+        // return redirect()->route('home.index');
     }
 
     /**

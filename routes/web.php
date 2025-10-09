@@ -13,13 +13,15 @@ use App\Http\Controllers\Item\ItemController;
 
 Route::get('/', [MainController::class, 'index'])->name('home.index');
 
-//LOGIN/REGISTER
+//REGISTER/LOGIN/LOGOUT
 Route::get('/register', [RegisterController::class, 'create'])->name('user.create');
 Route::post('/register', [RegisterController::class, 'store'])->name('user.store');
 
+//LOGIN
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('user.login');
 
+//LOGOUT
 Route::post('/logout', function () {
     auth()->logout();
     request()->session()->invalidate();
@@ -27,7 +29,17 @@ Route::post('/logout', function () {
     return redirect('/login');
 })->name('logout');
 
+
 //GROUP MOVING
+//SHOW GROUPS
+Route::get('/groups', [GroupController::class, 'index'])->name('groups.view.show');
+
+// Route::get('/groups', function () {
+//     return response()->json(\App\Models\Group::all());
+// });
+
+
+
 //CREATING
 Route::get('/group/create', [GroupController::class, 'create'])->name('group.view.create');
 Route::post('/group/create', [GroupController::class, 'store'])->name('groups.create');
@@ -37,19 +49,26 @@ Route::put('/groups/{group}', [GroupController::class, 'update'])->name('groups.
 //DELETE
 Route::delete('/groups/{group}', [GroupController::class, 'destroy'])->name('groups.destroy');
 
-// web.php або api.php
-Route::get('/categories', function() {
-    return response()->json(\App\Models\Category::all());
-});
+
+
 
 
 //DEFAULT GROUP MOVING
 //EDITING
+
 //!!!!! поки що цього не має но всеодно там має бути defgroup а не group
 // Route::get('/defgroups/{defgroup}/edit', [GroupController::class, 'edit'])->name('defgroup.view.edit'); 
 // Route::put('/defgroup/{defgroup}', [GroupController::class, 'update'])->name('defgroups.update');
 
 Route::get('/defgroups/{id}/items', [DefaultGroupController::class, 'itemsJson'])->name('groups.items.json');
+
+
+//CATEGORIES
+//LOADING CATEGORIES
+Route::get('/categories', function() {
+    return response()->json(\App\Models\Category::all());
+});
+
 
 //ITEM MOVING
 //CREATING

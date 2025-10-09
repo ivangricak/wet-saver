@@ -15,7 +15,7 @@ class Category extends Model
     public function index()
     {
         $categories = Category::select('id','name')->get(); // або ->all()
-        return view('your.view.name', compact('categories'));
+        return view('private.index', compact('categories'));
         // або: return view('your.view.name')->with('categories', $categories);
     }
 }
