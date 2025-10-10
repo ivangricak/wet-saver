@@ -90,7 +90,7 @@ function loadGroupItems(groupId) {
             groupItemsCache[groupId] = data.items
             console.log('group: ', data);
             if (data.items.length === 0) {
-                container.innerHTML = "<div>this group has not got items!</div>";
+                container.innerHTML = "";
             } else {
                 data.items.forEach(item => {
 

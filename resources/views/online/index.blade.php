@@ -40,7 +40,7 @@
                                     <button class="copy" data-link="{{$item->link}}" type="button"> copy </button>
                                 </div>
                             @empty
-                                <div>this group has not got items!</div>
+                                <div></div>
                             @endforelse
                         </div>
                     </div>

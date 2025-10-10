@@ -55,6 +55,7 @@ document.addEventListener('click', function(e) {
             // обробка створення групи
             formDiv.querySelector('.create').addEventListener('click', function() {
                 const formData = new FormData(formDiv);
+                console.log(Object.fromEntries(formData));
 
                 fetch('/group/create', {
                     method: 'POST',
