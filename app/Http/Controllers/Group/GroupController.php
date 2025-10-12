@@ -25,6 +25,15 @@ class GroupController extends Controller
         ]);
     }
 
+    public function itemsOnlineJson($id)
+    {
+        $group = Group::with('items.tags')->findOrFail($id);
+
+        return response()->json([
+            'items' => $group->items
+        ]);
+    }
+
     public function index()
     {
        $user = auth()->user();

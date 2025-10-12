@@ -4,17 +4,17 @@
         <h1 class="text-center">Online</h1>
 
         <!-- simple groups -->
-        <div class="groups">
+        <div class="online-groups groups">
             <div class="main-container mt-4">
-                @foreach($groups as $group)
-                    <div class="card">
+                <!-- @foreach($groups->take(10) as $group) -->
+                    <!-- <div class="card">
                         <div class="title-row">
                             <h5> {{ $group->name }} </h5>
                             <div class="dropdown">
                                 <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-three-dots-vertical"></i>
                                 </button>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu"> -->
                                     <!-- <li><button onclick="window.location.href='{{route('group.view.edit', $group->id)}}'">edit group</button></li>
                                     <li><button onclick="window.location.href='{{route('item.view.create')}}'">create item</button></li>
                                     <li><hr class="dropdown-divider"></li>
@@ -23,7 +23,7 @@
                                         @method('DELETE')
                                         <button type="submit" onclick="return confirm('Are you sure?')">Delete Group</button>
                                     </form> -->
-                                </ul>
+                                <!-- </ul>
                             </div>
                         </div>
                         <div class="scroll" data-bs-spy="scroll" data-bs-offset="0" class="scrollspy-example" tabindex="0">
@@ -43,13 +43,31 @@
                                 <div></div>
                             @endforelse
                         </div>
-                    </div>
-                @endforeach
+                    </div> -->
+                <!-- @endforeach -->
             </div>
         </div>
 
         <!-- Модалки для item -->
-        @foreach(array_merge($groups->all()) as $group)
+
+        <div class="modal fade" id="itemModal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="itemModalTitle"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+                <div class="modal-body" id="itemModalBody">
+                    Завантаження...
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+        <!-- @foreach(array_merge($groups->all()) as $group)
             @foreach($group->items as $item)
                 <div class="modal fade" id="itemModal{{$item->id}}" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-fullscreen">
@@ -73,6 +91,6 @@
                 </div>
             @endforeach
         @endforeach
-        
+         -->
     </div>
 @endsection

@@ -60,7 +60,7 @@
     border-radius: 12px;
     padding: 20px 5px 20px 20px;
     padding-bottom: 20px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 /* For opening group */
@@ -70,6 +70,12 @@
     min-height: 200px;
     max-height: 300px;
     z-index: 10;
+}
+
+
+/* For scrolling inside the group */
+.card .scroll {
+    overflow: hidden;
 }
 
 /* For scrolling inside the group */

@@ -66,8 +66,10 @@ class ItemController extends Controller
         if (!empty($data['tags'])) {
             $item->tags()->attach($data['tags']); // sync замінює існуючі, attach додає
         }
-
+        $item->load('tags');
+        // $item->with('items.tags')->findOrFail($id);
         // Перевіряємо, чи запит був AJAX / fetch
+
         if ($request->ajax()) {
             return response()->json([
                 'success' => true,

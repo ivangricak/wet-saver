@@ -28,6 +28,22 @@ class MainOnlineController extends Controller
         // Збираємо всі items цих груп
         $items = $groups->flatMap->items;
 
+        // return response()->json([
+        //     'groups' => $groups,
+        //     'items' => $items
+        //    ]);
+
         return view('online.index', compact('groups', 'items'));
+    }
+
+    public function show () {
+        $user = auth()->user(); 
+        $groups = Group::whereHas('items')
+        ->with('items')
+        ->get();
+
+        return response()->json([
+            'groups' => $groups
+        ]);
     }
 }

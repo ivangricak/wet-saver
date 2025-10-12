@@ -1,7 +1,6 @@
 //CREATE GROUP
 export function CreateGroup () {
 document.addEventListener('click', function(e) {
-
     if (e.target.matches('.create-group')) {
         // перевіряємо, чи форма вже відкрита
         if (!document.querySelector('.created-div')) {
@@ -54,6 +53,9 @@ document.addEventListener('click', function(e) {
 
             // обробка створення групи
             formDiv.querySelector('.create').addEventListener('click', function() {
+                const btn = this;
+                btn.disabled = true;
+
                 const formData = new FormData(formDiv);
                 console.log(Object.fromEntries(formData));
 

@@ -1,7 +1,7 @@
-function loadGroupItems(groupId) {
+function loadOnlineGroupItems(groupId) {
     let container = document.getElementById(`group-${groupId}`);
 
-    fetch(`/groups/${groupId}/items`)
+    fetch(`/online/groups/${groupId}/items`)
         .then(res => res.json())
         .then(data => {
             container.innerHTML = "";
@@ -34,9 +34,9 @@ function loadGroupItems(groupId) {
 }
 
 
-export function initNormItems() {
+export function initOnlineItems() {
     document.querySelectorAll(".items-container").forEach(div => {
         let groupId = div.dataset.groupId;
-        loadGroupItems(groupId);
+        loadOnlineGroupItems(groupId);
     });
 };

@@ -88,7 +88,10 @@ Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index
 Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
 //PUBLIC/ONLINE
-Route::get('online', [MainOnlineController::class, 'index'])->name('view.index');
+Route::get('/online', [MainOnlineController::class, 'index'])->name('view.index');
+Route::get('/online/groups', [MainOnlineController::class, 'show'])->name('view.show.groups');
+Route::get('/online/groups/{id}/items', [GroupController::class, 'itemsOnlineJson'])->name('groups.items.online.json');
+
 
 // зробив вроді норм схему но чекни перевір, треба ще перевірити і подумати над схемою як воно буде робити бо зараз це те від чого буде залежити майбутнє проекту
 // перевірити defaultGroups, groups, items
