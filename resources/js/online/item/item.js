@@ -33,10 +33,68 @@ function loadOnlineGroupItems(groupId) {
         .catch(err => console.error(err));
 }
 
-
 export function initOnlineItems() {
-    document.querySelectorAll(".items-container").forEach(div => {
-        let groupId = div.dataset.groupId;
-        loadOnlineGroupItems(groupId);
+    const containers = document.querySelectorAll('.items-container');
+    containers.forEach(container => {
+        const groupId = container.dataset.groupId;
+        container.dataset.page = 1; // поточна сторінка
+        container.dataset.loading = "false";
+
+        // первинне завантаження (перша партія)
+        loadMoreItems(groupId, container);
+
+        // слухаємо подію скролу
+        container.addEventListener('scroll', async () => {
+            if (container.dataset.loading === "true") return;
+            if (container.dataset.noMore === "true") return;
+
+            const nearBottom = container.scrollTop + container.clientHeight >= container.scrollHeight - 10;
+            if (nearBottom) {
+                await loadMoreItems(groupId, container);
+            }
+        });
     });
-};
+}
+
+async function loadMoreItems(groupId, container) {
+    const page = parseInt(container.dataset.page || "1");
+    
+    container.dataset.loading = "true";
+
+    try {
+        const res = await fetch(`/online/group/${groupId}/items?page=${page}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        if (!data.items || data.items.length === 0) {
+            container.dataset.noMore = "true";
+            return;
+        }
+        console.log('gg', data);
+        data.items.forEach(item => {
+            if (container.querySelector(`[data-item-id="${item.id}"]`)) return;
+            container.insertAdjacentHTML('beforeend', `
+                <div class="item-copy">
+                    <div class="item" data-bs-toggle="modal"
+                         data-bs-target="#itemModal"
+                         data-item-id="${item.id}" data-group-id="${groupId}">
+                        <span class="tag">${item.tags.map(t => t.name).join(', ')}</span>
+                        <span>${item.name}</span>
+                    </div>
+                    <button class="copy" data-link="${item.link}" type="button">copy</button>
+                </div>
+            `);
+        });
+
+        // Оновлюємо сторінку
+        container.dataset.page = page + 1;
+
+        // Якщо більше немає сторінок
+        if (!data.has_more) container.dataset.noMore = "true";
+
+    } catch (err) {
+        console.error('Помилка при підвантаженні items:', err);
+    } finally {
+        container.dataset.loading = "false";
+    }
+}
