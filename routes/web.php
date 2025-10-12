@@ -90,7 +90,6 @@ Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('pro
 //PUBLIC/ONLINE
 Route::get('/online', [MainOnlineController::class, 'index'])->name('view.index');
 Route::get('/online/groups', [MainOnlineController::class, 'show'])->name('view.show.groups');
-
 Route::get('/online/group/{id}/items', [MainOnlineController::class, 'itemsByGroup']);
 
 
