@@ -26,19 +26,6 @@ import { UpdateItem } from './item/updateItem';
 
 import { SaveLink } from './items';
 
-
-//Groups
-CreateGroup();
-UpdateGroup();
-DeleteGroup();
-
-//Normal Item
-CreateNormItem();
-DeleteItem();
-UpdateItem();
-
-SaveLink();
-
 document.addEventListener("DOMContentLoaded", function () {
     const path = window.location.pathname;
     loadDataOfCategory();
@@ -59,3 +46,16 @@ document.addEventListener("DOMContentLoaded", function () {
         
     }
 });
+
+//Groups
+CreateGroup();
+UpdateGroup();
+DeleteGroup();
+
+//Normal Item
+CreateNormItem();
+DeleteItem();
+UpdateItem();
+
+SaveLink();
+

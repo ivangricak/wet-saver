@@ -46,4 +46,26 @@ class MainOnlineController extends Controller
             'groups' => $groups
         ]);
     }
+
+    public function itemsByGroup($groupId, Request $request)
+{
+        $perPage = 10; // кількість елементів на сторінку
+        $page = $request->get('page', 1);
+
+        $group = \App\Models\Group::with(['items' => function ($q) use ($perPage, $page) {
+            $q->where('state', 1)
+            ->skip(($page - 1) * $perPage)
+            ->take($perPage)
+            ->with('tags');
+        }])->findOrFail($groupId);
+
+        $totalItems = $group->items()->where('state', 1)->count();
+        $hasMore = $totalItems > $page * $perPage;
+
+        return response()->json([
+            'items' => $group->items,
+            'has_more' => $hasMore,
+        ]);
+    }
+
 }
