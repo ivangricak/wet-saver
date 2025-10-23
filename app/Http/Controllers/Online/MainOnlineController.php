@@ -38,9 +38,27 @@ class MainOnlineController extends Controller
 
     public function show () {
         $user = auth()->user(); 
-        $groups = Group::whereHas('items')
-        ->with('items')
-        ->get();
+        // $groups = Group::whereHas('items')
+        // ->with('items')
+        // ->get();
+
+        // return response()->json([
+        //     'groups' => $groups
+        // ]);
+
+        $offset = request()->query('offset', 0);
+        $limit = request()->query('limit', 10);
+
+        $groups = Group::whereHas('items', function ($query){
+                $query->where('state', 1);
+            })
+            ->with(['items' => function ($query) {
+                $query->where('state', 1);
+            }])
+            ->with('items')
+            ->skip($offset)
+            ->take($limit)
+            ->get();
 
         return response()->json([
             'groups' => $groups

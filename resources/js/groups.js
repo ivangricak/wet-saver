@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const defInput = document.getElementById('def_group_id');
     const normalInput = document.getElementById('group_id');
 
+    if (!select) {
+        console.warn('Element #category_selector not found');
+        return;
+    }
     // Функція для встановлення hidden полів
     const setHiddenFields = () => {
         const selectedOption = select.selectedOptions[0];

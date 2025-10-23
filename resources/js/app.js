@@ -40,9 +40,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     } if (path === '/online') {
         RenderOnlineGroups().then(() => {
-            ShowOnlineItems();
             initOnlineItems();
+            ShowOnlineItems();
+            
         });
+        button.addEventListener('click', async () => {
+            await RenderOnlineGroups(); // завантажує наступні 10 з сервера
+            initOnlineItems();
+            ShowOnlineItems();
+          });
+          
         
     }
 });

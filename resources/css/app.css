@@ -209,3 +209,21 @@
     z-index: 9999;            /* поверх всього */
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
+
+
+
+
+
+
+
+.online-groups {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* центрує кнопку по горизонталі */
+    gap: 20px; /* відступ між списком і кнопкою */
+    padding-bottom: 20px; /* трохи місця знизу */
+}
+
+.load-more-groups {
+    margin-top: 20px;
+}  

@@ -46,7 +46,7 @@ export function CreateNormItem() {
                     const btn = this;
                     btn.disabled = true;
                     const formData = new FormData(formDiv);
-
+                    
                     fetch('/item/create', {
                         method: 'POST',
                         headers: {
@@ -59,7 +59,6 @@ export function CreateNormItem() {
                     .then(data => {
                         
                         addCreatedItem(data.item);
-
                         formDiv.remove();
                     })
                     .catch(err => {

@@ -36,14 +36,15 @@
 export function initOnlineItems() {
     const containers = document.querySelectorAll('.items-container');
     containers.forEach(container => {
-        const groupId = container.dataset.groupId;
-        container.dataset.page = 1; // поточна сторінка
-        container.dataset.loading = "false";
+        if (container.dataset.initialized === "true") return;
 
-        // первинне завантаження (перша партія)
+        const groupId = container.dataset.groupId;
+        container.dataset.page = 1;
+        container.dataset.loading = "false";
+        container.dataset.initialized = "true";
+
         loadMoreItems(groupId, container);
 
-        // слухаємо подію скролу
         container.addEventListener('scroll', async () => {
             if (container.dataset.loading === "true") return;
             if (container.dataset.noMore === "true") return;
@@ -65,11 +66,11 @@ async function loadMoreItems(groupId, container) {
         const res = await fetch(`/online/group/${groupId}/items?page=${page}`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
-
         if (!data.items || data.items.length === 0) {
             container.dataset.noMore = "true";
             return;
         }
+        groupItemsCache[groupId] = data.items;
         console.log('gg', data);
         data.items.forEach(item => {
             if (container.querySelector(`[data-item-id="${item.id}"]`)) return;

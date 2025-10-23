@@ -17,11 +17,14 @@ export function ShowOnlineItems() {
         let item = itemsInGroup?.find(i => parseInt(i.id) === itemId);
 
         if(item) {
+            console.log("used cash: ", item);
             renderModal(item);
         } else {
             fetch(`/items/${itemId}`)
-                .then(res => res.json())
-                .then(data => {
+            .then(res => res.json())
+            .then(data => {
+                    console.log("used fetch: ", data);
+                    
                     if(!window.groupItemsCache[groupId]) window.groupItemsCache[groupId] = [];
                     window.groupItemsCache[groupId].push(data);
                     
