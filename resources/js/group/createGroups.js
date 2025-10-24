@@ -76,7 +76,13 @@ document.addEventListener('click', function(e) {
 
                         const newGroup = data.group;
                         window.groups.push(newGroup);
-                        console.log('Додано у памʼять:', newGroup);
+                        const groupKey = newGroup.id;
+
+                        if (!window.groupItemsCache[groupKey]) {
+                          window.groupItemsCache[groupKey] = [];
+                        }
+                        
+                        console.log('con:', window.groupItemsCache);
 
                         const container = document.querySelector('.groups .main-container');
                         container.insertAdjacentHTML('beforeend', `

@@ -56,7 +56,7 @@ export function UpdateItem() {
                             }
                         }
 
-                        // 🟢 ОНОВЛЕННЯ ЕЛЕМЕНТА В СПИСКУ
+                        // ОНОВЛЕННЯ ЕЛЕМЕНТА В СПИСКУ
                         const itemDiv = document.querySelector(`.item[data-item-id="${itemId}"]`);
                         if (itemDiv) {
                             const tagSpan = itemDiv.querySelector('.tag');

@@ -22,6 +22,10 @@ document.addEventListener('click', function(e) {
             if(data.success){
                 console.log(`Item ${groupId} deleted in DB`);
 
+                //delete group from cash
+                delete window.groupItemsCache[groupId];
+                console.log('con: ', window.groupItemsCache);
+
                 // прибираємо сам item з DOM
                 const listItemEl = document.querySelector(`.card .delete-btn-group[data-id="${groupId}"]`);
                 if(listItemEl){

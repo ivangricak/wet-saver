@@ -22,6 +22,9 @@ export function DeleteItem() {
                 if(data.success){
                     console.log(`Item ${itemId} deleted in DB`);
 
+                    // delete window.groupItemsCache[data.item_id];
+                    // console.log('con:', window.groupItemsCache[data.item_id]);
+
                     const modalEl = document.getElementById('itemModal');
                     const modalInstance = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
                     modalInstance.hide();
