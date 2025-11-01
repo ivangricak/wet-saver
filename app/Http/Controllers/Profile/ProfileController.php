@@ -19,7 +19,7 @@ class ProfileController extends Controller
         if(!$user || $user->login == 0 || $user->login === null){
             return redirect()->route('user.create');
         }
-        
+
 
         return view('private.profile.index');
     }
@@ -43,10 +43,11 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Profile $profile)
+    public function show(User $user)
     {
-        //
+        return view('online.profile', compact('user'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

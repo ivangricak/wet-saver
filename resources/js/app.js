@@ -34,11 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
         initDefItems();
         ShowItems();
         RenderGroups().then(() => {
-            // тепер групи і items вже у DOM і в кеші
             initNormItems();
-            
         });
-    } if (path === '/online') {
+    } 
+    if (path === '/online') {
         RenderOnlineGroups().then(() => {
             initOnlineItems();
             ShowOnlineItems();
@@ -48,9 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
             await RenderOnlineGroups(); // завантажує наступні 10 з сервера
             initOnlineItems();
             ShowOnlineItems();
-          });
-          
-        
+        });
     }
 });
 

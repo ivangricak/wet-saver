@@ -93,7 +93,7 @@ Route::get('/online/groups', [MainOnlineController::class, 'show'])->name('view.
 Route::get('/online/group/{id}/items', [MainOnlineController::class, 'itemsByGroup']);
 
 //PROFILE
-Route::get('/online/profile/{username}', [MainOnlineController::class, 'show'])->name('view.profile');
+Route::get('/online/profile/{user}', [ProfileController::class, 'show'])->name('view.online.profile');
 
 // зробив вроді норм схему но чекни перевір, треба ще перевірити і подумати над схемою як воно буде робити бо зараз це те від чого буде залежити майбутнє проекту
 // перевірити defaultGroups, groups, items

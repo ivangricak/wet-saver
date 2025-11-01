@@ -44,7 +44,12 @@ export async function RenderOnlineGroups() {
 }
 
 function renderNextGroups(container, groups) {
+    
     groups.forEach(group => {
+
+      const owner = group.users && group.users.length > 0 ? group.users[0] : null;
+      const profileUrl = owner ? `/online/profile/${owner.id}` : '#';
+
         container.insertAdjacentHTML('beforeend', `
         <div class="card">
           <div class="title-row">
@@ -53,7 +58,11 @@ function renderNextGroups(container, groups) {
               <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-three-dots-vertical"></i>
               </button>
-              <ul class="dropdown-menu"></ul>
+              <ul class="dropdown-menu">
+               <li class="nav-item">
+                    <a class="nav-link" href="${profileUrl}">Profile</a>
+                </li>
+              </ul>
             </div>
           </div>
           <div class="scroll items-container" id="group-${group.id}" data-group-id="${group.id}">

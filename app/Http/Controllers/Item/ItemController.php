@@ -113,7 +113,7 @@ class ItemController extends Controller
         $item->state = $request->state; 
         $item->save(); 
 
-    return response()->json(['success' => true, 'item' => $item]);
+        return response()->json(['success' => true, 'item' => $item]);
     }
     
 
