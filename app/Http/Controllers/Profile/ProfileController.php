@@ -19,6 +19,7 @@ class ProfileController extends Controller
         if(!$user || $user->login == 0 || $user->login === null){
             return redirect()->route('user.create');
         }
+        
 
         return view('private.profile.index');
     }

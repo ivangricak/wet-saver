@@ -82,7 +82,7 @@ document.addEventListener('click', function(e) {
                           window.groupItemsCache[groupKey] = [];
                         }
                         
-                        console.log('con:', window.groupItemsCache);
+                        console.log('con>group>created:', window.groupItemsCache);
 
                         const container = document.querySelector('.groups .main-container');
                         container.insertAdjacentHTML('beforeend', `

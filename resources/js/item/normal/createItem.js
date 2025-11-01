@@ -60,7 +60,7 @@ export function CreateNormItem() {
                         
                         if(!window.groupItemsCache[data.item.group_id]) window.groupItemsCache[data.item.group_id] = [];
                         window.groupItemsCache[data.item.group_id].push(data.item);
-                        console.log('con:', window.groupItemsCache);
+                        console.log('con>item>created: ', window.groupItemsCache);
 
                         addCreatedItem(data.item);
                         formDiv.remove();

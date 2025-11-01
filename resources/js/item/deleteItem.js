@@ -3,6 +3,7 @@ export function DeleteItem() {
     document.addEventListener('click', function(e) {
         if(e.target.matches('.delete-btn')) {
             const itemId = e.target.dataset.id;
+            const groupId = e.target.dataset.idGroup;
 
             if(!confirm('Ви точно хочете видалити цей item?')) {
                 return;
@@ -20,10 +21,13 @@ export function DeleteItem() {
             .then(res => res.json())
             .then(data => {
                 if(data.success){
-                    console.log(`Item ${itemId} deleted in DB`);
+                    // console.log(`Item ${itemId} deleted in DB`);
 
-                    // delete window.groupItemsCache[data.item_id];
-                    // console.log('con:', window.groupItemsCache[data.item_id]);
+                    const arr = window.groupItemsCache[groupId];
+                    const index = arr.findIndex(item => item.id == itemId);
+                    arr.splice(index, 1);
+
+                    console.log('con>item>deleted: ', window.groupItemsCache);
 
                     const modalEl = document.getElementById('itemModal');
                     const modalInstance = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);

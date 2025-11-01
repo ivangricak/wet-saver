@@ -55,7 +55,8 @@ export function UpdateItem() {
                                 Object.assign(cachedItem, res.item);
                             }
                         }
-
+                        console.log('con>item>updated: ', window.groupItemsCache);
+                        
                         // ОНОВЛЕННЯ ЕЛЕМЕНТА В СПИСКУ
                         const itemDiv = document.querySelector(`.item[data-item-id="${itemId}"]`);
                         if (itemDiv) {

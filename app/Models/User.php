@@ -32,6 +32,25 @@ class User extends Authenticatable
     public function defaultgroups() {
         return $this->hasMany(DefaultGroup::class);
     }
+
+    public function follows() {
+        return $this->belongsToMany(
+            User::class,
+            'follows',
+            'followed_id',
+            'follower_id'
+        );
+    }
+
+    public function followings() {
+        return $this->belongsToMany(
+            User::class,
+            'follow',
+            'follower_id',
+            'followed_id'
+        );
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
