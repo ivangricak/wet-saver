@@ -10,6 +10,7 @@ use App\Http\Controllers\Group\GroupController;
 use App\Http\Controllers\Group\DefaultGroupController;
 use App\Http\Controllers\Online\MainOnlineController;
 use App\Http\Controllers\Item\ItemController;
+use App\Http\Controllers\Profile\FollowController;
 
 Route::get('/', [MainController::class, 'index'])->name('home.index');
 
@@ -94,6 +95,13 @@ Route::get('/online/group/{id}/items', [MainOnlineController::class, 'itemsByGro
 
 //PROFILE
 Route::get('/online/profile/{user}', [ProfileController::class, 'show'])->name('view.online.profile');
+
+// підписатися / відписатися (через контролер FollowController)
+Route::post('/follow/{user}', [FollowController::class, 'store'])
+    ->name('follow.store')->middleware('auth');
+
+Route::delete('/follow/{user}', [FollowController::class, 'destroy'])
+    ->name('follow.destroy')->middleware('auth');
 
 // зробив вроді норм схему но чекни перевір, треба ще перевірити і подумати над схемою як воно буде робити бо зараз це те від чого буде залежити майбутнє проекту
 // перевірити defaultGroups, groups, items

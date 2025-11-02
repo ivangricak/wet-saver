@@ -1,37 +1,19 @@
-@extends('layouts.layout')
-@section('content')
-<div class="m-3">
-    <h1 class="text-center">{{ $user->nick }}</h1>
-
-    <div class="mb-3 row">
-        <label for="staticLogin" class="col-sm-2 col-form-label">Login</label>
-        <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="staticLogin" value="{{ $user->login }}">
-        </div>
-    </div>
-    @auth
-        <div id="follow-block" data-user-id="{{ $user->id }}">
-            @if(auth()->id() !== $user->id)
-                <button id="follow-btn" class="btn btn-{{ $isFollowing ? 'danger' : 'primary' }}">
-                    {{ $isFollowing ? 'Unfollow' : 'Follow' }}
-                </button>
-            @endif
-        </div>
-    @endauth
-</div>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
+
+
+
+
+export function CheckOnFollow() {
     const followBtn = document.getElementById('follow-btn');
-    if (!followBtn) return;
+    if(!followBtn) return;
     const userId = document.getElementById('follow-block').dataset.userId;
     const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     followBtn.addEventListener('click', async function () {
-        if (this.textContent.trim() === 'Follow') {
-            // POST follow
-            const res = await fetch(`/follow/${userId}`, {
+        if(this.textContent.trim() === 'follow') {
+
+            const res = await fetch(`follow/${userId}`, {
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': token,
@@ -39,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Content-Type': 'application/json',
                 },
             });
-            if (res.ok) {
+            if(res.ok) {
                 this.textContent = 'Unfollow';
                 this.classList.remove('btn-primary');
                 this.classList.add('btn-danger');
@@ -47,8 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Follow failed');
             }
         } else {
-            // DELETE unfollow
-            const res = await fetch(`/follow/${userId}`, {
+            const res = await fetch(`follow/${userId}`, {
                 method: 'DELETE',
                 headers: {
                     'X-CSRF-TOKEN': token,
@@ -56,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Content-Type': 'application/json',
                 },
             });
-            if (res.ok) {
-                this.textContent = 'Follow';
+            if(res.ok) {
+                this.textContent = 'follow';
                 this.classList.remove('btn-danger');
                 this.classList.add('btn-primary');
             } else {
@@ -65,6 +46,4 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-});
-</script>
-@endsection
+}

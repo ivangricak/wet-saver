@@ -24,12 +24,16 @@ import { CreateNormItem } from './item/normal/createItem';
 import { DeleteItem } from './item/deleteItem';
 import { UpdateItem } from './item/updateItem';
 
+import { CheckOnFollow } from './online/profile/script';
+
 import { SaveLink } from './items';
 
 document.addEventListener("DOMContentLoaded", function () {
     const path = window.location.pathname;
     loadDataOfCategory();
 
+    CheckOnFollow();
+    
     if (path === '/home') {
         initDefItems();
         ShowItems();
@@ -44,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
         });
         button.addEventListener('click', async () => {
-            await RenderOnlineGroups(); // завантажує наступні 10 з сервера
+            await RenderOnlineGroups();
             initOnlineItems();
             ShowOnlineItems();
         });
@@ -60,6 +64,8 @@ DeleteGroup();
 CreateNormItem();
 DeleteItem();
 UpdateItem();
+
+
 
 SaveLink();
 

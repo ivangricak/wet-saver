@@ -45,7 +45,10 @@ class ProfileController extends Controller
      */
     public function show(User $user)
     {
-        return view('online.profile', compact('user'));
+        $me = auth()->user();
+        $isFollowing = $me ? $me->isFollowing($user): false;
+
+        return view('online.profile', compact('user', 'isFollowing'));
     }
 
 

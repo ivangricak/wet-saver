@@ -39,17 +39,42 @@ class User extends Authenticatable
             'follows',
             'followed_id',
             'follower_id'
-        );
+        )->withTimestamps();
     }
 
     public function followings() {
         return $this->belongsToMany(
             User::class,
-            'follow',
+            'follows',
             'follower_id',
             'followed_id'
-        );
+        )->withTimestamps();
     }
+
+    public function isFollowing(User|int $user): bool
+    {
+        $id = $user instanceof User ? $user->id : (int) $user;
+        return $this->followings()->where('followed_id', $id)->exists();
+    }
+
+    public function follow(User|int $user): bool
+    {
+        $id = $user instanceof User ? $user->id : (int) $user;
+        if ($this->id === $id) return false; // не можна підписатись на себе
+
+        $this->followings()->syncWithoutDetaching([$id]);
+        return true;
+    }
+
+    public function unfollow(User|int $user): bool
+    {
+        $id = $user instanceof User ? $user->id : (int) $user;
+        return (bool) $this->followings()->detach([$id]);
+    }
+    
+
+
+
 
     /**
      * The attributes that should be hidden for serialization.
