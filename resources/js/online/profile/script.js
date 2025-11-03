@@ -1,9 +1,3 @@
-
-
-
-
-
-
 export function CheckOnFollow() {
     const followBtn = document.getElementById('follow-btn');
     if(!followBtn) return;

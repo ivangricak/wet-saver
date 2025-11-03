@@ -32,8 +32,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const path = window.location.pathname;
     loadDataOfCategory();
 
-    CheckOnFollow();
-    
+    if (path.startsWith('/profile')) {
+        CheckOnFollow();
+    }
+
     if (path === '/home') {
         initDefItems();
         ShowItems();
@@ -65,7 +67,4 @@ CreateNormItem();
 DeleteItem();
 UpdateItem();
 
-
-
 SaveLink();
-

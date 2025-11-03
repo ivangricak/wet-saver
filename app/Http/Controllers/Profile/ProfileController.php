@@ -48,7 +48,12 @@ class ProfileController extends Controller
         $me = auth()->user();
         $isFollowing = $me ? $me->isFollowing($user): false;
 
-        return view('online.profile', compact('user', 'isFollowing'));
+
+        $FollowersCount = $user->follows()->count();
+        $FollowingCount = $user->followings()->count();
+        $GroupsCount = $user->groupsCount()->count();
+
+        return view('online.profile', compact('user', 'isFollowing', 'FollowersCount', 'GroupsCount', 'FollowingCount'));
     }
 
 

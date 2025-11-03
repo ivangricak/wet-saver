@@ -29,6 +29,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Group::class, 'group_user');
     }
 
+    public function groupsCount() {
+        return $this->belongsToMany(Group::class, 'group_user', 'user_id', 'group_id');
+    }
+
     public function defaultgroups() {
         return $this->hasMany(DefaultGroup::class);
     }
