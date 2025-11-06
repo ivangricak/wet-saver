@@ -26,6 +26,8 @@ import { UpdateItem } from './item/updateItem';
 
 import { CheckOnFollow } from './online/profile/script';
 
+import { FollowGroup } from './groups';
+
 import { SaveLink } from './items';
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -42,11 +44,22 @@ document.addEventListener("DOMContentLoaded", function () {
         RenderGroups().then(() => {
             initNormItems();
         });
+
+        //Groups
+        CreateGroup();
+        UpdateGroup();
+        DeleteGroup();
+
+        //Normal Item
+        CreateNormItem();
+        DeleteItem();
+        UpdateItem();
     } 
     if (path === '/online') {
         RenderOnlineGroups().then(() => {
             initOnlineItems();
             ShowOnlineItems();
+            FollowGroup();
             
         });
         button.addEventListener('click', async () => {
@@ -56,15 +69,5 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-
-//Groups
-CreateGroup();
-UpdateGroup();
-DeleteGroup();
-
-//Normal Item
-CreateNormItem();
-DeleteItem();
-UpdateItem();
 
 SaveLink();

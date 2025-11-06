@@ -33,6 +33,8 @@
         </div>
     @endauth
 </div>
+
+
 <!-- <div class="d-flex justify-content-center vh-100 bg-light">
     <div class="col-10 col-sm-6 col-md-4">
         <div class="profile-stats">
@@ -56,49 +58,49 @@
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const followBtn = document.getElementById('follow-btn');
-    if (!followBtn) return;
-    const userId = document.getElementById('follow-block').dataset.userId;
-    const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    document.addEventListener('DOMContentLoaded', function () {
+        const followBtn = document.getElementById('follow-btn');
+        if (!followBtn) return;
+        const userId = document.getElementById('follow-block').dataset.userId;
+        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-    followBtn.addEventListener('click', async function () {
-        if (this.textContent.trim() === 'Follow') {
-            // POST follow
-            const res = await fetch(`/follow/${userId}`, {
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': token,
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            });
-            if (res.ok) {
-                this.textContent = 'Unfollow';
-                this.classList.remove('follow-btn');
-                this.classList.add('following-btn');
+        followBtn.addEventListener('click', async function () {
+            if (this.textContent.trim() === 'Follow') {
+                // POST follow
+                const res = await fetch(`/follow/${userId}`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': token,
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                });
+                if (res.ok) {
+                    this.textContent = 'Unfollow';
+                    this.classList.remove('follow-btn');
+                    this.classList.add('following-btn');
+                } else {
+                    console.error('Follow failed');
+                }
             } else {
-                console.error('Follow failed');
+                // DELETE unfollow
+                const res = await fetch(`/follow/${userId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': token,
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                });
+                if (res.ok) {
+                    this.textContent = 'Follow';
+                    this.classList.remove('following-btn');
+                    this.classList.add('follow-btn');
+                } else {
+                    console.error('Unfollow failed');
+                }
             }
-        } else {
-            // DELETE unfollow
-            const res = await fetch(`/follow/${userId}`, {
-                method: 'DELETE',
-                headers: {
-                    'X-CSRF-TOKEN': token,
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            });
-            if (res.ok) {
-                this.textContent = 'Follow';
-                this.classList.remove('following-btn');
-                this.classList.add('follow-btn');
-            } else {
-                console.error('Unfollow failed');
-            }
-        }
+        });
     });
-});
 </script>
 @endsection

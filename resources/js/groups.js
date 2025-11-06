@@ -88,7 +88,37 @@ document.querySelector('.groups .main-container').addEventListener('click', (e) 
 
 
 
+export function FollowGroup () {
+    document.addEventListener('click', async function (e) {
+        
+        if (e.target.matches('.follow-btn-group')) {
+            const groupId = parseInt(e.target.dataset.groupId);
 
+            try {
+                const response = await fetch('/follow/group/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document
+                            .querySelector('meta[name="csrf-token"]')
+                            .getAttribute('content')
+                    },
+                    body: JSON.stringify({
+                        group_id: groupId
+                    })
+                });
+    
+                const data = await response.json();
+    
+                console.log('Response:', data);
+            } 
+            catch (err) {
+                console.error('Помилка при відправці:', err);
+            }
+
+        }
+    });
+}
 
 
 

@@ -1,5 +1,6 @@
 import { initOnlineItems } from '../item/item';
 import { ShowOnlineItems } from '../item/showItems';
+
 //SHOW GROUPS
 let allGroups = [];
 let offset = 0;
@@ -18,7 +19,7 @@ export async function RenderOnlineGroups() {
 
         const data = await res.json();
         const groups = data.groups;
-        
+        const me = data.me;
         const container = document.querySelector('.online-groups .main-container');
 
         if (!buttonInitialized && groups.length === limit) {
@@ -26,7 +27,7 @@ export async function RenderOnlineGroups() {
             buttonInitialized = true;
         }
 
-        renderNextGroups(container, groups);
+        renderNextGroups(container, groups, me);
 
         allGroups = [...allGroups, ...groups];
 
@@ -43,7 +44,7 @@ export async function RenderOnlineGroups() {
     }
 }
 
-function renderNextGroups(container, groups) {
+function renderNextGroups(container, groups, me) {
     
     groups.forEach(group => {
 
@@ -62,6 +63,9 @@ function renderNextGroups(container, groups) {
                <li class="nav-item">
                     <a class="nav-link" href="${profileUrl}">Profile</a>
                 </li>
+                <li>
+                    <button type="submit" class="follow-btn-group" data-group-id="${group.id}">Follow Group</button>
+                </li>
               </ul>
             </div>
           </div>
@@ -73,21 +77,21 @@ function renderNextGroups(container, groups) {
 }
 
 function setupLoadMoreButton(container) {
-    let button = document.querySelector('.load-more-groups');
-  
-    if (!button) {
-      button = document.createElement('button');
-      button.className = 'load-more-groups btn btn-primary mt-3';
-      button.textContent = 'Показати ще';
-      container.insertAdjacentElement('afterend', button);
-    }
-  
-    button.addEventListener('click', async () => {
-        await RenderOnlineGroups();
-        initOnlineItems();
-        ShowOnlineItems();
-    });
+  let button = document.querySelector('.load-more-groups');
+
+  if (!button) {
+    button = document.createElement('button');
+    button.className = 'load-more-groups btn btn-primary mt-3';
+    button.textContent = 'Показати ще';
+    container.insertAdjacentElement('afterend', button);
   }
+
+  button.addEventListener('click', async () => {
+      await RenderOnlineGroups();
+      initOnlineItems();
+      ShowOnlineItems();
+  });
+}
 
 
 

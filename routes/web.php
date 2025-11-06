@@ -84,7 +84,7 @@ Route::delete('/items/{item}', [ItemController::class, 'destroy']);
 
 //PRIVATE
 Route::get('/home', [MainController::class, 'index'])->name('home.index');
-//PRIVATE->PRIFILE
+//PRIVATE->PROFILE
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
@@ -95,6 +95,9 @@ Route::get('/online/group/{id}/items', [MainOnlineController::class, 'itemsByGro
 
 //PROFILE
 Route::get('/online/profile/{user}', [ProfileController::class, 'show'])->name('view.online.profile');
+
+//Follow Group/ADD GROUP
+Route::post('/follow/group/add', [FollowController::class, 'add'])->middleware('auth');
 
 // підписатися / відписатися (через контролер FollowController)
 Route::post('/follow/{user}', [FollowController::class, 'store'])

@@ -19,9 +19,12 @@ class ProfileController extends Controller
         if(!$user || $user->login == 0 || $user->login === null){
             return redirect()->route('user.create');
         }
+        
+        $FollowersCount = $user->follows()->count();
+        $FollowingCount = $user->followings()->count();
+        $GroupsCount = $user->groupsCount()->count();
 
-
-        return view('private.profile.index');
+        return view('private.profile.index', compact('user', 'FollowersCount', 'GroupsCount', 'FollowingCount'));
     }
 
     /**
@@ -47,7 +50,6 @@ class ProfileController extends Controller
     {
         $me = auth()->user();
         $isFollowing = $me ? $me->isFollowing($user): false;
-
 
         $FollowersCount = $user->follows()->count();
         $FollowingCount = $user->followings()->count();

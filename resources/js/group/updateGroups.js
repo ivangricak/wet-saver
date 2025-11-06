@@ -90,7 +90,7 @@ document.addEventListener('click', function(e) {
                     // console.log('Оновлено в пам’яті:', window.groups[index]);
                     // console.log('groups new:', groups);
                     } else {
-                        alert('❌ Помилка при оновленні групи');
+                        alert('Помилка при оновленні групи');
                     }
                 })
                 .catch(err => console.error('Error:', err));
