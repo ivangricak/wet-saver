@@ -32,15 +32,9 @@ Route::post('/logout', function () {
 
 
 //GROUP MOVING
+
 //SHOW GROUPS
 Route::get('/groups', [GroupController::class, 'index'])->name('groups.view.show');
-
-// Route::get('/groups', function () {
-//     return response()->json(\App\Models\Group::all());
-// });
-
-
-
 //CREATING
 Route::get('/group/create', [GroupController::class, 'create'])->name('group.view.create');
 Route::post('/group/create', [GroupController::class, 'store'])->name('groups.create');

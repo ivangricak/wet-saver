@@ -9,9 +9,32 @@ export function RenderGroups() {
             window.groups = data.groups;
             const container = document.querySelector('.groups .main-container');
             container.innerHTML = '';
-            console.log('group: ', groups);
-
+            console.log('group1: ', groups);
+            
             groups.forEach(group => {
+                const conEdit = group.role == 0 || group.role === null;
+
+                const dropdown = conEdit ? 
+                ` 
+                    <ul class="dropdown-menu">
+                        <li>
+                            <button class="update-item" data-group-id="${group.id}">edit group</button>
+                        </li>
+                        <li>
+                            <button type="submit" class="create-item" data-group-id="${group.id}">create item</button>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <button type="submit" class="delete-btn-group" data-id="${group.id}">Delete Group</button>
+                        </li>
+                    </ul>
+                `
+                :
+                `
+                    <ul class="dropdown-menu"></ul>
+                `;
+
+                // console.log('group1: ', group.role);
                 container.insertAdjacentHTML('beforeend', `
                     <div class="card">
                         <div class="title-row">
@@ -20,18 +43,9 @@ export function RenderGroups() {
                                 <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-three-dots-vertical"></i>
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <button class="update-item" data-group-id="${group.id}">edit group</button>
-                                    </li>
-                                    <li>
-                                        <button type="submit" class="create-item" data-group-id="${group.id}">create item</button>
-                                    </li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li>
-                                        <button type="submit" class="delete-btn-group" data-id="${group.id}">Delete Group</button>
-                                    </li>
-                                </ul>
+
+                               ${dropdown}
+
                             </div>
                         </div>
                         <div class="scroll items-container" id="group-${group.id}" data-group-id="${group.id}">

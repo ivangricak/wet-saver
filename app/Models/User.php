@@ -26,7 +26,7 @@ class User extends Authenticatable
     ];
 
     public function groups() {
-        return $this->belongsToMany(Group::class, 'group_user');
+        return $this->belongsToMany(Group::class, 'group_user')->withPivot('role');
     }
 
     public function groupsCount() {

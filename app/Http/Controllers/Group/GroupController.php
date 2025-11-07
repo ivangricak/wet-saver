@@ -36,12 +36,18 @@ class GroupController extends Controller
 
     public function index()
     {
-       $user = auth()->user();
-       $groups = $user->groups ?? collect();
+        $user = auth()->user();
+        $groups = $user->groups->map(function ($group) {
+            return [
+                'id' => $group->id,
+                'name' => $group->name,
+                'role' => $group->pivot->role
+            ];
+        });
 
-       return response()->json([
-        'groups' => $groups
-       ]);
+        return response()->json([
+            'groups' => $groups
+        ]);
     }
 
     /**
