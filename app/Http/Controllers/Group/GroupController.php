@@ -72,7 +72,7 @@ class GroupController extends Controller
         $user = auth()->user();
 
         $group->users()->attach($user->id, ['role' => 0]);
-        
+
         if ($request->ajax()) {
             return response()->json([
                 'success' => true,
@@ -106,6 +106,15 @@ class GroupController extends Controller
      */
     public function update(UpdateRequest $request, Group $group)
     {
+        $userRole = $group->users()
+        ->where('user_id', auth()->id())
+        ->value('role');
+
+        // перевіряємо, чи має роль 0 або 2
+        if (!in_array($userRole, [0, 2])) {
+            abort(403, 'Ви не маєте прав для редагування цієї групи.');
+        }
+
         $data = $request->validated();
 
         $group->update($data);
@@ -123,8 +132,11 @@ class GroupController extends Controller
      */
     public function destroy(Group $group)
     {
+        $userRole = $group->users()
+        ->where('user_id', auth()->id())
+        ->value('role', 0);
 
-        if(! $group->users->contains(auth()->id())){
+        if($userRole !== 0){
             abort(403, 'Ви не належите до цієї групи.');
         }
 

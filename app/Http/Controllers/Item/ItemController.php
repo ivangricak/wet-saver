@@ -56,6 +56,14 @@ class ItemController extends Controller
         $data['state'] = $data['state'] ?? 1;
 
         if(!empty($data['group_id'])) {
+            $userRole = auth()->user()
+            ->groups()
+            ->where('group_id', $data['group_id'])
+            ->value('role');
+        if(!in_array($userRole, [0, 2])) {
+            abort(403, 'Ви не маєте прав для створення елементу у цій групі.');
+        }
+        
             $data['default_group_id'] = null;
         } elseif(!empty($data['default_group_id'])) {
             $data['group_id'] = null;
@@ -102,6 +110,15 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
+        $userRole = auth()->user()
+        ->groups()
+        ->where('group_id', $item->group_id)
+        ->value('role');
+
+        if(!in_array($userRole, [0, 2])) {
+            abort(403, 'Ви не маєте прав на редагування!');
+        }
+
         $request->validate([
             'link' => 'nullable|string',
             'state' => 'integer|nullable',
@@ -122,6 +139,15 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
+        $userRole = auth()->user()
+        ->groups()
+        ->where('group_id', $item->group_id)
+        ->value('role');
+
+        if(!in_array($userRole, [0, 2])) {
+            abort(403, 'Ви не маєте прав на видалення');
+        }
+
         try {
             $item->delete(); // видаляємо з БД
             return response()->json([

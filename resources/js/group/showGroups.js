@@ -1,4 +1,5 @@
 //SHOW GROUPS
+
 export function RenderGroups() {
     return fetch('/groups')
         .then(res => {
@@ -12,8 +13,7 @@ export function RenderGroups() {
             console.log('group1: ', groups);
             
             groups.forEach(group => {
-                const conEdit = group.role == 0 || group.role === null;
-
+                const conEdit = group.role == 0 || group.role == null;
                 const dropdown = conEdit ? 
                 ` 
                     <ul class="dropdown-menu">
@@ -31,7 +31,11 @@ export function RenderGroups() {
                 `
                 :
                 `
-                    <ul class="dropdown-menu"></ul>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <button type="submit" class="" data-id="">ProFile</button>
+                        </li>
+                    </ul>
                 `;
 
                 // console.log('group1: ', group.role);
