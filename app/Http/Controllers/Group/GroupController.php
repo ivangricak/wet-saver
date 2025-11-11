@@ -72,7 +72,7 @@ class GroupController extends Controller
         $user = auth()->user();
 
         $group->users()->attach($user->id, ['role' => 0]);
-
+        
         if ($request->ajax()) {
             return response()->json([
                 'success' => true,
