@@ -38,10 +38,26 @@ class GroupController extends Controller
     {
         $user = auth()->user();
         $groups = $user->groups->map(function ($group) {
+            $role = $group->pivot->role;
+            $owner_id = $group->pivot->user_id;
+
+            if($role == 1) {
+                $ownerPivot = $group->users()
+                                ->where(function ($q) {
+                                    $q->where('group_user.role', 0)
+                                    ->orWhereNull('group_user.role'); //only for test in the future delete it, only 0 must be
+                                })
+                                ->first();
+                if($ownerPivot) {
+                    $owner_id = $ownerPivot->id;
+                }
+            }
+
             return [
                 'id' => $group->id,
                 'name' => $group->name,
-                'role' => $group->pivot->role
+                'role' => $group->pivot->role,
+                'owner' => $owner_id
             ];
         });
 
@@ -81,6 +97,36 @@ class GroupController extends Controller
         }
 
         return redirect()->route('home.index');
+    }
+
+
+    public function copyGroup($group_id) {
+        $newUser = auth()->user();
+
+        $original = Group::with('items')->FindOrFail($group_id);
+
+        $newGroup = Group::create([
+            'name' => $original->name,
+            'category_id' => $original->category_id,
+            'state' => $original->state
+        ]);
+
+        $newGroup->users()->attach($newUser->id, [
+            'role' => 0 // owner
+        ]);
+
+        foreach($original->items as $item) {
+            $newGroup->items()->create([
+                'name' => $item->name,
+                'description' => $item->description,
+                'link' => $item->link,
+                'state' => $item->state
+            ]);
+        }
+
+        $newGroup->load('items');
+
+        return response()->json($newGroup);
     }
 
     /**

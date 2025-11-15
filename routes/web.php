@@ -103,3 +103,6 @@ Route::delete('/follow/{user}', [FollowController::class, 'destroy'])
 // зробив вроді норм схему но чекни перевір, треба ще перевірити і подумати над схемою як воно буде робити бо зараз це те від чого буде залежити майбутнє проекту
 // перевірити defaultGroups, groups, items
 // є ідея зробити manyTomany для groups i items щоб можна було перекидуватись групами між користувачами в майбутніх версіях 
+
+
+Route::post('/groups/{id}/copy', [GroupController::class, 'copyGroup']);
