@@ -52,6 +52,7 @@ class GroupController extends Controller
                                     $q->where('group_user.role', 0)
                                     ->orWhereNull('group_user.role'); //only for test in the future delete it, only 0 must be
                                 })
+                                ->where('state', 1)
                                 ->first();
                 if($ownerPivot) {
                     $owner_id = $ownerPivot->id;

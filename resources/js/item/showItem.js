@@ -53,7 +53,7 @@ export function ShowItems() {
                     <button class="btn btn-outline-secondary" onclick="navigator.clipboard.writeText('${item.link}')">📋 Копіювати</button>
                 </div>
                 <div class="input-group mb-3">
-                    <textarea class="form-control item-field" rows="3" data-field="description" readonly>${item.description}</textarea>
+                    <textarea class="form-control item-field" rows="6" data-field="description" readonly>${item.description}</textarea>
                 </div>
                 <button class="btn btn-primary edit-save-btn" data-id="${item.id}">Edit</button>
                 <button class="btn btn-danger delete-btn" data-id-group="${item.group_id}" data-id="${item.id}">Delete</button>
