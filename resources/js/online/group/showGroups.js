@@ -60,9 +60,6 @@ function renderNextGroups(container, groups, me) {
           <li class="nav-item">
             <a class="nav-link" href="${profileUrl}">Profile</a>
           </li>
-          <li>
-            <button type="submit" class="follow-btn-group" data-group-id="${group.id}">Follow Group</button>
-          </li>
         </ul>
       `
       :

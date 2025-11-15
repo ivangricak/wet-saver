@@ -22,7 +22,7 @@ export function UpdateItem() {
                     let key = field.getAttribute('data-field');
                     data[key] = field.value;
                 });
-
+                console.log('before: ', data);
                 const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
                 fetch(`/items/${itemId}`, {

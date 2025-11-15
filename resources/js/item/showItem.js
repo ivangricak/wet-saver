@@ -32,9 +32,15 @@ export function ShowItems() {
         }
         function renderModal(item) {
             console.log(item);
-            modalTitle.textContent = item.name;
+            modalTitle.textContent = item.group_name;
+
+            // const element1 = listItemEl.closest('.title-row');
+            // console.log('ele: ', element1);
             modalBody.innerHTML = `
             <div class="item-data">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control item-field" data-field="name" value="${item.name}" readonly>
+                </div>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control item-field" data-field="tags" value="${item.tags.join(', ')}" readonly>
                 </div>

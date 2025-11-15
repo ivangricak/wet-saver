@@ -20,8 +20,13 @@ class GroupController extends Controller
         $user = auth()->user();
         $group = $user->groups()->with('items.tags')->findOrFail($id);
 
+        $itemsWithGroup = $group->items->map(function ($item) use ($group) {
+            $item->group_name = $group->name;
+            return $item;
+        });
+    
         return response()->json([
-            'items' => $group->items
+            'items' => $itemsWithGroup
         ]);
     }
 

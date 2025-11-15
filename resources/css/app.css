@@ -283,3 +283,49 @@
 /* .follow-btn:hover {
     background-color: #333;
 } */
+
+
+
+
+.section {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 50px;
+}
+.section div {
+    background-color: #f1f1f1;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 30px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.main-block {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    width: auto;          /* або будь-яка фіксована ширина */
+    aspect-ratio: 1 / 1;   /* забезпечує пропорцію 1:1 */
+    background-color: coral;
+}
+
+.small-block {
+    height: 200px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.small-block:hover {
+    transform: scale(1.03);
+}
+.blog { 
+    background-color: #e0e0e0; 
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+.about { background-color: #c9b3ff; }
+.contact { background-color: #d9ff7f; }

@@ -12,7 +12,7 @@ use App\Http\Controllers\Online\MainOnlineController;
 use App\Http\Controllers\Item\ItemController;
 use App\Http\Controllers\Profile\FollowController;
 
-Route::get('/', [MainController::class, 'index'])->name('home.index');
+Route::get('/', [MainController::class, 'main'])->name('home.index');
 
 //REGISTER/LOGIN/LOGOUT
 Route::get('/register', [RegisterController::class, 'create'])->name('user.create');
@@ -32,6 +32,8 @@ Route::post('/logout', function () {
 
 
 //GROUP MOVING
+
+Route::post('/groups/{id}/copy', [GroupController::class, 'copyGroup']);
 
 //SHOW GROUPS
 Route::get('/groups', [GroupController::class, 'index'])->name('groups.view.show');
@@ -103,6 +105,3 @@ Route::delete('/follow/{user}', [FollowController::class, 'destroy'])
 // зробив вроді норм схему но чекни перевір, треба ще перевірити і подумати над схемою як воно буде робити бо зараз це те від чого буде залежити майбутнє проекту
 // перевірити defaultGroups, groups, items
 // є ідея зробити manyTomany для groups i items щоб можна було перекидуватись групами між користувачами в майбутніх версіях 
-
-
-Route::post('/groups/{id}/copy', [GroupController::class, 'copyGroup']);

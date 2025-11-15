@@ -33,7 +33,7 @@ export function ShowOnlineItems() {
         }
 
         function renderModal(item) {
-            modalTitle.textContent = item.name;
+            modalTitle.textContent = item.group_name;
             modalBody.innerHTML = `
             <div class="item-data">
                 <div class="input-group mb-3">

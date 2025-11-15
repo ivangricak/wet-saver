@@ -120,11 +120,13 @@ class ItemController extends Controller
         }
 
         $request->validate([
+            'name' => 'nullable|string',
             'link' => 'nullable|string',
             'state' => 'integer|nullable',
             'description' => 'nullable|string',
         ]);
-    
+
+        $item->name = $request->name;
         $item->link = $request->link;
         $item->description = $request->description;
         $item->state = $request->state; 
