@@ -49,12 +49,17 @@ class MainOnlineController extends Controller
         $offset = request()->query('offset', 0);
         $limit = request()->query('limit', 10);
 
-        $groups = Group::whereHas('items', function ($query) {
-            $query->where('state', 1);
-        })
-        ->with(['items' => function ($query) {
-            $query->where('state', 1);
-        }, 'users'])
+        $groups = Group::where('state', 1)
+            ->whereHas('items', function ($query) {
+                $query->where('state', 1);
+            })
+            ->with(['items' => function ($query) {
+                $query->where('state', 1);
+            }, 'users' => function ($q) {
+                $q->select('users.id', 'nick', 'login')
+                ->withPivot('role');
+            }
+        ])
         ->skip($offset)
         ->take($limit)
         ->get();

@@ -104,7 +104,7 @@ window.copyGroup = function (groupId) {
                 <ul class="dropdown-menu">
                     <li>
                         <a class="nav-link" href="${profileUrl}">Profile</a>
-                        <button onclick="copyGroup(${group.id})">Копіювати групу</button>
+                        <button onclick="copyGroup(${group.id})">Copy group</button>
                     </li>
                 </ul>
             `;

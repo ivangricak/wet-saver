@@ -108,7 +108,7 @@ class GroupController extends Controller
         $newGroup = Group::create([
             'name' => $original->name,
             'category_id' => $original->category_id,
-            'state' => $original->state
+            'state' => 0
         ]);
 
         $newGroup->users()->attach($newUser->id, [

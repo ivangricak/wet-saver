@@ -45,36 +45,77 @@ export async function RenderOnlineGroups() {
 }
 
 function renderNextGroups(container, groups, me) {
-    
-    groups.forEach(group => {
+  groups.forEach(group => {
 
+    const conEdit = group.users.some(u => u.pivot && Number(u.id) === Number(me.id) && (u.pivot.role === 0 || u.pivot.role === null));
+
+
+      console.log(group);
       const owner = group.users && group.users.length > 0 ? group.users[0] : null;
       const profileUrl = owner ? `/online/profile/${owner.id}` : '#';
 
+      const dropdown = conEdit ? 
+      ` 
+        <ul class="dropdown-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="${profileUrl}">Profile</a>
+          </li>
+          <li>
+            <button type="submit" class="follow-btn-group" data-group-id="${group.id}">Follow Group</button>
+          </li>
+        </ul>
+      `
+      :
+      `
+        <ul class="dropdown-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="${profileUrl}">Profile</a>
+          </li>
+          <li>
+            <button type="submit" class="follow-btn-group" data-group-id="${group.id}">Follow Group</button>
+          </li>
+          <li>
+            <button onclick="copyGroup(${group.id})">Copy group</button>
+          </li>
+        </ul>
+      `;
+
         container.insertAdjacentHTML('beforeend', `
-        <div class="card">
-          <div class="title-row">
-            <h5 class="group-title">${group.name}</h5>
-            <div class="dropdown">
-              <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-three-dots-vertical"></i>
-              </button>
-              <ul class="dropdown-menu">
-               <li class="nav-item">
-                    <a class="nav-link" href="${profileUrl}">Profile</a>
-                </li>
-                <li>
-                    <button type="submit" class="follow-btn-group" data-group-id="${group.id}">Follow Group</button>
-                </li>
-              </ul>
+          <div class="card">
+            <div class="title-row">
+              <h5 class="group-title">${group.name}</h5>
+              <div class="dropdown">
+                <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-three-dots-vertical"></i>
+                </button>
+
+
+                    ${dropdown}
+
+
+              </div>
+            </div>
+            <div class="scroll items-container" id="group-${group.id}" data-group-id="${group.id}">
             </div>
           </div>
-          <div class="scroll items-container" id="group-${group.id}" data-group-id="${group.id}">
-          </div>
-        </div>
       `);
     });
 }
+
+window.copyGroup = function (groupId) {
+  fetch(`/groups/${groupId}/copy`, {
+      method: "POST",
+      headers: {
+          "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
+          "Accept": "application/json"
+      }
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log('Copy to private: ', data);
+  })
+  .catch(err => console.error(err));
+};
 
 function setupLoadMoreButton(container) {
   let button = document.querySelector('.load-more-groups');
