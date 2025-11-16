@@ -52,7 +52,7 @@ class GroupController extends Controller
                                     $q->where('group_user.role', 0)
                                     ->orWhereNull('group_user.role'); //only for test in the future delete it, only 0 must be
                                 })
-                                ->where('state', 1)
+                                // ->wherePivot('state', 1)
                                 ->first();
                 if($ownerPivot) {
                     $owner_id = $ownerPivot->id;
@@ -184,29 +184,32 @@ class GroupController extends Controller
      */
     public function destroy(Group $group)
     {
+        $userId =  auth()->id();
         $userRole = $group->users()
-        ->where('user_id', auth()->id())
-        ->value('role', 0);
+        ->where('user_id', $userId)
+        ->value('role');
 
-        if($userRole !== 0){
-            abort(403, 'Ви не належите до цієї групи.');
-        }
+        if($userRole === 0){
+            $group->users()->detach();
+            $group->items()->delete();
+            $group->delete();
 
-        $group->users()->detach();
-        $group->items()->delete();
-        $group->delete();
-
-        try {
             return response()->json([
                 'success' => true,
                 'group_id' => $group->id
             ]);
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => $e->getMessage()
-            ], 500);
         }
+
+        if($userRole === 1) {
+            $group->users()->detach($userId);
+            return response()->json([
+                'success' => true,
+                'message' => 'Ваша участь у групі видалена'
+            ]);
+        }
+
+        // abort(403, 'Ви не належите до цієї групи.');
+        
         // return redirect()->route('home.index')->with('status', 'Групу успішно видалено.');
     }
 }

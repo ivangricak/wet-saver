@@ -37,6 +37,9 @@ export function RenderGroups() {
                         <li>
                             <a class="nav-link" href="${profileUrl}">Profile</a>
                             <button onclick="copyGroup(${group.id})">Копіювати групу</button>
+                            <li>
+                                <button type="submit" class="delete-btn-group" data-id="${group.id}">Delete Group</button>
+                            </li>
                         </li>
                     </ul>
                 `;

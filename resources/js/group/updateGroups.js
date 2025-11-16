@@ -6,6 +6,7 @@ document.addEventListener('click', function(e) {
         // перевіряємо, чи форма вже відкрита
         const groupId = parseInt(e.target.dataset.groupId);
         const group = window.groups.find(g => g.id === groupId);
+        console.log('state: ', group);
             // console.log("Знайдена група:", group);
             // console.log("Її ID:", group.id);
             // console.log("Її назва:", group.name);
