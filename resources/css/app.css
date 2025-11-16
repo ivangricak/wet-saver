@@ -284,14 +284,14 @@
 
 
 
-
 .section {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
     padding: 50px;
 }
+
 .section div {
-    margin: 10px;
     border-radius: 30px;
     font-size: 30px;
     text-align: center;
@@ -299,51 +299,68 @@
 
 img {
     border-radius: 29px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
+/* MAIN (квадрат 1x1) */
 .main-block {
-    padding: 0;
-    grid-row-start: 1;
-    grid-row-end: 3;
-    width: auto;          /* або будь-яка фіксована ширина */
-    aspect-ratio: 1 / 1;   /* забезпечує пропорцію 1:1 */
+    grid-row: span 2;
+    aspect-ratio: 1 / 1;
     background-color: coral;
-    width: 650px;
 }
 
-.small-block {
-    height: 200px;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    transition: transform 0.2s;
+/* BLOG (широкий 2x1) */
+.blog {
+    grid-column: span 2;
+    aspect-ratio: 2 / 1;
 }
 
-.small-block:hover {
-    transform: scale(1.03);
-}
-.blog { 
-    height: 315px;
-    width: 650px;
-    grid-column-start: 2;
-    grid-column-end: 4;
+/* ABOUT + CONTACT (квадрати) */
+.about,
+.contact {
+    aspect-ratio: 1 / 1;
 }
 
-.blog img {
-    height: 315px;
-    width: 650px;
+.about { background-color: #c9b3ff; }
+.contact { background-color: #d9ff7f; }
+
+
+/* ========= TABLET (до 992px) ========= */
+@media (max-width: 992px) {
+    .section {
+        grid-template-columns: 1fr 1fr; /* 2 колонки */
+    }
+
+    .main-block {
+        grid-row: span 1;
+    }
+
+    .blog {
+        grid-column: span 2; /* повна ширина */
+    }
 }
 
-.about {
-    background-color: #c9b3ff; 
-    padding: 10px;
-    width: 315px;
-    height: 315px;
-}
-.contact { 
-    background-color: #d9ff7f; 
-    padding: 10px;
-    width: 315px;
-    height: 315px;
+
+/* ========= PHONE (до 768px) ========= */
+@media (max-width: 768px) {
+    .section {
+        grid-template-columns: 1fr; /* 1 колонка */
+        padding: 20px;
+    }
+
+    /* повний порядок зверху вниз */
+    .main-block,
+    .blog,
+    .about,
+    .contact {
+        grid-column: span 1;
+        width: 100%;
+    }
+
+    .main-block { aspect-ratio: 1 / 1; }
+    .blog { aspect-ratio: 2 / 1; }
+    .about,
+    .contact { aspect-ratio: 1 / 1; }
 }
