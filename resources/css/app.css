@@ -284,9 +284,11 @@
 
 
 
+
+
 .section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr; /* 2fr = 50%, інші два = по 25% */
     gap: 20px;
     padding: 50px;
 }
@@ -304,53 +306,65 @@ img {
     object-fit: cover;
 }
 
-/* MAIN (квадрат 1x1) */
+/* ---- MAIN BLOCK ---- */
 .main-block {
     grid-row: span 2;
     aspect-ratio: 1 / 1;
     background-color: coral;
+    width: 100%;
+    grid-column: 1 / span 1; /* 50% ширини */
+    grid-row: span 2;
 }
 
-/* BLOG (широкий 2x1) */
+/* ---- BLOG ---- */
 .blog {
     grid-column: span 2;
-    aspect-ratio: 2 / 1;
+    aspect-ratio: 2 / 1; /* приблизно як 650×315 ідеально пропорційно */
 }
 
-/* ABOUT + CONTACT (квадрати) */
+/* ---- SMALL BLOCKS ---- */
 .about,
 .contact {
     aspect-ratio: 1 / 1;
 }
 
-.about { background-color: #c9b3ff; }
-.contact { background-color: #d9ff7f; }
+.about {
+    background-color: #c9b3ff;
+}
+
+.contact {
+    background-color: #d9ff7f;
+}
 
 
-/* ========= TABLET (до 992px) ========= */
-@media (max-width: 992px) {
+
+/* @media (max-width: 768px) {
     .section {
-        grid-template-columns: 1fr 1fr; /* 2 колонки */
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .blog {
+        grid-column: span 2;
     }
 
     .main-block {
         grid-row: span 1;
     }
-
-    .blog {
-        grid-column: span 2; /* повна ширина */
+    .main-block,
+    .blog,
+    .about,
+    .contact {
+        grid-column: span 1;
+        width: 100%;
     }
-}
+} */
 
-
-/* ========= PHONE (до 768px) ========= */
 @media (max-width: 768px) {
     .section {
-        grid-template-columns: 1fr; /* 1 колонка */
+        grid-template-columns: 1fr;
         padding: 20px;
     }
 
-    /* повний порядок зверху вниз */
     .main-block,
     .blog,
     .about,
@@ -359,8 +373,16 @@ img {
         width: 100%;
     }
 
-    .main-block { aspect-ratio: 1 / 1; }
-    .blog { aspect-ratio: 2 / 1; }
+    .main-block {
+        aspect-ratio: 1/1;
+    }
+
+    .blog {
+        aspect-ratio: 2/1;
+    }
+
     .about,
-    .contact { aspect-ratio: 1 / 1; }
+    .contact {
+        aspect-ratio: 1/1;
+    }
 }
