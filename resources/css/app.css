@@ -231,13 +231,6 @@
 
 
 
-.description {
-    width: 200px;
-}
-
-
-
-
 
 
 .profile-stats {
@@ -298,21 +291,24 @@
     padding: 50px;
 }
 .section div {
-    background-color: #f1f1f1;
-    border: 1px solid black;
-    padding: 10px;
     margin: 10px;
     border-radius: 30px;
     font-size: 30px;
     text-align: center;
 }
 
+img {
+    border-radius: 29px;
+}
+
 .main-block {
+    padding: 0;
     grid-row-start: 1;
     grid-row-end: 3;
     width: auto;          /* або будь-яка фіксована ширина */
     aspect-ratio: 1 / 1;   /* забезпечує пропорцію 1:1 */
     background-color: coral;
+    width: 650px;
 }
 
 .small-block {
@@ -328,9 +324,26 @@
     transform: scale(1.03);
 }
 .blog { 
-    background-color: #e0e0e0; 
+    height: 315px;
+    width: 650px;
     grid-column-start: 2;
     grid-column-end: 4;
 }
-.about { background-color: #c9b3ff; }
-.contact { background-color: #d9ff7f; }
+
+.blog img {
+    height: 315px;
+    width: 650px;
+}
+
+.about {
+    background-color: #c9b3ff; 
+    padding: 10px;
+    width: 315px;
+    height: 315px;
+}
+.contact { 
+    background-color: #d9ff7f; 
+    padding: 10px;
+    width: 315px;
+    height: 315px;
+}
