@@ -12,7 +12,7 @@ use App\Http\Controllers\Online\MainOnlineController;
 use App\Http\Controllers\Item\ItemController;
 use App\Http\Controllers\Profile\FollowController;
 
-Route::get('/', [MainController::class, 'main'])->name('home.index');
+Route::get('/', [MainController::class, 'main'])->name('home.welcome');
 
 //REGISTER/LOGIN/LOGOUT
 Route::get('/register', [RegisterController::class, 'create'])->name('user.create');

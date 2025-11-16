@@ -288,10 +288,13 @@
 
 .section {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr; /* 2fr = 50%, інші два = по 25% */
+    grid-template-columns: 2fr 1fr 1fr; /* або твій варіант */
     gap: 20px;
     padding: 50px;
+    max-width: 1800px; /* ← тут обмежуємо */
+    margin: 0 auto;    /* ← центр */
 }
+
 
 .section div {
     border-radius: 30px;
@@ -336,28 +339,13 @@ img {
     background-color: #d9ff7f;
 }
 
-
-
-/* @media (max-width: 768px) {
+@media (min-width: 1800px) {
     .section {
-        grid-template-columns: 1fr 1fr;
+        width: 1800px;
+        margin: 0 auto;
     }
+}
 
-    .blog {
-        grid-column: span 2;
-    }
-
-    .main-block {
-        grid-row: span 1;
-    }
-    .main-block,
-    .blog,
-    .about,
-    .contact {
-        grid-column: span 1;
-        width: 100%;
-    }
-} */
 
 @media (max-width: 768px) {
     .section {
