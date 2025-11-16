@@ -9,13 +9,12 @@
             <img src="/frame2.png" alt="">
         </div>
         <div class="about small-block">
-            <h1>block-3</h1>
-            <!-- <p>просто якись колір як в прикладі</p>
-            <p>або подивитись інші при клади</p> -->
+            <p class="block-title">DISCOVER <br> OUR HISTORY</p>
+            <p class="text-btn-block">About us</p>
         </div>
         <div class="contact small-block">
-            <h1>block-4</h1>
-            <!-- <p>то само що і з about</p> -->
+            <p class="block-title">HAVE SOME <br> QUESTIONS?</p>
+            <p class="text-btn-block">Contact us</p>
         </div>
     </div>
 @endsection
