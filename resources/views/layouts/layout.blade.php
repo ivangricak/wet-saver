@@ -25,6 +25,8 @@
                 <a class="navbar-brand" href="{{ route('profile.index') }}">
                     @auth
                         {{ auth()->user()->nick }}
+                    @else
+                        <b>Nexora</b>
                     @endauth
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
