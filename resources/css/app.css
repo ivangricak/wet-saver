@@ -311,8 +311,8 @@ img {
 
 /* ---- MAIN BLOCK ---- */
 .main-block {
-    border: #000 2px solid;
-    background-color: black;
+    /* border: #000 2px solid; */
+    /* background-color: black; */
     grid-row: span 2;
     aspect-ratio: 1 / 1;
     width: 100%;
@@ -322,6 +322,7 @@ img {
 /* ---- BLOG ---- */
 .blog {
     grid-column: span 2;
+    /* background-color: gray; */
     aspect-ratio: 2 / 1; /* приблизно як 650×315 ідеально пропорційно */
 }
 
@@ -459,5 +460,63 @@ img {
     .contact {
         aspect-ratio: 1/1;
         grid-column: 2 / span 1;
+    }
+}
+
+
+/* ## login/register ## */
+
+.main-btn-log {
+    background-color: #303030;
+    color: white;
+    padding: 7px;
+    margin: 3px;
+    border-radius: 7px;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.reg-btn-log {
+    background-color: #303030;
+    color: white;
+    padding: 7px;
+    margin: 3px;
+    border-radius: 7px;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.reg-btn-log:hover {
+    background-color: #303030;  
+    color: white; 
+}
+
+.main-btn-log:hover {
+    background-color: #303030;  
+    color: white; 
+}
+
+.aditional1 {
+    display: flex;
+    justify-content: center;
+}
+
+.log-input {
+    width: 100%;
+}
+
+@media (min-width: 500px) {
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* повна висота сторінки */
+    }
+    .form-wrapper {
+        width: 100%;
+        max-width: 500px; /* максимум ширини форми */
     }
 }

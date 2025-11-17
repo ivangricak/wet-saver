@@ -2,11 +2,12 @@
 @section('content')
     <div class="section">
         <div class="main-block">
-            <img src="/frame10.png" alt="">
+            <a href="{{ route('home.index') }}" class="main-block">
+                <img src="/frame1.png" alt="">
+            </a>
         </div>
         <div class="blog small-block">
-            <!-- <h1>block-2</h1> -->
-            <img src="/frame12.png" alt="">
+            <img src="/frame2.png" alt="">
         </div>
         <div class="about small-block">
             <p class="block-title">DISCOVER <br> OUR HISTORY</p>
