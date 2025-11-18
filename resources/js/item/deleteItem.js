@@ -19,7 +19,7 @@ export function DeleteItem() {
 
             fetch(`/items/${itemId}`, {
                 method: 'DELETE',
-                headers: {
+                headers: { 
                     'Content-Type': 'application/json',
                     'X-CSRF-TOKEN': csrfToken
                 }
