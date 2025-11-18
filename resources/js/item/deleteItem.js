@@ -3,7 +3,13 @@ export function DeleteItem() {
     document.addEventListener('click', function(e) {
         if(e.target.matches('.delete-btn')) {
             const itemId = e.target.dataset.id;
-            const groupId = e.target.dataset.idGroup;
+            let groupId = e.target.dataset.idGroup; 
+            const defDroupId = e.target.dataset.idDefgroup;
+
+            if (defDroupId != null) {
+                groupId = defDroupId;
+            console.log('check: ', groupId);
+            }
 
             if(!confirm('Ви точно хочете видалити цей item?')) {
                 return;

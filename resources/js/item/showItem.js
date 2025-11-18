@@ -56,7 +56,7 @@ export function ShowItems() {
                     <textarea class="form-control item-field" rows="6" data-field="description" readonly>${item.description}</textarea>
                 </div>
                 <button class="btn btn-primary edit-save-btn" data-id="${item.id}">Edit</button>
-                <button class="btn btn-danger delete-btn" data-id-group="${item.group_id}" data-id="${item.id}">Delete</button>
+                <button class="btn btn-danger delete-btn" data-id-group="${item.group_id}" data-id-defgroup="${item.default_group_id}" data-id="${item.id}">Delete</button>
             </div>
             `;
         }
