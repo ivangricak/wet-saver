@@ -29,4 +29,16 @@ class MainController extends Controller
 
         return view('private.index', compact('groups', 'defgroups', 'items'));
     }
+
+    public function blog() {
+        return view('viewBlog');
+    }
+
+    public function about() {
+        return view('about');
+    }
+
+    public function contact() {
+        return view('contact');
+    }
 }

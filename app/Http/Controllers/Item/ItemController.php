@@ -141,10 +141,12 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
+        $checkGroupId = $item->group_id ?? $item->default_group_id;
+
         $userRole = auth()->user()
-        ->groups()
-        ->where('group_id', $item->group_id)
-        ->value('role');
+            ->groups()
+            ->where('group_id', $checkGroupId)
+            ->value('role');
 
         if(!in_array($userRole, [0, 2])) {
             abort(403, 'Ви не маєте прав на видалення');

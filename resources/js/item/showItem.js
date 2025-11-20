@@ -6,15 +6,25 @@ export function ShowItems() {
 
     modal.addEventListener('show.bs.modal', event => {
         const trigger = event.relatedTarget;
-        const itemId = parseInt(trigger.dataset.itemId);
-        const groupId = parseInt(trigger.dataset.groupId);
-        const itemsInGroup = window.groupItemsCache[groupId];
+        const itemId = trigger.dataset.itemId;
+        const groupId = trigger.dataset.groupId ?? null;
+        const defGroupId = trigger.dataset.defGroupId ?? null;
+
+        let sourceArray = null;
+
+        if (defGroupId !== null) {
+            sourceArray = window.defGroupItemsCache[defGroupId];
+        } else if (groupId !== null) {
+            sourceArray = window.groupItemsCache[groupId];
+        }
+
+        const item = sourceArray?.find(i => String(i.id) === String(itemId));
 
         modalTitle.textContent = "Завантаження...";
         modalBody.innerHTML = '<p>Завантаження даних...</p>';
 
-        let item = itemsInGroup?.find(i => parseInt(i.id) === itemId);
 
+        console.log('item: ', item);
         if(item) {
             console.log("used cash: ", item);
             renderModal(item);
@@ -24,8 +34,20 @@ export function ShowItems() {
                 .then(data => {
                     console.log("used fetch: ", data);
                     
-                    if(!window.groupItemsCache[groupId]) window.groupItemsCache[groupId] = [];
-                    window.groupItemsCache[groupId].push(data);
+                    if (defGroupId !== null && defGroupId !== undefined) {
+                        // якщо item з дефолтної групи
+                        if (!window.defGroupItemsCache[defGroupId]) {
+                            window.defGroupItemsCache[defGroupId] = [];
+                        }
+                        window.defGroupItemsCache[defGroupId].push(data);
+            
+                    } else if (groupId !== null && groupId !== undefined) {
+                        // якщо item з нормальної групи
+                        if (!window.groupItemsCache[groupId]) {
+                            window.groupItemsCache[groupId] = [];
+                        }
+                        window.groupItemsCache[groupId].push(data);
+                    }
                     
                     renderModal(data);
                 });

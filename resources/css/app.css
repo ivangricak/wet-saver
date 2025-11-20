@@ -290,11 +290,10 @@
     display: grid;
     grid-template-columns: 2fr 1fr 1fr; /* або твій варіант */
     gap: 20px;
-    padding: 50px;
+    padding: 50px 50px 25px 50px;
     max-width: 1800px; /* ← тут обмежуємо */
     margin: 0 auto;    /* ← центр */
 }
-
 
 .section div {
     border-radius: 30px;
@@ -329,6 +328,7 @@ img {
 /* ---- SMALL BLOCKS ---- */
 .about,
 .contact {
+    cursor: pointer;
     color: white;
     aspect-ratio: 1 / 1;
 }

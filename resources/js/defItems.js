@@ -60,8 +60,8 @@ document.addEventListener('click', function(e) {
 
                     const defgroupId = formData.get('default_group_id');
 
+                    console.log('con>defItem>created: ', window.defGroupItemsCache);
                     loadDefGroupItems(defgroupId);
-
                     formDiv.remove();
                 })
                 .catch(err => {
@@ -86,7 +86,7 @@ function loadDefGroupItems(defgroupId) {
         .then(res => res.json())
         .then(data => {
             container.innerHTML = "";
-            groupItemsCache[defgroupId] = data.items
+            defGroupItemsCache[defgroupId] = data.items
             console.log('defgroup: ', data);
             if (data.items.length === 0) {
                 container.innerHTML = "";
@@ -101,7 +101,8 @@ function loadDefGroupItems(defgroupId) {
                                 data-bs-toggle="modal" 
                                 data-bs-target="#itemModal"
                                 data-item-id="${item.id}"
-                                data-group-id="${item.group_id || item.default_group_id}">
+                                data-group-id="${item.group_id}"
+                                data-def-group-id="${item.default_group_id}">
                                 <span class="tag">${tag}</span>
                                 <span>${item.name}</span>
                             </div>

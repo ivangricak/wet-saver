@@ -5,6 +5,9 @@ import './groups';
 window.groupItemsCache = {};
 console.log('con',groupItemsCache);
 
+window.defGroupItemsCache = {};
+console.log('def con', defGroupItemsCache);
+
 import { initOnlineItems } from './online/item/item';
 
 import { initNormItems } from './normItems';

@@ -48,14 +48,42 @@ export function UpdateItem() {
                         button.textContent = "Edit";
 
                         // Оновлення кешу (як і раніше)
-                        const groupId = res.item.group_id || res.item.default_group_id;
-                        if (window.groupItemsCache[groupId]) {
-                            const cachedItem = window.groupItemsCache[groupId].find(i => i.id === itemId);
-                            if (cachedItem) {
-                                Object.assign(cachedItem, res.item);
+                        // Оновлення кешу після зміни item
+                        const itemId = res.item.id;
+
+                        // Перевіряємо звичайну групу
+                        if (res.item.group_id != null) {
+                            const groupId = res.item.group_id;
+                            if (window.groupItemsCache[groupId]) {
+                                const cachedItem = window.groupItemsCache[groupId].find(i => i.id === itemId);
+                                if (cachedItem) {
+                                    Object.assign(cachedItem, res.item); 
+                                } else {
+                                    window.groupItemsCache[groupId].push(res.item);
+                                }
+                            } else {
+                                window.groupItemsCache[groupId] = [res.item];
                             }
                         }
-                        console.log('con>item>updated: ', window.groupItemsCache);
+
+                        // Перевіряємо дефолт-групу
+                        if (res.item.default_group_id != null) {
+                            const defGroupId = res.item.default_group_id;
+                            if (window.defGroupItemsCache[defGroupId]) {
+                                const cachedItem = window.defGroupItemsCache[defGroupId].find(i => i.id === itemId);
+                                if (cachedItem) {
+                                    Object.assign(cachedItem, res.item); 
+                                } else {
+                                    window.defGroupItemsCache[defGroupId].push(res.item);
+                                }
+                            } else {
+                                window.defGroupItemsCache[defGroupId] = [res.item];
+                            }
+                        }
+
+                        console.log('groupItemsCache: ', window.groupItemsCache);
+                        console.log('defGroupItemsCache: ', window.defGroupItemsCache);
+
                         
                         // ОНОВЛЕННЯ ЕЛЕМЕНТА В СПИСКУ
                         const itemDiv = document.querySelector(`.item[data-item-id="${itemId}"]`);
