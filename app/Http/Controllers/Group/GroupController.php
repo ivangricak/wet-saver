@@ -62,6 +62,7 @@ class GroupController extends Controller
             return [
                 'id' => $group->id,
                 'name' => $group->name,
+                'category_id' => $group->category_id,
                 'role' => $group->pivot->role,
                 'owner' => $owner_id
             ];
@@ -130,9 +131,12 @@ class GroupController extends Controller
             ]);
         }
 
-        $newGroup->load('items');
+        $newGroup->load(['items', 'users']);
 
-        return response()->json($newGroup);
+        return response()->json([
+            'group' => $newGroup,
+            'me' => auth()->user()
+        ]);
     }
 
     /**

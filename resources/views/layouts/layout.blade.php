@@ -44,7 +44,7 @@
                             <a class="nav-link" href="{{ route('profile.index') }}">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home.welcome') }}">About</a>
+                            <a class="nav-link" href="{{ route('home.welcome') }}">Main</a>
                         </li>
                         <!-- <li class="nav-item">
                             <a class="nav-link" href="#">History</a>

@@ -1,10 +1,10 @@
 @extends('layouts.layout')
 @section('content')
     <div class="section">
-        <div class="main-block" onclick="location.href='{{ route('home.index') }}'">
+        <div class="main-block" onclick="location.href='{{ route('home.index') }}'" oncontextmenu="return false;">
             <img src="/frame1.png" alt="">
         </div>
-        <div class="blog small-block" onclick="location.href='{{ route('home.blog') }}'">
+        <div class="blog small-block" onclick="location.href='{{ route('home.blog') }}'" oncontextmenu="return false;">
             <img src="/frame2.png" alt="">
         </div>
         <div class="about small-block" onclick="location.href='{{ route('home.about') }}'">

@@ -109,10 +109,39 @@ window.copyGroup = function (groupId) {
   })
   .then(res => res.json())
   .then(data => {
+
     console.log('Copy to private: ', data);
+
+    // const container = document.querySelector('.groups .main-container');
+
+    // renderNextGroups(container, [data.group], data.me);
+
+    // allGroups.push(data.group);
+
+  //   const containerGroup = document.querySelector(`#group-${data.group.id}`);
+
+  //   data.group.items.forEach(item => {
+  //     containerGroup.insertAdjacentHTML('beforeend', `
+  //         <div class="item-copy">
+  //             <div class="item" data-bs-toggle="modal"
+  //                  data-bs-target="#itemModal"
+  //                  data-item-id="${item.id}" data-group-id="${groupId}">
+  //                 <span class="tag"></span>
+  //                 <span>${item.name}</span>
+  //             </div>
+  //             <button class="copy" data-link="${item.link}" type="button">copy</button>
+  //         </div>
+  //     `);
+  // });
+
+    // initOnlineItems();
+    // ShowOnlineItems();
+
   })
   .catch(err => console.error(err));
 };
+
+
 
 function setupLoadMoreButton(container) {
   let button = document.querySelector('.load-more-groups');

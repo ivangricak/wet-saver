@@ -36,7 +36,7 @@ export function RenderGroups() {
                     <ul class="dropdown-menu">
                         <li>
                             <a class="nav-link" href="${profileUrl}">Profile</a>
-                            <button onclick="copyGroup(${group.id})">Копіювати групу</button>
+                            <button onclick="copyGroup1(${group.id})">copy group</button>
                             <li>
                                 <button type="submit" class="delete-btn-group" data-id="${group.id}">Delete Group</button>
                             </li>
@@ -68,7 +68,7 @@ export function RenderGroups() {
         .catch(err => console.error('Помилка при завантаженні груп:', err));
 }
 
-window.copyGroup = function (groupId) {
+window.copyGroup1 = function (groupId) {
     fetch(`/groups/${groupId}/copy`, {
         method: "POST",
         headers: {
@@ -79,9 +79,9 @@ window.copyGroup = function (groupId) {
     .then(res => res.json())
     .then(data => {
         console.log("Група скопійована:", data);
-        window.groups.push(data);
+        window.groups.push(data.group);
         console.log('group1: ', window.groups);
-            const group = data;
+            const group = data.group;
 
             const container = document.querySelector('.groups .main-container');
 
@@ -107,7 +107,7 @@ window.copyGroup = function (groupId) {
                 <ul class="dropdown-menu">
                     <li>
                         <a class="nav-link" href="${profileUrl}">Profile</a>
-                        <button onclick="copyGroup(${group.id})">Copy group</button>
+                        <button onclick="copyGroup1(${group.id})">Copy group</button>
                     </li>
                 </ul>
             `;

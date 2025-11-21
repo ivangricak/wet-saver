@@ -74,3 +74,95 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 SaveLink();
+
+
+// {
+//     "name": "пп",
+//     "category_id": 1,
+//     "state": 0,
+//     "updated_at": "2025-11-21T16:01:51.000000Z",
+//     "created_at": "2025-11-21T16:01:51.000000Z",
+//     "id": 164,
+//     "items": [
+//         {
+//             "id": 639,
+//             "group_id": 164,
+//             "default_group_id": null,
+//             "name": "аіф",
+//             "description": null,
+//             "link": "мвфі",
+//             "state": 1,
+//             "created_at": "2025-11-21T16:01:51.000000Z",
+//             "updated_at": "2025-11-21T16:01:51.000000Z",
+//             "deleted_at": null
+//         }
+//     ],
+//     "users": [
+//         {
+//             "id": 3,
+//             "nick": "user",
+//             "login": "ivan",
+//             "login_verified_at": null,
+//             "created_at": "2025-09-02T16:38:51.000000Z",
+//             "updated_at": "2025-11-15T18:46:44.000000Z",
+//             "pivot": {
+//                 "group_id": 164,
+//                 "user_id": 3
+//             }
+//         }
+//     ]
+// }
+
+
+
+
+
+
+
+
+// {
+//     "group": {
+//         "name": "пп",
+//         "category_id": 1,
+//         "state": 0,
+//         "updated_at": "2025-11-21T16:07:37.000000Z",
+//         "created_at": "2025-11-21T16:07:37.000000Z",
+//         "id": 166,
+//         "items": [
+//             {
+//                 "id": 641,
+//                 "group_id": 166,
+//                 "default_group_id": null,
+//                 "name": "аіф",
+//                 "description": null,
+//                 "link": "мвфі",
+//                 "state": 1,
+//                 "created_at": "2025-11-21T16:07:37.000000Z",
+//                 "updated_at": "2025-11-21T16:07:37.000000Z",
+//                 "deleted_at": null
+//             }
+//         ],
+//         "users": [
+//             {
+//                 "id": 3,
+//                 "nick": "user",
+//                 "login": "ivan",
+//                 "login_verified_at": null,
+//                 "created_at": "2025-09-02T16:38:51.000000Z",
+//                 "updated_at": "2025-11-15T18:46:44.000000Z",
+//                 "pivot": {
+//                     "group_id": 166,
+//                     "user_id": 3
+//                 }
+//             }
+//         ]
+//     },
+//     "me": {
+//         "id": 3,
+//         "nick": "user",
+//         "login": "ivan",
+//         "login_verified_at": null,
+//         "created_at": "2025-09-02T16:38:51.000000Z",
+//         "updated_at": "2025-11-15T18:46:44.000000Z"
+//     }
+// }

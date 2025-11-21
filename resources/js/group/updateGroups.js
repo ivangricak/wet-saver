@@ -31,7 +31,7 @@ document.addEventListener('click', function(e) {
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Categories1</label>
+                        <label class="form-label">Categories</label>
                         <select class="form-select category-select" name="category_id"></select>
                     </div>
 

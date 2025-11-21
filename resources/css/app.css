@@ -315,12 +315,14 @@ img {
     grid-row: span 2;
     aspect-ratio: 1 / 1;
     width: 100%;
+    cursor: pointer;
     grid-column: 1 / span 1; /* 50% ширини */
 }
 
 /* ---- BLOG ---- */
 .blog {
     grid-column: span 2;
+    cursor: pointer;
     /* background-color: gray; */
     aspect-ratio: 2 / 1; /* приблизно як 650×315 ідеально пропорційно */
 }

@@ -72,7 +72,7 @@ export function ShowItems() {
                 </select>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control item-field" data-field="link" value="${item.link}" readonly>
-                    <button class="btn btn-outline-secondary" onclick="navigator.clipboard.writeText('${item.link}')">📋 Копіювати</button>
+                    <button class="btn btn-outline-secondary" onclick="navigator.clipboard.writeText('${item.link}')">📋 copy</button>
                 </div>
                 <div class="input-group mb-3">
                     <textarea class="form-control item-field" rows="6" data-field="description" readonly>${item.description}</textarea>
