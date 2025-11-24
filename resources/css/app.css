@@ -371,12 +371,14 @@ img {
 }
 
 .about .block-title,
-.contact .block-title {
+.contact .block-title,
+.blogBlockThreeBlocksIn .block-title {
     font-size: clamp(10px, 1vw, 13px);
 }
 
 .about .text-btn-block,
-.contact .text-btn-block {
+.contact .text-btn-block,
+.blogBlockThreeBlocksIn .text-btn-block {
     font-size: clamp(20px, 2vw, 35px);
 }
 
@@ -386,13 +388,11 @@ img {
     padding-left: 20px;
     padding-top: 18px;
     font-weight: 600;
-    /* font-size: 13px; */
     grid-row: span 2;
-    grid-column: 1 / span 1;
+    grid-column: 1 / span 3;
 }
 
 .contact .text-btn-block {
-    /* font-size: 35px; */
     font-weight: 400;
     margin-left: 30px;
     text-align: start;
@@ -415,13 +415,15 @@ img {
         padding: 10px;
     }
 
-    .contact .block-title {
+    .contact .block-title,
+    .blogBlockThreeBlocksIn .block-title {
         font-size: 10px;
         grid-row: span 2;
         grid-column: 1 / span 2;
     }
     
-    .contact .text-btn-block {
+    .contact .text-btn-block,
+    .blogBlockThreeBlocksIn .text-btn-block {
         font-size: 20px;
         margin-left: 20px;
     }
@@ -440,8 +442,8 @@ img {
     .main-block,
     .blog,
     .about,
-    .contact {
-
+    .contact,
+    .blogBlockThreeBlocksIn {
         width: 100%;
     }
 
@@ -459,10 +461,16 @@ img {
         aspect-ratio: 1/1;
         grid-column: 1 / span 1;
     }
-    .contact {
+    .contact,
+    .blogBlockThreeBlocksIn {
         aspect-ratio: 1/1;
         grid-column: 2 / span 1;
     }
+
+    /*== VIEW OUR BLOG - START ==*/
+    
+
+    /*== VIEW OUR BLOG - END ==*/
 }
 
 
@@ -522,3 +530,206 @@ img {
         max-width: 500px; /* максимум ширини форми */
     }
 }
+
+
+
+
+/*----MAIN BLOCK VIEW OUR BLOG - START----*/
+
+
+.blogPage {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.blogBlock {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    max-width: 800px;
+    gap: 10px;
+}
+
+.blogBlockMain {
+    display: flex;
+    flex-direction: row;
+    border-radius: 30px;
+    width: 800px;
+    max-width: 800px;
+    height: 500px;
+    /* padding: 10px; */
+    gap: 10px;
+    /* background-color: rgb(175, 124, 124); */
+}
+
+.blogBlockMainLeft, .blogBlockMainRight {
+    width: 50%;
+    height: 100%;
+    border-radius: 25px;
+}
+
+.blogBlockMainLeft {
+    aspect-ratio: 1 / 1;
+}
+
+.blogBlockMainRight {
+    background-color: #F7F7F7;
+}
+
+.blogBlockThreeBlocks {
+    display: flex;
+    justify-content: space-around; /* теж можна center */
+    width: 800px;
+    max-width: 800px;
+    gap: 15px;
+    height: 250px;
+    /* background-color: #63674b; */
+}
+
+.blogBlockThreeBlocksIn {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+
+    width: 250px;
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 25px;
+    background-color: #F7F7F7;
+}
+
+.blogBlockThreeBlocksIn:first-child {
+    cursor: pointer;
+    color: white;
+    aspect-ratio: 1 / 1;
+    background-color: #2A2626;
+}
+
+.blogBlockInfoPhoto {
+    width: 800px;
+    max-width: 800px;
+    height: 350px;
+    border-radius: 25px;
+
+}
+
+.blogBlockInfoPhotoIn {
+    width: 100%;
+    height: 100%;
+}
+
+.accordion-body {
+    font-size: 12px;
+    background-color: #F7F7F7;
+}
+
+.accordion-button {
+    background-color: #F7F7F7;
+}
+
+.blogBlockThreeBlocksIn .block-title {
+    text-align: start;
+    padding-left: 20px;
+    padding-top: 18px;
+    font-weight: 600;
+    grid-column: 1 / span 3;
+}
+
+.blogBlockThreeBlocksIn .text-btn-block {
+    /* font-size: 35px; */
+    font-weight: 400;
+    margin-left: 30px;
+    text-align: start;
+    align-self: self-end;
+    grid-column: 1 / span 3;
+    grid-row: 3;
+}
+
+.small-text-block {
+    font-size: 11px;
+    font-weight: 300;
+    margin-left: 30px;
+    text-align: start;
+    align-self: flex-start;
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    color: #c6c6c6;
+}
+
+@media (max-width: 768px) {
+    .blogPage {
+        justify-content: start;
+    }
+
+    .blogBlock {
+        width: 100%;
+    }
+    
+    .blogBlockMain {
+        display: flex;
+        flex-direction: column;
+        border-radius: 30px;
+        width: 100%;
+        max-width: 800px;
+        height: 100%;
+        gap: 10px;
+    }
+
+    .blogBlockMain .blogBlockMainLeft {
+        width: 100%;
+    }
+
+    .blogBlockMain .blogBlockMainRight {
+        width: 100%;
+    }
+    
+    .blogBlockThreeBlocks {
+       
+    }
+
+    .blogBlockThreeBlocksIn {
+
+    }
+    .blogBlockThreeBlocks {
+        display: flex;
+        gap: 15px;
+        height: 400px;
+        width: 100%;
+        max-width: 800px;
+        overflow-x: auto;       /* горизонтальний скрол при переповненні */
+        scroll-behavior: smooth; /* плавний скрол */
+        padding-bottom: 10px;    /* для візуальної відстані скролу */
+    }
+    
+    .blogBlockThreeBlocksIn {
+        flex: 0 0 250px;        /* фіксована ширина, не стискається */
+        max-width: 250px;
+        height: 100%;
+        border-radius: 25px;
+        background-color: #F7F7F7;
+    }
+    
+    /* Приховати стандартний скролбар на Webkit браузерах (опційно) */
+    .blogBlockThreeBlocks::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .blogBlockThreeBlocks::-webkit-scrollbar-thumb {
+        background: #c6c6c6;
+        border-radius: 3px;
+    }
+    
+    .blogBlockThreeBlocks::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+
+    .blogBlockInfoPhoto {
+        width: 100%;
+    }
+}
+
+/*----MAIN BLOCK VIEW OUR BLOG - FINISH----*/
