@@ -78,23 +78,25 @@
             </div>
 
 
-
-            <div class="blogBlockThreeBlocks"> <!-- ширина 800px висота 250px -->
-                <div class="blogBlockThreeBlocksIn bBfirst small-block"> <!-- ширина 1/3 висота 250px -->
+        <div class="ww">
+ <div class="blogBlockThreeBlocks"> <!-- ширина 800px висота 250px -->
+                <div class="blogBlockThreeBlocksIn small-block"> <!-- ширина 1/3 висота 250px -->
                     <p class="block-title">JOIN OUR <br> COMMUNITY</p>
                     <p class="small-text-block">We are waiting for you in <br> our community</p>
                     <p class="text-btn-block">Community</p>
                 </div>
-                <div class="blogBlockThreeBlocksIn second small-block"> <!-- ширина 1/3 висота 250px -->
+                <div class="blogBlockThreeBlocksIn small-block"> <!-- ширина 1/3 висота 250px -->
                     <p class="block-title">WATCH OUR <br> ACHIEVEMENTS</p>
                     <p class="small-text-block"> live these moments with us. We are happy for everyone.</p>
                     <p class="text-btn-block">Social Media</p>
                 </div>
-                <div class="blogBlockThreeBlocksIn third small-block"> <!-- ширина 1/3 висота 250px -->
+                <div class="blogBlockThreeBlocksIn small-block"> <!-- ширина 1/3 висота 250px -->
                     <p class="block-title">HAVE SOME <br> QUESTIONS?</p>
                     <p class="text-btn-block">Contact us</p>
                 </div>
             </div>
+        </div>
+           
 
 
             <div class="blogBlockInfoPhoto"> <!-- ширина 800px висота 500px -->
