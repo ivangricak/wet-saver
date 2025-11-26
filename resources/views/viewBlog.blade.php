@@ -123,7 +123,7 @@ const newContents = [
   `,
   `
     <div class="dynamic-links">
-      <button type="button" class="center-link" onclick="location.href='mailto:support@example.com'">Email us</button>
+      <button type="button" class="center-link gmail-logo" onclick="location.href='mailto:support@example.com'"></button>
     </div>
   `
 ];

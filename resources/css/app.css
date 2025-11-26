@@ -711,9 +711,9 @@ img {
     }
     
     .blogBlockThreeBlocksIn {
-        flex: 0 0 250px;        /* фіксована ширина, не стискається */
+        flex: 0 250px 0 250px;        /* фіксована ширина, не стискається */
         max-width: 250px;
-        height: 100%;
+        max-height: 250px;
         border-radius: 25px;
         background-color: #F7F7F7;
     }
@@ -810,4 +810,10 @@ img {
     background-repeat: no-repeat;
     /* background-image: url('../../public/tg-logo.png'); */
     background-image: url('https://cdn.brandfetch.io/id68S6e-Gp/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1751901140899');
+}
+
+.gmail-logo {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../../public/gmail-logo.png');
 }
