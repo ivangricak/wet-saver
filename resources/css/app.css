@@ -702,32 +702,19 @@ img {
     .blogBlockThreeBlocks {
         display: flex;
         gap: 15px;
-
-        overflow-x: auto;
-        overflow-y: hidden; /* прибираємо вертикальний скрол */
-        scroll-behavior: smooth;
-        align-items: flex-start;
-        padding: 0; /* прибираємо додаткову висоту */
-        box-sizing: border-box; /* щоб padding не додавався */
-    }
-    
-    .blogBlockThreeBlocksIn {
-        flex: 0 0 250px;
-        width: 250px;
-        height: 250px;
-        box-sizing: border-box; /* padding/border не додаються до height */
-    }
-    
-    .ww {
-        height: 250px;
+        height: 400px;
+        width: 100%;
+        max-width: 800px;
+        overflow-x: auto;       /* горизонтальний скрол при переповненні */
+        scroll-behavior: smooth; /* плавний скрол */
+        padding-bottom: 10px;    /* для візуальної відстані скролу */
     }
     
     .blogBlockThreeBlocksIn {
         flex: 0 0 250px;        /* фіксована ширина, не стискається */
-        width: 250px;
-        height: 250px;
+        max-width: 250px;
+        /* height: 100%;  */
         border-radius: 25px;
-        flex-shrink: 0;
         background-color: #F7F7F7;
     }
     

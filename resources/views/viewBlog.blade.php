@@ -76,10 +76,7 @@
                     </div>
                 </div>
             </div>
-
-
-        <div class="ww">
- <div class="blogBlockThreeBlocks"> <!-- ширина 800px висота 250px -->
+            <div class="blogBlockThreeBlocks"> <!-- ширина 800px висота 250px -->
                 <div class="blogBlockThreeBlocksIn small-block"> <!-- ширина 1/3 висота 250px -->
                     <p class="block-title">JOIN OUR <br> COMMUNITY</p>
                     <p class="small-text-block">We are waiting for you in <br> our community</p>
@@ -95,10 +92,6 @@
                     <p class="text-btn-block">Contact us</p>
                 </div>
             </div>
-        </div>
-           
-
-
             <div class="blogBlockInfoPhoto"> <!-- ширина 800px висота 500px -->
                 <div class="blogBlockInfoPhotoIn"> <!-- ширина 50% висота 100% -->
                     <img src="" alt="">
