@@ -77,22 +77,25 @@
                 </div>
             </div>
 
+
+
             <div class="blogBlockThreeBlocks"> <!-- ширина 800px висота 250px -->
-                <div class="blogBlockThreeBlocksIn small-block"> <!-- ширина 1/3 висота 250px -->
+                <div class="blogBlockThreeBlocksIn bBfirst small-block"> <!-- ширина 1/3 висота 250px -->
                     <p class="block-title">JOIN OUR <br> COMMUNITY</p>
                     <p class="small-text-block">We are waiting for you in <br> our community</p>
                     <p class="text-btn-block">Community</p>
                 </div>
-                <div class="blogBlockThreeBlocksIn small-block"> <!-- ширина 1/3 висота 250px -->
+                <div class="blogBlockThreeBlocksIn second small-block"> <!-- ширина 1/3 висота 250px -->
                     <p class="block-title">WATCH OUR <br> ACHIEVEMENTS</p>
-                    <p class="small-text-block"> live these moments with us. <br> We are happy for everyone.</p>
+                    <p class="small-text-block"> live these moments with us. We are happy for everyone.</p>
                     <p class="text-btn-block">Social Media</p>
                 </div>
-                <div class="blogBlockThreeBlocksIn small-block"> <!-- ширина 1/3 висота 250px -->
+                <div class="blogBlockThreeBlocksIn third small-block"> <!-- ширина 1/3 висота 250px -->
                     <p class="block-title">HAVE SOME <br> QUESTIONS?</p>
                     <p class="text-btn-block">Contact us</p>
                 </div>
             </div>
+
 
             <div class="blogBlockInfoPhoto"> <!-- ширина 800px висота 500px -->
                 <div class="blogBlockInfoPhotoIn"> <!-- ширина 50% висота 100% -->
@@ -102,3 +105,67 @@
         </div>
     </section>
 @endsection
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+const newContents = [
+  `
+    <div class="dynamic-links">
+      <button type="button" class="center-link photo-tg" onclick="location.href='https://t.me'"></button>
+    </div>
+  `,
+  `
+    <div class="dynamic-links">
+        <button type="button" class="center-link" onclick="location.href='https://t.me'">Join Telegram</button>
+        <button type="button" class="center-link" onclick="location.href='https://tiktok.com'">TikTok</button>
+        <button type="button" class="center-link" onclick="location.href='https://instagram.com'">Instagram</button>
+    </div>
+  `,
+  `
+    <div class="dynamic-links">
+      <button type="button" class="center-link" onclick="location.href='mailto:support@example.com'">Email us</button>
+    </div>
+  `
+];
+
+document.querySelectorAll('.blogBlockThreeBlocksIn').forEach((block, index) => {
+
+  const originalContent = block.innerHTML;
+  const newContent = newContents[index];
+
+  let toggled = false;
+
+  block.addEventListener('click', () => {
+    if (block.classList.contains('animating')) return;
+
+    block.classList.add('animating', 'fade-out');
+
+    setTimeout(() => {
+      block.innerHTML = toggled ? originalContent : newContent;
+
+      // ---- Додаємо клас по кількості кнопок ----
+      const container = block.querySelector('.dynamic-links');
+      if (container) {
+          const buttons = container.querySelectorAll('.center-link').length;
+
+          if (buttons === 1) container.classList.add('single');
+          if (buttons === 2) container.classList.add('double');
+          if (buttons === 3) container.classList.add('triple');
+      }
+
+      block.classList.remove('fade-out');
+
+      setTimeout(() => {
+        block.classList.remove('animating');
+        toggled = !toggled;
+      }, 400);
+
+    }, 400);
+  });
+
+});
+
+});
+
+</script>
+

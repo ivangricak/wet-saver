@@ -382,7 +382,6 @@ img {
     font-size: clamp(20px, 2vw, 35px);
 }
 
-
 .contact .block-title {
     text-align: start;
     padding-left: 20px;
@@ -415,8 +414,7 @@ img {
         padding: 10px;
     }
 
-    .contact .block-title,
-    .blogBlockThreeBlocksIn .block-title {
+    .contact .block-title {
         font-size: 10px;
         grid-row: span 2;
         grid-column: 1 / span 2;
@@ -589,11 +587,10 @@ img {
 
 .blogBlockThreeBlocksIn {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    /* grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr; */
     cursor: pointer;
     aspect-ratio: 1 / 1;
-
     width: 250px;
     max-width: 250px;
     max-height: 250px;
@@ -677,6 +674,16 @@ img {
         height: 100%;
         gap: 10px;
     }
+    
+    .small-text-block {
+        font-size: 11px;
+        font-weight: 300;
+        margin-left: 30px;
+        text-align: start;
+        align-self: flex-start;
+        grid-column: 1 / span 2;
+
+    }
 
     .blogBlockMain .blogBlockMainLeft {
         width: 100%;
@@ -686,13 +693,12 @@ img {
         width: 100%;
     }
     
-    .blogBlockThreeBlocks {
-       
+    .blogBlockThreeBlocksIn .block-title {
+        font-size: 10px;
+        grid-row: span 1;
+        grid-column: 1 / span 2;
     }
 
-    .blogBlockThreeBlocksIn {
-
-    }
     .blogBlockThreeBlocks {
         display: flex;
         gap: 15px;
@@ -733,3 +739,75 @@ img {
 }
 
 /*----MAIN BLOCK VIEW OUR BLOG - FINISH----*/
+
+
+.blogBlockThreeBlocksIn {
+    padding: 10px;
+    gap: 10px;
+    transition: opacity 0.4s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.blogBlockThreeBlocksIn.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.blogBlockThreeBlocksIn .center-link {
+    text-align: center;
+    background-color: #7d1313;
+    border-radius: 20px;
+    grid-column: 1 / span 3;
+    height: 100%;
+    font-size: 20px;
+    font-weight: bold;
+}
+  
+.blogBlockThreeBlocksIn .center-link {
+    background-color: #2f2f2f;
+    color: #ffffff;
+    border-radius: 18px;
+    grid-column: 1 / span 3;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* авто-висота кнопок по кількості */
+    height: auto;
+}
+
+/* Контейнер кнопок — стає колонкою */
+.dynamic-links {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+}
+
+/* 1 кнопка = 100% */
+.dynamic-links.single .center-link {
+    flex: 1 1 100%;
+}
+
+/* 2 кнопки = 50% / 50% */
+.dynamic-links.double .center-link {
+    flex: 1 1 50%;
+}
+
+/* 3 кнопки = 33% / 33% / 33% */
+.dynamic-links.triple .center-link {
+    flex: 1 1 33%;
+}
+
+.photo-tg {
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-image: url('../../public/tg-logo.png'); */
+    background-image: url('https://cdn.brandfetch.io/id68S6e-Gp/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1751901140899');
+}
