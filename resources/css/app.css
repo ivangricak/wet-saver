@@ -714,7 +714,7 @@ img {
     .blogBlockThreeBlocksIn {
         flex: 0 0 250px;        /* фіксована ширина, не стискається */
         max-width: 250px;
-        /* height: 100%;  */
+        height: 250px; 
         border-radius: 25px;
         background-color: #F7F7F7;
         flex-shrink: 0;
