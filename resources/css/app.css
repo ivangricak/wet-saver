@@ -708,7 +708,7 @@ img {
         overflow-x: auto;       /* горизонтальний скрол при переповненні */
         scroll-behavior: smooth; /* плавний скрол */
         padding-bottom: 10px;    /* для візуальної відстані скролу */
-        flex-shrink: 0;
+        flex-shrink: 1;
     }
     
     .blogBlockThreeBlocksIn {
@@ -717,7 +717,7 @@ img {
         /* height: 100%;  */
         border-radius: 25px;
         background-color: #F7F7F7;
-        flex-shrink: 1;
+        flex-shrink: 0;
     }
     
     /* Приховати стандартний скролбар на Webkit браузерах (опційно) */
