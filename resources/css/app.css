@@ -702,7 +702,7 @@ img {
     .blogBlockThreeBlocks {
         display: flex;
         gap: 15px;
-        height: 400px;
+        height: 450px;
         width: 100%;
         max-width: 800px;
         overflow-x: auto;       /* горизонтальний скрол при переповненні */
