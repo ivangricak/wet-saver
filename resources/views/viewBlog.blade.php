@@ -3,8 +3,7 @@
     <section class="blogPage"> <!-- -->
         <div class="blogBlock">
             <div class="blogBlockMain"> <!-- ширина 800px висота 500px -->
-                <div class="blogBlockMainLeft"> <!-- ширина 50% висота 100% -->
-                    <img src="" alt="">
+                <div class="blogBlockMainLeft frame"> <!-- ширина 50% висота 100% -->
                 </div>
                 <div class="blogBlockMainRight"> <!-- ширина 50% висота 100% -->
                 <h2 class="mt-4 ms-4 mb-2 fw-bold">WHAT WE OFFER</h2>

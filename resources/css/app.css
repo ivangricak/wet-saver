@@ -819,3 +819,9 @@ img {
     background-repeat: no-repeat;
     background-image: url('../../public/gmail-logo.png');
 }
+
+.frame {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../../public/fr4.png');
+}
