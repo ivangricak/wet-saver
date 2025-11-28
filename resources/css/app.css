@@ -551,6 +551,13 @@ img {
     gap: 10px;
 }
 
+.blogBlock h2 {
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
 .blogBlockMain {
     display: flex;
     flex-direction: row;
@@ -709,7 +716,7 @@ img {
     .blogBlockThreeBlocks {
         display: flex;
         gap: 15px;
-        height: 450px;
+        height: 300px;
         width: 100%;
         max-width: 800px;
         overflow-x: auto;       /* горизонтальний скрол при переповненні */
@@ -836,6 +843,42 @@ img {
     background-image: url('../../public/fr4.png');
 }
 
-.phone-img {
 
+
+
+
+/*----MAIN BLOCK ABOUT US - START----*/
+
+.aboutUsPage {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
 }
+
+.aboutUsblockMain {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.aboutUsblock {
+    max-width: 800px;
+    height: auto;
+    background-color: #F7F7F7;
+    padding: 20px 35px 20px 30px;
+    border-radius: 25px;
+}
+
+.aboutUsblock p {
+    padding-left: 15px;
+}
+
+.aboutUsblockMain h2 {
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+/*----MAIN BLOCK ABOUT US - END----*/

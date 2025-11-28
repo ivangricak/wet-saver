@@ -4,10 +4,10 @@
         <div class="main-block" onclick="location.href='{{ route('home.index') }}'" oncontextmenu="return false;">
             <img src="/frame1.png" alt="">
         </div>
-        <div class="blog small-block" onclick="location.href='{{ route('home.blog') }}'" oncontextmenu="return false;">
+        <div class="blog small-block" onclick="location.href='#blogPage'" oncontextmenu="return false;">
             <img src="/frame2.png" alt="">
         </div>
-        <div class="about small-block" onclick="location.href='{{ route('home.about') }}'">
+        <div class="about small-block" onclick="location.href='#about'">
             <p class="block-title">DISCOVER <br> OUR HISTORY</p>
             <p class="text-btn-block">About us</p>
         </div>
@@ -16,8 +16,9 @@
             <p class="text-btn-block">Contact us</p>
         </div>
     </div>
-    <section class="blogPage"> <!-- -->
+    <section class="blogPage" id="blogPage"> <!-- -->
         <div class="blogBlock">
+            <h2>VIEW OUR BLOG</h2>
             <div class="blogBlockMain"> <!-- ширина 800px висота 500px -->
                 <div class="blogBlockMainLeft"> 
                     <img src="/fr4.png" class="phone-img">
@@ -112,11 +113,74 @@
             </div> -->
         </div>
     </section>
+    <section class="aboutUsPage" id="about">
+        <div class="aboutUsblockMain">
+            <h2>About Us</h2>
+            <div class="aboutUsblock">
+                <h4>About Project</h4>
+                <p>
+                    I am the founder of this project, driven by the goal of redefining how people interact with links and online information. 
+                    <br>
+                    <br>
+                    At the moment, I’m developing the product independently while actively looking for like-minded individuals to join the future team. 
+                    <br>
+                    <br>
+                    Despite limited resources, I’m committed to building a tool that saves time, removes unnecessary steps, and makes everyday work on the internet noticeably simpler.
+                </p>
+            </div>
+            <div class="aboutUsblock">
+                <h4>Mission</h4>
+                <p>
+                    My mission is to provide the fastest and most convenient way to save and organize links, helping people spend less time on routine tasks and more time on what truly matters. 
+                    <br>
+                    I want access to important information to be so quick and precise that it takes just one click.
+                </p>
+            </div>
+            <div class="aboutUsblock">
+                <h4>What We’re Building</h4>
+                <p>
+                    The product is an independent, multifunctional link storage solution built around three core principles:
+                    <br><br>
+                    Speed: saving and accessing links in seconds.
+                    <br><br>
+                    Convenience: an interface and logic designed with zero unnecessary actions.
+                    <br><br>
+                    Flexibility: the ability to work with links in the way that suits you best.
+                    <br><br>
+                    It is currently intended for everyday users, but in the future, a dedicated version for teams or businesses may also appear.
+                </p>
+            </div>
+            <div class="aboutUsblock">
+                <h4>Our Path & Goals</h4>
+                <p>
+                The project is launching for Ukrainian and English-speaking audiences, and its development will focus on building a full ecosystem of interconnected tools. 
+                <br><br>
+                The long-term goal is to go beyond a simple link-saving service and become a complete information-management solution, including:
+                <br><br>
+                an expanded web platform,
+                <br>
+                a mobile application,
+                <br>
+                a Telegram bot,
+                <br>
+                a browser extension,
+                <br>
+                multi-platform support and a synchronized ecosystem.
+                <br><br>
+                All of this is aimed at allowing users to save, find, and use information quickly – regardless of the device or context.
+                </p>
+            </div>
+        </div>
+        
+    </section>
 @endsection
+
+
+
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-
 const newContents = [
   `
     <div class="dynamic-links">
@@ -137,44 +201,41 @@ const newContents = [
   `
 ];
 
-document.querySelectorAll('.blogBlockThreeBlocksIn').forEach((block, index) => {
+    document.querySelectorAll('.blogBlockThreeBlocksIn').forEach((block, index) => {
 
-  const originalContent = block.innerHTML;
-  const newContent = newContents[index];
+    const originalContent = block.innerHTML;
+    const newContent = newContents[index];
 
-  let toggled = false;
+    let toggled = false;
 
-  block.addEventListener('click', () => {
-    if (block.classList.contains('animating')) return;
+    block.addEventListener('click', () => {
+        if (block.classList.contains('animating')) return;
 
-    block.classList.add('animating', 'fade-out');
+        block.classList.add('animating', 'fade-out');
 
-    setTimeout(() => {
-      block.innerHTML = toggled ? originalContent : newContent;
+        setTimeout(() => {
+        block.innerHTML = toggled ? originalContent : newContent;
 
-      // ---- Додаємо клас по кількості кнопок ----
-      const container = block.querySelector('.dynamic-links');
-      if (container) {
-          const buttons = container.querySelectorAll('.center-link').length;
+        // ---- Додаємо клас по кількості кнопок ----
+        const container = block.querySelector('.dynamic-links');
+        if (container) {
+            const buttons = container.querySelectorAll('.center-link').length;
 
-          if (buttons === 1) container.classList.add('single');
-          if (buttons === 2) container.classList.add('double');
-          if (buttons === 3) container.classList.add('triple');
-      }
+            if (buttons === 1) container.classList.add('single');
+            if (buttons === 2) container.classList.add('double');
+            if (buttons === 3) container.classList.add('triple');
+        }
 
-      block.classList.remove('fade-out');
+        block.classList.remove('fade-out');
 
-      setTimeout(() => {
-        block.classList.remove('animating');
-        toggled = !toggled;
-      }, 400);
+        setTimeout(() => {
+            block.classList.remove('animating');
+            toggled = !toggled;
+        }, 400);
 
-    }, 400);
-  });
+        }, 400);
+    });
 
+    });
 });
-
-});
-
 </script>
-
