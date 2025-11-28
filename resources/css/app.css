@@ -544,8 +544,8 @@ img {
 }
 
 .blogBlock {
-    /* display: flex; */
-    /* flex-direction: column; */
+    display: flex;
+    flex-direction: column;
     width: 800px;
     max-width: 800px;
     gap: 10px;
@@ -688,7 +688,7 @@ img {
     }
 
     .blogBlockMain .blogBlockMainLeft {
-        width: 100%;
+        width: auto;
     }
 
     .blogBlockMain .blogBlockMainRight {
