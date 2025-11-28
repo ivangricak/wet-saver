@@ -569,9 +569,9 @@ img {
     border-radius: 25px;
 }
 
-.blogBlockMainLeft {
+/* .blogBlockMainLeft {
     aspect-ratio: 1 / 1;
-}
+} */
 
 .blogBlockMainRight {
     background-color: #F7F7F7;
@@ -672,8 +672,8 @@ img {
         flex-direction: column;
         border-radius: 30px;
         width: 100%;
-        max-width: 800px;
-        height: 100%;
+        max-width: none;
+        height: auto;
         gap: 10px;
     }
     
@@ -823,7 +823,10 @@ img {
 }
 
 .frame {
+    height: 500px;
+    width: 400px;
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
     background-image: url('../../public/fr4.png');
 }
