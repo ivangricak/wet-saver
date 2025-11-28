@@ -690,7 +690,9 @@ img {
 
     .blogBlockMain .blogBlockMainLeft {
         grid-column: 1 / span 2;
-        width: auto;
+        max-height: 500px;
+        max-width: 400px;
+        width: 100%;
     }
 
     .blogBlockMain .blogBlockMainRight {
