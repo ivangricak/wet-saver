@@ -91,11 +91,11 @@
                     <p class="text-btn-block">Contact us</p>
                 </div>
             </div>
-            <div class="blogBlockInfoPhoto"> <!-- ширина 800px висота 500px -->
-                <div class="blogBlockInfoPhotoIn"> <!-- ширина 50% висота 100% -->
+            <!-- <div class="blogBlockInfoPhoto">
+                <div class="blogBlockInfoPhotoIn"> 
                     <img src="" alt="">
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 @endsection

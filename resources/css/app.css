@@ -289,9 +289,10 @@
 .section {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr; /* або твій варіант */
-    gap: 20px;
-    padding: 50px 50px 25px 50px;
-    max-width: 1800px; /* ← тут обмежуємо */
+    gap: 10px;
+    /* padding: 50px 50px 25px 50px; */
+    /* max-width: 1800px; ← тут обмежуємо */
+    max-width: 800px;
     margin: 0 auto;    /* ← центр */
 }
 
@@ -396,7 +397,8 @@ img {
     margin-left: 30px;
     text-align: start;
     align-self: self-end;
-    grid-column: 1 / span 2;
+    /* grid-column: 1 / span 2; */
+    grid-column: 1 / span 3;
 }
 
 @media (min-width: 1800px) {
