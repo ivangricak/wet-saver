@@ -544,8 +544,8 @@ img {
 }
 
 .blogBlock {
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
     width: 800px;
     max-width: 800px;
     gap: 10px;
@@ -687,11 +687,8 @@ img {
 
     }
 
-    .blogBlockMainLeft {
-        aspect-ratio: unset;
-        height: auto;
-        min-height: 500px; /* або будь-яка висота */
-        background-size: contain;
+    .blogBlockMain .blogBlockMainLeft {
+        width: 100%;
     }
 
     .blogBlockMain .blogBlockMainRight {
@@ -826,10 +823,7 @@ img {
 }
 
 .frame {
-    width: 100%;
-    height: 100%;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
     background-image: url('../../public/fr4.png');
 }
