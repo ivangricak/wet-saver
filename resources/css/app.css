@@ -668,8 +668,9 @@ img {
     }
     
     .blogBlockMain {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
         border-radius: 30px;
         width: 100%;
         max-width: none;
@@ -688,10 +689,12 @@ img {
     }
 
     .blogBlockMain .blogBlockMainLeft {
+        grid-column: 1 / span 2;
         width: auto;
     }
 
     .blogBlockMain .blogBlockMainRight {
+        grid-column: 1 / span 2;
         width: 100%;
     }
     
@@ -829,4 +832,8 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('../../public/fr4.png');
+}
+
+.phone-img {
+
 }
