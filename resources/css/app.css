@@ -687,8 +687,11 @@ img {
 
     }
 
-    .blogBlockMain .blogBlockMainLeft {
-        width: 100%;
+    .blogBlockMainLeft {
+        aspect-ratio: unset;
+        height: auto;
+        min-height: 500px; /* або будь-яка висота */
+        background-size: contain;
     }
 
     .blogBlockMain .blogBlockMainRight {
@@ -823,7 +826,10 @@ img {
 }
 
 .frame {
+    width: 100%;
+    height: 100%;
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
     background-image: url('../../public/fr4.png');
 }
