@@ -113,66 +113,136 @@
             </div> -->
         </div>
     </section>
-    <section class="aboutUsPage" id="about">
-        <div class="aboutUsblockMain">
-            <h2>About Us</h2>
-            <div class="aboutUsblock">
-                <h4>About Project</h4>
-                <p>
-                    I am the founder of this project, driven by the goal of redefining how people interact with links and online information. 
-                    <br>
-                    <br>
-                    At the moment, I’m developing the product independently while actively looking for like-minded individuals to join the future team. 
-                    <br>
-                    <br>
-                    Despite limited resources, I’m committed to building a tool that saves time, removes unnecessary steps, and makes everyday work on the internet noticeably simpler.
-                </p>
-            </div>
-            <div class="aboutUsblock">
-                <h4>Mission</h4>
-                <p>
-                    My mission is to provide the fastest and most convenient way to save and organize links, helping people spend less time on routine tasks and more time on what truly matters. 
-                    <br>
-                    I want access to important information to be so quick and precise that it takes just one click.
-                </p>
-            </div>
-            <div class="aboutUsblock">
-                <h4>What We’re Building</h4>
-                <p>
-                    The product is an independent, multifunctional link storage solution built around three core principles:
-                    <br><br>
-                    Speed: saving and accessing links in seconds.
-                    <br><br>
-                    Convenience: an interface and logic designed with zero unnecessary actions.
-                    <br><br>
-                    Flexibility: the ability to work with links in the way that suits you best.
-                    <br><br>
-                    It is currently intended for everyday users, but in the future, a dedicated version for teams or businesses may also appear.
-                </p>
-            </div>
-            <div class="aboutUsblock">
-                <h4>Our Path & Goals</h4>
-                <p>
-                The project is launching for Ukrainian and English-speaking audiences, and its development will focus on building a full ecosystem of interconnected tools. 
+
+
+<section class="nexora-container" id="about">
+    <!-- <div class="aboutUsblockMain" aboutUsPage>
+        <h2>About Us</h2>
+        <div class="aboutUsblock">
+            <h4>About Project</h4>
+            <p> <img src="" alt="">
+                I am the founder of this project, driven by the goal of redefining how people interact with links and online information. 
+                <br>
+                <br>
+                At the moment, I’m developing the product independently while actively looking for like-minded individuals to join the future team. 
+                <br>
+                <br>
+                Despite limited resources, I’m committed to building a tool that saves time, removes unnecessary steps, and makes everyday work on the internet noticeably simpler.
+            </p>
+        </div>
+        <div class="aboutUsblock">
+            <h4>Mission</h4>
+            <p>
+                My mission is to provide the fastest and most convenient way to save and organize links, helping people spend less time on routine tasks and more time on what truly matters. 
+                <br>
+                I want access to important information to be so quick and precise that it takes just one click.
+            </p>
+        </div>
+        <div class="aboutUsblock">
+            <h4>What We’re Building</h4>
+            <p>
+                The product is an independent, multifunctional link storage solution built around three core principles:
                 <br><br>
-                The long-term goal is to go beyond a simple link-saving service and become a complete information-management solution, including:
+                Speed: saving and accessing links in seconds.
                 <br><br>
-                an expanded web platform,
-                <br>
-                a mobile application,
-                <br>
-                a Telegram bot,
-                <br>
-                a browser extension,
-                <br>
-                multi-platform support and a synchronized ecosystem.
+                Convenience: an interface and logic designed with zero unnecessary actions.
                 <br><br>
-                All of this is aimed at allowing users to save, find, and use information quickly – regardless of the device or context.
-                </p>
+                Flexibility: the ability to work with links in the way that suits you best.
+                <br><br>
+                It is currently intended for everyday users, but in the future, a dedicated version for teams or businesses may also appear.
+            </p>
+        </div>
+        <div class="aboutUsblock">
+            <h4>Our Path & Goals</h4>
+            <p>
+            The project is launching for Ukrainian and English-speaking audiences, and its development will focus on building a full ecosystem of interconnected tools. 
+            <br><br>
+            The long-term goal is to go beyond a simple link-saving service and become a complete information-management solution, including:
+            <br><br>
+            an expanded web platform,
+            <br>
+            a mobile application,
+            <br>
+            a Telegram bot,
+            <br>
+            a browser extension,
+            <br>
+            multi-platform support and a synchronized ecosystem.
+            <br><br>
+            All of this is aimed at allowing users to save, find, and use information quickly – regardless of the device or context.
+            </p>
+        </div>
+    </div> -->
+        
+
+
+
+    <!-- HEADER BLOCK -->
+    <section class="blockHeaderAboutUs py-4">
+        <div class="blockHeaderAboutUsDiv shadow-lg">
+            <div class="blockImg">
+                <img src="/main.png" class="" alt="">
+            
+                <div class="text">
+                    <h2>About Us</h2>
+                    <p>
+                        I am the founder of this project, driven by the goal of redefining how people interact 
+                        with links and online information.
+                    </p>
+                    <p>
+                        At the moment, I’m developing the product independently while actively looking 
+                        for like-minded individuals to join the future team.
+                    </p>
+                    <p>
+                        Despite limited resources, I’m committed to building a tool that saves time, 
+                        removes unnecessary steps, and makes everyday work on the internet noticeably simpler.
+                    </p>
+                </div>
             </div>
         </div>
-        
     </section>
+
+    <!-- MISSION BLOCK -->
+    <section class="my-4">
+        <div class="p-4 bg-white shadow-lg rounded-4">
+            <h2 class="mb-4">Mission</h2>
+
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="mission-number">1</div>
+                    <p>provide the fastest way to save and organize links</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="mission-number">2</div>
+                    <p>create an ecosystem and flexibility of use</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="mission-number">3</div>
+                    <p>collaborate with others organizations and companies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT WE'RE BUILDING -->
+    <section class="blockWhatWaAreBuilding">
+        <div class="blockWhatWaAreBuildingDiv bg-white shadow-lg rounded-4">
+            <h2>What We’re Building</h2>
+            <p>
+                The product is an independent, multifunctional link storage solution 
+                built around three core principles
+            </p>
+
+            <div class="blockImg">
+                <img src="/main1.png" class="" alt="">
+                
+                <img src="/main2.png" class="" alt="">
+
+                <img src="/main3.png" class="" alt="">
+            </div>
+        </div>
+    </section>
+</section>
 @endsection
 
 
