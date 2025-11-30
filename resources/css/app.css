@@ -891,6 +891,16 @@ img {
     padding: 10px;
 }
 
+.nexora-container h2{
+    margin: 0;
+    padding: 0;
+    /* margin-top: 10px; */
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+
+
 /* Вертикальний текст */
 .vertical-title {
     writing-mode: vertical-rl;
@@ -901,9 +911,20 @@ img {
 }
 
 /* Кружечки Mission */
+
+.blockMission {
+    display: flex;
+    flex-direction: column;
+}
+
+.blockMission p {
+    max-width: 160px;
+    margin-left: 35px;
+}
+
 .mission-number {
-    width: 48px;
-    height: 48px;
+    width: 30px;
+    height: 30px;
     font-size: 20px;
     border-radius: 50%;
     background: #222;
@@ -911,7 +932,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto 10px auto;
+    /* margin: 0 auto 10px auto; */
 }
 
 /* Feature blocks */
@@ -1017,4 +1038,29 @@ img {
         border-radius: 15px;
     }
     
+    /* Mission */
+    .blockMission {
+        display: flex;
+        flex-direction: row;
+        padding-left: 20px;
+    }
+    
+    .blockMission p {
+        max-width: 240px;
+        margin-left: 15px;
+    }
+    
+    .mission-number {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        border-radius: 50%;
+        background: #222;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* margin: 0 auto 10px auto; */
+    }    
+
 }

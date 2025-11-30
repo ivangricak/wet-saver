@@ -116,6 +116,7 @@
 
 
 <section class="nexora-container" id="about">
+    <h2>ABOUT US</h2>
     <!-- <div class="aboutUsblockMain" aboutUsPage>
         <h2>About Us</h2>
         <div class="aboutUsblock">
@@ -173,12 +174,9 @@
             </p>
         </div>
     </div> -->
-        
-
-
 
     <!-- HEADER BLOCK -->
-    <section class="blockHeaderAboutUs py-4">
+    <section class="blockHeaderAboutUs">
         <div class="blockHeaderAboutUsDiv shadow-lg">
             <div class="blockImg">
                 <img src="/main.png" class="" alt="">
@@ -207,16 +205,16 @@
         <div class="p-4 bg-white shadow-lg rounded-4">
             <h2 class="mb-4">Mission</h2>
 
-            <div class="row text-center">
-                <div class="col-md-4 mb-4">
+            <div class="row">
+                <div class="blockMission col-md-4 mb-4">
                     <div class="mission-number">1</div>
                     <p>provide the fastest way to save and organize links</p>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div class="blockMission col-md-4 mb-4">
                     <div class="mission-number">2</div>
                     <p>create an ecosystem and flexibility of use</p>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div class="blockMission col-md-4 mb-4">
                     <div class="mission-number">3</div>
                     <p>collaborate with others organizations and companies</p>
                 </div>
