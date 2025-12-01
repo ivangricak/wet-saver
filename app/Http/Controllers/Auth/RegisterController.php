@@ -40,7 +40,7 @@ class RegisterController extends Controller
         DefaultGroup::create([
             'name' => 'default group',
             'user_id' => $user->id,
-            'category_id' => 1
+            'category_id' => 3
         ]);
 
         auth()->login($user);
