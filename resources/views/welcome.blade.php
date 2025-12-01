@@ -11,7 +11,7 @@
             <p class="block-title">DISCOVER <br> OUR HISTORY</p>
             <p class="text-btn-block">About us</p>
         </div>
-        <div class="contact small-block" onclick="location.href='{{ route('home.contact') }}'">
+        <div class="contact small-block" id="contactBlock">
             <p class="block-title">HAVE SOME <br> QUESTIONS?</p>
             <p class="text-btn-block">Contact us</p>
         </div>
@@ -21,7 +21,7 @@
             <h2>VIEW OUR BLOG</h2>
             <div class="blogBlockMain"> <!-- ширина 800px висота 500px -->
                 <div class="blogBlockMainLeft"> 
-                    <img src="/fr4.png" class="phone-img">
+                    <img src="/nexoraBaner.png" class="phone-img">
                 </div>
                 <div class="blogBlockMainRight"> <!-- ширина 50% висота 100% -->
                 <h2 class="mt-4 ms-4 mb-2 fw-bold">WHAT WE OFFER</h2>
@@ -208,23 +208,23 @@
             <div class="row">
                 <div class="blockMission col-md-4 mb-4">
                     <div class="mission-number">1</div>
-                    <p>provide the fastest way to save and organize links</p>
+                    <p>Provide the fastest way to save and organize links</p>
                 </div>
                 <div class="blockMission col-md-4 mb-4">
                     <div class="mission-number">2</div>
-                    <p>create an ecosystem and flexibility of use</p>
+                    <p>Create an ecosystem and flexibility of use</p>
                 </div>
                 <div class="blockMission col-md-4 mb-4">
                     <div class="mission-number">3</div>
-                    <p>collaborate with others organizations and companies</p>
+                    <p>Collaborate with others organizations and companies</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- WHAT WE'RE BUILDING -->
-    <section class="blockWhatWaAreBuilding">
-        <div class="blockWhatWaAreBuildingDiv bg-white shadow-lg rounded-4">
+    <section class="blockWhatWaAreBuilding bg-white shadow-lg rounded-4">
+        <div class="blockWhatWaAreBuildingDiv">
             <h2>What We’re Building</h2>
             <p>
                 The product is an independent, multifunctional link storage solution 
@@ -232,11 +232,11 @@
             </p>
 
             <div class="blockImg">
-                <img src="/main1.png" class="" alt="">
+                <img src="/main1.png" alt="">
                 
-                <img src="/main2.png" class="" alt="">
+                <img src="/main2.png" alt="">
 
-                <img src="/main3.png" class="" alt="">
+                <img src="/main3.png" alt="">
             </div>
         </div>
     </section>
@@ -245,65 +245,115 @@
 
 
 
-
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-const newContents = [
-  `
-    <div class="dynamic-links">
-      <button type="button" class="center-link photo-tg" onclick="location.href='https://t.me'"></button>
-    </div>
-  `,
-  `
-    <div class="dynamic-links">
-        <button type="button" class="center-link" onclick="location.href='https://t.me'">Join Telegram</button>
-        <button type="button" class="center-link" onclick="location.href='https://tiktok.com'">TikTok</button>
-        <button type="button" class="center-link" onclick="location.href='https://instagram.com'">Instagram</button>
-    </div>
-  `,
-  `
-    <div class="dynamic-links">
-      <button type="button" class="center-link gmail-logo" onclick="location.href='mailto:support@example.com'"></button>
-    </div>
-  `
-];
 
-    document.querySelectorAll('.blogBlockThreeBlocksIn').forEach((block, index) => {
+    const contactBlock = document.getElementById('contactBlock');
 
-    const originalContent = block.innerHTML;
-    const newContent = newContents[index];
+    if (!contactBlock) return;
+
+    const originalContent = contactBlock.innerHTML;
+
+    const newContent = `
+        <div class="dynamic-links blockContact">
+            <button type="button" class="center-link gmail-logo rounded-5" onclick="location.href='mailto:nexora.join@gmail.com'"></button>
+        </div>
+    `;
 
     let toggled = false;
 
-    block.addEventListener('click', () => {
-        if (block.classList.contains('animating')) return;
+    contactBlock.addEventListener('click', () => {
 
-        block.classList.add('animating', 'fade-out');
+        if (contactBlock.classList.contains('animating')) return;
 
-        setTimeout(() => {
-        block.innerHTML = toggled ? originalContent : newContent;
-
-        // ---- Додаємо клас по кількості кнопок ----
-        const container = block.querySelector('.dynamic-links');
-        if (container) {
-            const buttons = container.querySelectorAll('.center-link').length;
-
-            if (buttons === 1) container.classList.add('single');
-            if (buttons === 2) container.classList.add('double');
-            if (buttons === 3) container.classList.add('triple');
-        }
-
-        block.classList.remove('fade-out');
+        contactBlock.classList.add('animating', 'fade-out');
 
         setTimeout(() => {
-            block.classList.remove('animating');
-            toggled = !toggled;
-        }, 400);
+
+            contactBlock.innerHTML = toggled ? originalContent : newContent;
+
+            const container = contactBlock.querySelector('.dynamic-links');
+            if (container) {
+                const buttons = container.querySelectorAll('.center-link').length;
+
+                if (buttons === 1) container.classList.add('single');
+                if (buttons === 2) container.classList.add('double');
+                if (buttons === 3) container.classList.add('triple');
+            }
+
+            contactBlock.classList.remove('fade-out');
+
+            setTimeout(() => {
+                contactBlock.classList.remove('animating');
+                toggled = !toggled;
+            }, 400);
 
         }, 400);
     });
 
-    });
 });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const newContents = [
+    `
+        <div class="dynamic-links">
+        <button type="button" class="center-link photo-tg" onclick="location.href='https://t.me/+OlnATWKlLmI0ZTgy'"></button>
+        </div>
+    `,
+    `
+        <div class="dynamic-links">
+            <button type="button" class="center-link" onclick="location.href='https://t.me/+Qlod5OF35LdmZTYy'">Join Telegram</button>
+            <button type="button" class="center-link" onclick="location.href='#'">TikTok</button>
+            <button type="button" class="center-link" onclick="location.href='#'">Instagram</button>
+        </div>
+    `,
+    `
+        <div class="dynamic-links">
+        <button type="button" class="center-link gmail-logo" onclick="location.href='mailto:nexora.join@gmail.com'"></button>
+        </div>
+    `
+    ];
+
+        document.querySelectorAll('.blogBlockThreeBlocksIn').forEach((block, index) => {
+
+        const originalContent = block.innerHTML;
+        const newContent = newContents[index];
+
+        let toggled = false;
+
+        block.addEventListener('click', () => {
+            if (block.classList.contains('animating')) return;
+
+            block.classList.add('animating', 'fade-out');
+
+            setTimeout(() => {
+            block.innerHTML = toggled ? originalContent : newContent;
+
+            // ---- Додаємо клас по кількості кнопок ----
+            const container = block.querySelector('.dynamic-links');
+            if (container) {
+                const buttons = container.querySelectorAll('.center-link').length;
+
+                if (buttons === 1) container.classList.add('single');
+                if (buttons === 2) container.classList.add('double');
+                if (buttons === 3) container.classList.add('triple');
+            }
+
+            block.classList.remove('fade-out');
+
+            setTimeout(() => {
+                block.classList.remove('animating');
+                toggled = !toggled;
+            }, 400);
+
+            }, 400);
+        });
+
+        });
+    });
 </script>

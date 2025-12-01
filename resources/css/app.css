@@ -336,6 +336,11 @@ img {
     aspect-ratio: 1 / 1;
 }
 
+.blockContact {
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 3;
+}
+
 .about {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
