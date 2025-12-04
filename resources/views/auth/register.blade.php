@@ -32,7 +32,7 @@
         <button type="submit" class="btn btn-primary">Apply</button>
       </div>
       <div class="aditional1">
-        <a class="dropdown-item reg-btn-log" href="{{ route('login.show') }}">login</a>
+        <a class="dropdown-item reg-btn-log" href="{{ route('login.show') }}">Login</a>
         <a class="dropdown-item main-btn-log" href="{{ route('home.welcome') }}">Main</a>
       </div>
   </form>

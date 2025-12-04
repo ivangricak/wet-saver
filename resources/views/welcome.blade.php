@@ -223,7 +223,7 @@
     </section>
 
     <!-- WHAT WE'RE BUILDING -->
-    <section class="blockWhatWaAreBuilding bg-white shadow-lg rounded-4">
+    <!-- <section class="blockWhatWaAreBuilding bg-white shadow-lg rounded-4">
         <div class="blockWhatWaAreBuildingDiv">
             <h2>What We’re Building</h2>
             <p>
@@ -239,7 +239,7 @@
                 <img src="/main3.png" alt="">
             </div>
         </div>
-    </section>
+    </section> -->
 </section>
 @endsection
 
