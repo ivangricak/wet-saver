@@ -294,6 +294,7 @@
     /* max-width: 1800px; ← тут обмежуємо */
     max-width: 800px;
     margin: 0 auto;    /* ← центр */
+    margin-top: 20px;
 }
 
 .section div {
