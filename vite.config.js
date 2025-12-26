@@ -9,6 +9,8 @@ export default defineConfig({
                 'resources/css/app.css',      // Додатковий CSS
                 'resources/js/bootstrap.js',  // Bootstrap JS
                 'resources/js/app.js',        // Основний JS
+                'resources/css/main/style.css',
+                'resources/js/main_style/scripts.js'
             ],
             refresh: true,
         }),
