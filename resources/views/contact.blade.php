@@ -63,37 +63,52 @@
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">Features</h2>
+                    <h3 class="section-subheading text-muted">
+                        A simple and fast way to organize your links.
+                    </h3>
                 </div>
+
                 <div class="row text-center">
+                    <!-- Saving -->
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                            <i class="fas fa-bookmark fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">E-Commerce</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <h4 class="my-3">Saving</h4>
+                        <p class="text-muted">
+                            Quickly save any links you don’t want to lose — articles, tools, videos, or resources.
+                        </p>
                     </div>
+
+                    <!-- Organization -->
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                            <i class="fas fa-folder-tree fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Responsive Design</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <h4 class="my-3">Organization</h4>
+                        <p class="text-muted">
+                            Organize your links into clear categories so you can find what you need in seconds.
+                        </p>
                     </div>
+
+                    <!-- Accessibility -->
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                            <i class="fas fa-globe fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Web Security</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <h4 class="my-3">Accessibility</h4>
+                        <p class="text-muted">
+                            Access your saved links from any device, anywhere.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
+
         <!-- Portfolio Grid-->
         <!-- <section class="page-section bg-light" id="portfolio">
             <div class="container">
