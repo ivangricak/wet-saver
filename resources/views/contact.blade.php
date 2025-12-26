@@ -47,11 +47,16 @@
                 <div class="cont-left">
                     <div class="masthead-subheading">Lots of open pages?</div>
                     <div class="masthead-heading text-uppercase">Save links in one click | Always in one place</div>
-                    <a class="btn btn-dark btn-xl text-uppercase" href="#services">Get started</a>
+                    <a class="btn btn-dark btn-xl text-uppercase" href="{{ route('home.index') }}">Get started</a>
                 </div>
                 <div class="cont-right">
                     <img class="img-cont-right" src="qwe-portrait.png" alt="">
+                    <img class="img-cont-right-part" src="qwe-portrait-part.png" alt="">
                 </div>
+            </div>
+            <div class="btn-next-slide" onclick="location.href='#services'">
+                <a href="#services">More</a>
+                <img src="/assets/arrow-down.svg" alt="">
             </div>
         </header>
         <!-- Services-->
