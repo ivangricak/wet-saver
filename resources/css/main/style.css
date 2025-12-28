@@ -11287,6 +11287,10 @@ header.masthead .masthead-heading {
   margin-bottom: 0;
 }
 
+.timeline-icon {
+  font-size: 3rem; /* default: < 768px */
+}
+
 @media (min-width: 768px) {
   .timeline:before {
     left: 50%;
@@ -11317,8 +11321,15 @@ header.masthead .masthead-heading {
     padding: 0 30px 20px 20px;
     text-align: left;
   }
+  .timeline-icon {
+      font-size: 3rem;
+  }
 }
+
 @media (min-width: 992px) {
+  .timeline-icon {
+      font-size: 5rem;
+  }
   .timeline > li {
     min-height: 150px;
   }
@@ -11340,6 +11351,9 @@ header.masthead .masthead-heading {
   }
 }
 @media (min-width: 1200px) {
+  .timeline-icon {
+    font-size: 7rem;
+  }
   .timeline > li {
     min-height: 170px;
   }

@@ -12,10 +12,11 @@ use App\Http\Controllers\Online\MainOnlineController;
 use App\Http\Controllers\Item\ItemController;
 use App\Http\Controllers\Profile\FollowController;
 
-Route::get('/', [MainController::class, 'main'])->name('home.welcome');
+// Route::get('/', [MainController::class, 'main'])->name('home.welcome');
+Route::get('/', [MainController::class, 'contact'])->name('home.contact');
 Route::get('/blog', [MainController::class, 'blog'])->name('home.blog');
 Route::get('/about', [MainController::class, 'about'])->name('home.about');
-Route::get('/contact', [MainController::class, 'contact'])->name('home.contact');
+// Route::get('/contact', [MainController::class, 'contact'])->name('home.contact');
 
 //REGISTER/LOGIN/LOGOUT
 Route::get('/register', [RegisterController::class, 'create'])->name('user.create');

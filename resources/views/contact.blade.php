@@ -225,7 +225,7 @@
                     <!-- Purpose -->
                     <li>
                         <div class="timeline-image">
-                            <i class="fas fa-bullseye fa-6x text-white"></i>
+                            <i class="fas fa-bullseye timeline-icon text-white"></i>
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
@@ -243,7 +243,7 @@
                     <!-- Usage -->
                     <li class="timeline-inverted">
                         <div class="timeline-image">
-                            <i class="fas fa-list-check fa-6x text-white"></i>
+                            <i class="fas fa-list-check timeline-icon text-white"></i>
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
@@ -261,7 +261,7 @@
                     <!-- Flexibility -->
                     <li>
                         <div class="timeline-image">
-                            <i class="fas fa-layer-group fa-6x text-white"></i>
+                            <i class="fas fa-layer-group timeline-icon text-white"></i>
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
@@ -280,7 +280,7 @@
                     <!-- Future -->
                     <li class="timeline-inverted">
                         <div class="timeline-image">
-                            <i class="fas fa-rocket fa-6x text-white"></i>
+                            <i class="fas fa-rocket timeline-icon text-white"></i>
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
