@@ -8,10 +8,10 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
-@theme {
+/* @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
-}
+} */
 /*!
 * Start Bootstrap - Agency v7.0.12 (https://startbootstrap.com/theme/agency)
 * Copyright 2013-2023 Start Bootstrap
@@ -715,7 +715,7 @@ progress {
   }
   .masthead-subheading {
     margin-top: 6rem;
-    margin-bottom: 25px;
+    margin-bottom: 17px;
   }
   .masthead-subheading, .masthead-heading {
     text-align: left;
@@ -11030,7 +11030,7 @@ p {
   #mainNav.navbar-shrink {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: #615f5f;
+    background-color: #212529;
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
@@ -11079,12 +11079,15 @@ header.masthead .masthead-subheading {
 header.masthead .masthead-heading {
   /* text-align: left; */
   /* font-size: 0.8rem; */
-  font-size: clamp(0.7rem, 2vw, 1.1rem);
+  font-size: clamp(1rem, 2vw, 1.4rem);
   /* font-weight: 700; */
   line-height: 3.25rem;
-  margin-bottom: 2rem;
-  color: #000;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* margin-bottom: 2rem; */
+  color: #555555;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont,
+                 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
 }
 
 @media (min-width: 768px) {
@@ -11095,13 +11098,19 @@ header.masthead .masthead-heading {
   header.masthead .masthead-subheading {
     /* font-style: italic; */
     line-height: 2.25rem;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
   }
   header.masthead .masthead-heading {
-    
     font-weight: 500;
     line-height: 4.5rem;
-    margin-bottom: 4rem;
+    /* margin-bottom: 4rem; */
+  }
+  .masthead-small-text {
+    color: #797979;
+    padding-left: 30px;
+    padding-right: 55%;
+    margin-top: 30px;
+    margin-bottom: 50px;
   }
 }
 #portfolio .portfolio-item {

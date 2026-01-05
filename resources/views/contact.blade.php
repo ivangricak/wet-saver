@@ -45,8 +45,9 @@
         <header class="masthead">
             <div class="container container-masthead">
                 <div class="cont-left">
-                    <div class="masthead-subheading">Lots of open pages?</div>
-                    <div class="masthead-heading text-uppercase">Save links in one click | Always in one place</div>
+                    <div class="masthead-subheading">Too many open tabs?</div>
+                    <div class="masthead-heading">Save links in one click and return later.</div>
+                    <div class="masthead-small-text">A simple service to save and organize links instead of keeping dozens of tabs open.</div>
                     <a class="btn btn-dark btn-xl text-uppercase" href="{{ route('home.index') }}">Get started</a>
                 </div>
                 <div class="cont-right">
@@ -55,7 +56,7 @@
                 </div>
             </div>
             <div class="btn-next-slide" onclick="location.href='#services'">
-                <a href="#services">More</a>
+                <a href="#services">How it works</a>
                 <img src="/assets/arrow-down.svg" alt="">
             </div>
         </header>
@@ -63,7 +64,7 @@
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Features</h2>
+                    <h2 class="section-heading text-uppercase">PROBLEM</h2>
                     <h3 class="section-subheading text-muted">
                         A simple and fast way to organize your links.
                     </h3>

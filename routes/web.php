@@ -13,7 +13,7 @@ use App\Http\Controllers\Item\ItemController;
 use App\Http\Controllers\Profile\FollowController;
 
 // Route::get('/', [MainController::class, 'main'])->name('home.welcome');
-Route::get('/', [MainController::class, 'contact'])->name('home.contact');
+Route::get('/', [MainController::class, 'contact'])->name('home.welcome');
 Route::get('/blog', [MainController::class, 'blog'])->name('home.blog');
 Route::get('/about', [MainController::class, 'about'])->name('home.about');
 // Route::get('/contact', [MainController::class, 'contact'])->name('home.contact');
