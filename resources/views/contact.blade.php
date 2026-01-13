@@ -108,6 +108,83 @@
             class="hero-image"
             >
         </section>
+        <section class="page-section" id="hero-mobile">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Problem</h2>
+                    <h3 class="section-subheading text-muted">
+                        Ви зберігаєте корисні речі,
+                        але не повертаєтесь до них
+                    </h3>
+                </div>
+
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image">
+                            <i class="fas fa-window-restore timeline-icon text-white"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Вкладки</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    Працюєте з великою кількістю посилань і тримаєте <b>десятки вкладок</b> відкритими.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <i class="fas fa-clock timeline-icon text-white"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Потім</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    Зберігаєте матеріали “<b>на потім</b>”, але майже не повертаєтесь до них.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="timeline-image">
+                            <i class="fas fa-random timeline-icon text-white"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Хаос</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    <b>Посилання розкидані</b> по нотатках, месенджерах і різних сервісах.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <i class="fas fa-share-nodes timeline-icon text-white"></i>
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Обмін</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    Складно <b>ділитися матеріалами</b>, якщо вони не зібрані в одному місці.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">
@@ -260,7 +337,7 @@
             </div>
         </section> -->
         <!-- About-->
-        <section class="page-section" id="about">
+        <!-- <section class="page-section" id="about">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">About</h2>
@@ -271,7 +348,7 @@
 
                 <ul class="timeline">
 
-                    <!-- Purpose -->
+                    Purpose
                     <li>
                         <div class="timeline-image">
                             <i class="fas fa-bullseye timeline-icon text-white"></i>
@@ -289,7 +366,7 @@
                         </div>
                     </li>
 
-                    <!-- Usage -->
+                    Usage
                     <li class="timeline-inverted">
                         <div class="timeline-image">
                             <i class="fas fa-list-check timeline-icon text-white"></i>
@@ -307,7 +384,7 @@
                         </div>
                     </li>
 
-                    <!-- Flexibility -->
+                    Flexibility
                     <li>
                         <div class="timeline-image">
                             <i class="fas fa-layer-group timeline-icon text-white"></i>
@@ -326,7 +403,7 @@
                         </div>
                     </li>
 
-                    <!-- Future -->
+                    Future
                     <li class="timeline-inverted">
                         <div class="timeline-image">
                             <i class="fas fa-rocket timeline-icon text-white"></i>
@@ -346,7 +423,7 @@
                         </div>
                     </li>
 
-                    <!-- Final CTA -->
+                    Final CTA
                     <li class="timeline-inverted">
                         <div class="timeline-image">
                             <h4>
@@ -361,8 +438,7 @@
 
                 </ul>
             </div>
-        </section>
-        <!-- Contact-->
+        </section> -->
         <section class="page-section" id="contact">
             <div class="container">
                 <div class="text-center">

@@ -692,7 +692,7 @@ progress {
     margin-top: 2rem;
   }
   .masthead-heading {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
   .cont-right {
     width: 100%;
@@ -764,9 +764,14 @@ progress {
   max-width: none;
 }
 
+#hero-mobile {
+  display: none;
+}
+
 /* Телефон */
 @media (max-width: 700px) {
   .hero {
+    display: none;
     min-height: 15vh;
     align-items: flex-start;
     padding-top: 1.5rem;
@@ -817,13 +822,24 @@ progress {
     padding: 10px;
     padding-right: 0;
   }
+
   .masthead-small-text {
-    color: #000;
+    color: #555555;
+    font-size: 10px;
+    width: 230px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .text-muted {
     margin-left: 3px;
   }
+
+  #hero-mobile {
+    display: block;
+  }
+
 }
 
 
@@ -11351,7 +11367,7 @@ header.masthead .masthead-heading {
   padding: 0;
   list-style: none;
 }
-.timeline:before {
+/* .timeline:before {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -11360,7 +11376,7 @@ header.masthead .masthead-heading {
   margin-left: -1.5px;
   content: "";
   background-color: #e9ecef;
-}
+} */
 .timeline > li {
   position: relative;
   min-height: 50px;
@@ -11406,7 +11422,7 @@ header.masthead .masthead-heading {
   color: white;
   border: 7px solid #e9ecef;
   border-radius: 100%;
-  background-color: #ffc800;
+  background-color: #212529;
 }
 .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
   font-size: 10px;
@@ -11446,13 +11462,13 @@ header.masthead .masthead-heading {
 }
 
 .timeline-icon {
-  font-size: 3rem; /* default: < 768px */
+  font-size: 2.5rem; /* default: < 768px */
 }
 
 @media (min-width: 768px) {
-  .timeline:before {
+  /* .timeline:before {
     left: 50%;
-  }
+  } */
   .timeline > li {
     min-height: 100px;
     margin-bottom: 100px;
