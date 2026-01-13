@@ -60,6 +60,54 @@
                 <img src="/assets/arrow-down.svg" alt="">
             </div>
         </header>
+        <!-- Masthead2-->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="fw-bold mb-4 hero-h1">
+                        Ви зберігаєте корисні речі,<br>
+                        але не повертаєтесь до них
+                    </h1>
+
+                    <div class="row">
+                    <div class="col-6 feature">
+                        <div class="feature-title">Вкладки</div>
+                        <small class="text-muted">
+                            Працюєте з великою кількістю посилань і тримаєте десятки вкладок відкритими.
+                        </small>
+                    </div>
+
+                    <div class="col-6 feature">
+                        <div class="feature-title">Хаос</div>
+                        <small class="text-muted">
+                        Посилання розкидані по нотатках, месенджерах і різних сервісах.
+                        </small>
+                    </div>
+
+                    <div class="col-6 feature">
+                        <div class="feature-title">Потім</div>
+                        <small class="text-muted">
+                        Зберігаєте матеріали “на потім”, але майже не повертаєтесь до них.
+                        </small>
+                    </div>
+
+                    <div class="col-6 feature">
+                        <div class="feature-title">Обмін</div>
+                        <small class="text-muted">
+                        Складно ділитися матеріалами, якщо вони не зібрані в одному місці.
+                        </small>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Картинка справа -->
+            <img
+            src="macbookpage2.png"
+            alt="App preview"
+            class="hero-image"
+            >
+        </section>
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">
