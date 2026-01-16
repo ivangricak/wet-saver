@@ -111,7 +111,7 @@
         <section class="page-section" id="hero-mobile">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Problem</h2>
+                    <h2 class="section-heading text-uppercase">Проблема</h2>
                     <h3 class="section-subheading text-muted">
                         Ви зберігаєте корисні речі,
                         але не повертаєтесь до них
@@ -189,46 +189,37 @@
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">PROBLEM</h2>
+                    <h2 class="section-heading text-uppercase">Рішення</h2>
                     <h3 class="section-subheading text-muted">
-                        A simple and fast way to organize your links.
+                        Все, що потрібно для збереження та організації посилань
                     </h3>
                 </div>
 
                 <div class="row text-center">
                     <!-- Saving -->
                     <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-bookmark fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Saving</h4>
+                        <img class="img-service" src="block-2-1.png" alt="">
+                        <h4 class="my-3">Save in one click</h4>
                         <p class="text-muted">
-                            Quickly save any links you don’t want to lose — articles, tools, videos, or resources.
+                            Зберігайте будь-яке посилання за секунду — без хаосу і зайвих дій.
                         </p>
                     </div>
 
                     <!-- Organization -->
                     <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-folder-tree fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Organization</h4>
+                        <img class="img-service" src="block-1-1.png" alt="">
+                        <h4 class="my-3">Organize by groups</h4>
                         <p class="text-muted">
-                            Organize your links into clear categories so you can find what you need in seconds.
+                            Створюйте власні категорії для роботи, навчання або натхнення.
                         </p>
                     </div>
 
                     <!-- Accessibility -->
                     <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-globe fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Accessibility</h4>
+                        <img class="img-service" src="block-3-2.png" alt="">
+                        <h4 class="my-3">Share collections</h4>
                         <p class="text-muted">
-                            Access your saved links from any device, anywhere.
+                            Діліться цілими підбірками, а не окремими посиланнями.
                         </p>
                     </div>
                 </div>
