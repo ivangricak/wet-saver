@@ -849,8 +849,68 @@ progress {
 }
 
 
+.about {
+  background-color: rgb(35, 37, 41);
+  color: rgb(214, 214, 214);
+}
+.text-about {
+  text-align: left;
+}
+.about .container {
+  display: flex;
+  justify-content: center;
+}
+.text-about {
+  display: flex;
+  flex-direction: row;
+}
+.text-about .title {
+  display: flex;
+  align-items: center;
+}
+.text-about .title h3 {
+  font-size: 70px;
+}
+.text-about .paragraf p {
+  margin-left: 40px;
+}
 
+@media (max-width: 768px) {
+  .text-about {
+    display: flex;
+    flex-direction: column;
+  }
+  .text-about .title h3 {
+    margin-top: 30px;
+    font-size: 40px;
+  }
+}
 
+@media (max-width: 576px) {
+  .text-about {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .text-about .title {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .text-about .title h3 {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-size: 35px;
+  }
+  .text-about .paragraf {
+    padding: 0 30px 20px 30px;
+  }
+  .text-about .paragraf p {
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 3vw;
+  }
+}
 
 
 
