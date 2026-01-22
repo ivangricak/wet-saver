@@ -17,7 +17,7 @@
       @csrf
       <div class="duo">
       <div class="col-md-6 log-input">
-        <label for="login" class="form-label">Login</label>
+        <label for="login" class="form-label">Log in</label>
         <input type="input" class="form-control" id="login" name="login">
       </div>
       <div class="col-md-6 log-input">

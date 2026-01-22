@@ -32,11 +32,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#services">Features</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login.show') }}">Log in</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('user.create') }}">Register</a></li>
                         <!-- <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li> -->
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="#about">About</a></li> -->
                         <!-- <li class="nav-item"><a class="nav-link" href="#team">Team</a></li> -->
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -45,10 +46,14 @@
         <header class="masthead">
             <div class="container container-masthead">
                 <div class="cont-left">
-                    <div class="masthead-subheading">Too many open tabs?</div>
-                    <div class="masthead-heading">Save links in one click and return later.</div>
-                    <div class="masthead-small-text">A simple service to save and organize links instead of keeping dozens of tabs open.</div>
-                    <a class="btn btn-dark btn-xl text-uppercase" href="{{ route('home.index') }}">Get started</a>
+                    <!-- <div class="masthead-subheading">Too many open tabs?</div> -->
+                    <div class="masthead-subheading">Забагато відкритих вкладок?</div>
+                    <!-- <div class="masthead-heading">Save links in one click and return later.</div> -->
+                    <div class="masthead-heading">Зберігайте посилання в один клік <br> і повертайтеся до них пізніше.</div>
+                    <!-- <div class="masthead-small-text">A simple service to save and organize links instead of keeping dozens of tabs open.</div> -->
+                    <!-- <div class="masthead-small-text">Простий сервіс для збереження та впорядкування посилань замість того, щоб тримати відкритими десятки вкладок.</div> -->
+                    <!-- <a class="btn btn-dark btn-xl text-uppercase" href="{{ route('home.index') }}">GET STARTED</a> -->
+                    <a class="btn btn-dark btn-xl text-uppercase" href="{{ route('home.index') }}">Почати</a>
                 </div>
                 <div class="cont-right">
                     <img class="img-cont-right" src="qwe-portrait.png" alt="">
@@ -56,7 +61,8 @@
                 </div>
             </div>
             <div class="btn-next-slide" onclick="location.href='#services'">
-                <a href="#services">How it works</a>
+                <!-- <a href="#services">How it works</a> -->
+                <a href="#services">Більше</a>
                 <img src="/assets/arrow-down.svg" alt="">
             </div>
         </header>
@@ -199,7 +205,8 @@
                     <!-- Saving -->
                     <div class="col-md-4">
                         <img class="img-service" src="n1.png" alt="">
-                        <h4 class="my-3">Save in one click</h4>
+                        <!-- <h4 class="my-3">Save in one click</h4> -->
+                        <h4 class="my-3">Зберігай в один клік</h4>
                         <p class="text-muted">
                             Зберігайте будь-яке посилання за секунду — без хаосу і зайвих дій.
                         </p>
@@ -208,7 +215,8 @@
                     <!-- Organization -->
                     <div class="col-md-4">
                         <img class="img-service" src="n2.png" alt="">
-                        <h4 class="my-3">Organize by groups</h4>
+                        <!-- <h4 class="my-3">Organize by groups</h4> -->
+                        <h4 class="my-3">Сортуйте за групами</h4>
                         <p class="text-muted">
                             Створюйте власні категорії для роботи, навчання або натхнення.
                         </p>
@@ -217,7 +225,8 @@
                     <!-- Accessibility -->
                     <div class="col-md-4">
                         <img class="img-service" src="n3.png" alt="">
-                        <h4 class="my-3">Share collections</h4>
+                        <!-- <h4 class="my-3">Share collections</h4> -->
+                        <h4 class="my-3">Ділись підбірками</h4>
                         <p class="text-muted">
                             Діліться цілими підбірками, а не окремими посиланнями.
                         </p>

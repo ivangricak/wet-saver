@@ -16,7 +16,7 @@
           <input type="text" class="form-control" id="login" name="login">
         </div>
         <div class="col-md-6 log-input">
-          <label for="nick" class="form-label">Nick</label>
+          <label for="nick" class="form-label">Username</label>
           <input type="text" class="form-control" id="nick" name="nick">
         </div>
         <div class="col-md-6 log-input">
