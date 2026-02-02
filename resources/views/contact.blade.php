@@ -32,8 +32,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{{ route('login.show') }}">Log in</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('user.create') }}">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login.show') }}">Увійти</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('user.create') }}">Зареєструватися</a></li>
                         <!-- <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li> -->
                         <!-- <li class="nav-item"><a class="nav-link" href="#about">About</a></li> -->
                         <!-- <li class="nav-item"><a class="nav-link" href="#team">Team</a></li> -->
@@ -67,7 +67,7 @@
             </div>
         </header>
         <!-- Masthead2-->
-        <section class="hero">
+        <section class="hero" id="services">
             <div class="container">
                 <div class="hero-content">
                     <h1 class="fw-bold mb-4 hero-h1">
@@ -192,7 +192,7 @@
             </div>
         </section>
         <!-- Services-->
-        <section class="page-section" id="services">
+        <section class="page-section">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Рішення</h2>

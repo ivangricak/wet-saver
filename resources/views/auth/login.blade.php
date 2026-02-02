@@ -12,10 +12,11 @@
     <title>Document</title>
 </head>
 <body>
-<div class="form-container">
-    <form class="row g-3 m-3 form-wrapper" action="{{ route('login.show') }}" method="post">
-      @csrf
-      <div class="duo">
+  <!-- english -->
+<!-- <div class="form-container">
+  <form class="row g-3 m-3 form-wrapper" action="{{ route('login.show') }}" method="post">
+    @csrf
+    <div class="duo">
       <div class="col-md-6 log-input">
         <label for="login" class="form-label">Log in</label>
         <input type="input" class="form-control" id="login" name="login">
@@ -24,16 +25,41 @@
         <label for="password" class="form-label">Password</label>
         <input type="password" class="form-control" id="password" name="password">
       </div>
+    </div>
+    <div class="kontrol">
+      <button type="submit" class="btn btn-primary">Apply</button>
+      <a class="dropdown-item reg-btn-log" href="{{ route('user.create') }}">Register</a>
+    </div>
+    <div class="aditional1">
+      <a class="dropdown-item" href="{{ route('home.index') }}">Home</a>
+      <a class="dropdown-item main-btn-log" href="{{ route('home.welcome') }}">Main</a>
+    </div>
+  </form>
+</div> -->
+
+<!-- Ukraine -->
+<div class="form-container">
+  <form class="row g-3 m-3 form-wrapper" action="{{ route('login.show') }}" method="post">
+    @csrf
+    <div class="duo">
+      <div class="col-md-6 log-input">
+        <label for="login" class="form-label">Логін</label>
+        <input type="input" class="form-control" id="login" name="login">
       </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">Apply</button>
+      <div class="col-md-6 log-input">
+        <label for="password" class="form-label">Пароль</label>
+        <input type="password" class="form-control" id="password" name="password">
       </div>
-      <div class="aditional1">
-        <a class="dropdown-item reg-btn-log" href="{{ route('user.create') }}">Register</a>
-        <!-- <a class="dropdown-item" href="{{ route('home.index') }}">Home</a> -->
-        <a class="dropdown-item main-btn-log" href="{{ route('home.welcome') }}">Main</a>
-      </div>
-    </form>
-  </div>
+    </div>
+    <div class="kontrol">
+      <button type="submit" class="btn btn-primary">Увійти</button>
+      <a class="dropdown-item reg-btn-log" href="{{ route('user.create') }}">Зареєструватись</a>
+    </div>
+    <div class="aditional1">
+      <!-- <a class="dropdown-item" href="{{ route('home.index') }}">Home</a> -->
+      <a class="dropdown-item main-btn-log" href="{{ route('home.welcome') }}">Назад</a>
+    </div>
+  </form>
+</div>
 </body>
 </html>

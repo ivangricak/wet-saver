@@ -483,40 +483,47 @@ img {
 /* ## login/register ## */
 
 .main-btn-log {
-    background-color: #303030;
-    color: white;
+    /* background-color: #303030;
+    color: white; */
     padding: 7px;
     margin: 3px;
     border-radius: 7px;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
-    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: auto;
+}
+
+.kontrol {
+    display: flex;
+    justify-content: center;
 }
 
 .reg-btn-log {
-    background-color: #303030;
+    /* background-color: #303030;
     color: white;
-    padding: 7px;
-    margin: 3px;
-    border-radius: 7px;
-    font-size: 20px;
-    text-align: center;
+    padding: 7px; */
+    margin: 12px;
+    /* border-radius: 7px; */
+    font-size: 15px;
+    text-align: right;
     width: 100%;
 }
 
-.reg-btn-log:hover {
+/* .reg-btn-log:hover {
     background-color: #303030;  
     color: white; 
-}
-
+} */
+/* 
 .main-btn-log:hover {
     background-color: #303030;  
     color: white; 
-}
+} */
 
 .aditional1 {
     display: flex;
-    justify-content: center;
+    justify-content: right;
 }
 
 .log-input {
