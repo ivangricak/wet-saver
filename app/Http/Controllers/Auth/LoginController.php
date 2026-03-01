@@ -44,21 +44,18 @@ class LoginController extends Controller
 
     public function apiLogin(LoginRequest $request)
     {
-        $credentials = $request->validated();
+        $credentials = $request->only('login', 'password');
     
         if (!Auth::attempt($credentials)) {
-            return response()->json([
-                'message' => 'Bad login'
-            ], 401);
+            return response()->json(['message' => 'Invalid credentials'], 401);
         }
     
         $user = Auth::user();
-    
-        $token = $user->createToken('extension-token')->plainTextToken;
+        $token = $user->createToken('popup-token')->plainTextToken;
     
         return response()->json([
+            'token' => $token,
             'user' => $user,
-            'token' => $token
         ]);
     }
 
