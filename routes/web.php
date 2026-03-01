@@ -28,11 +28,11 @@ Route::post('/register', [RegisterController::class, 'store'])->name('user.store
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('user.login');
 // routes/api.php
-// Route::post('/api/login', [LoginController::class, 'apiLogin']);
-// Route::get('/api/login', [LoginController::class, 'apiLogin']);
-// Route::middleware('auth:sanctum')->get('/api/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::post('/api/login', [LoginController::class, 'apiLogin']);
+Route::get('/api/login', [LoginController::class, 'apiLogin']);
+Route::middleware('auth:sanctum')->get('/api/user', function (Request $request) {
+    return $request->user();
+});
 
 //LOGOUT
 Route::post('/logout', function () {
