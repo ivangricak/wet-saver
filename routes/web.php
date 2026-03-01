@@ -25,6 +25,11 @@ Route::post('/register', [RegisterController::class, 'store'])->name('user.store
 //LOGIN
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('user.login');
+// routes/api.php
+Route::post('/login', [LoginController::class, 'apiLogin']);
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
 //LOGOUT
 Route::post('/logout', function () {
