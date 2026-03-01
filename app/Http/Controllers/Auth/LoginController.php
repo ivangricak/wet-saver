@@ -42,23 +42,6 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function apiLogin(LoginRequest $request)
-    {
-        $credentials = $request->only('login', 'password');
-    
-        if (!Auth::attempt($credentials)) {
-            return response()->json(['message' => 'Invalid credentials'], 401);
-        }
-    
-        $user = Auth::user();
-        $token = $user->createToken('popup-token')->plainTextToken;
-    
-        return response()->json([
-            'token' => $token,
-            'user' => $user,
-        ]);
-    }
-
     public function login(LoginRequest $request) 
     {
         $credentails = $request->validated();
