@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Profile\ProfileController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Group\GroupController;
@@ -28,8 +29,8 @@ Route::post('/register', [RegisterController::class, 'store'])->name('user.store
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('user.login');
 // routes/api.php
-Route::post('/api/login', [LoginController::class, 'apiLogin']);
-Route::get('/api/login', [LoginController::class, 'apiLogin']);
+Route::post('/api/login', [AuthController::class, 'ApiLogin']);
+Route::get('/api/login', [AuthController::class, 'ApiLogin']);
 Route::middleware('auth:sanctum')->get('/api/user', function (Request $request) {
     return $request->user();
 });
