@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 // use Illuminate\Support\Facades\Request;
 use Illuminate\Http\Request;
@@ -28,12 +28,14 @@ Route::post('/register', [RegisterController::class, 'store'])->name('user.store
 //LOGIN
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('user.login');
-// routes/api.php
-Route::post('/api/login', [AuthController::class, 'ApiLogin']);
-Route::get('/api/login', [AuthController::class, 'ApiLogin']);
-Route::middleware('auth:sanctum')->get('/api/user', function (Request $request) {
-    return $request->user();
+
+Route::get('/users/nicks', function () {
+    return response()->json(
+        User::select('nick')->get()
+    );
 });
+
+
 
 //LOGOUT
 Route::post('/logout', function () {
