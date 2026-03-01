@@ -4,28 +4,32 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class ApiLoginController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = $request->only('login', 'password');
+        $user = User::where('login', $request->login)->first();
 
-        if (!Auth::attempt($credentials)) {
+        // Якщо користувача немає або пароль не збігається
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
                 'message' => 'Invalid credentials'
             ], 401);
         }
 
-        $user = User::where('login', $request->login)->first();
-
+        // Створюємо токен для extension
         $token = $user->createToken('extension-token')->plainTextToken;
 
         return response()->json([
             'token' => $token,
-            'user' => $user
+            'user' => [
+                'id' => $user->id,
+                'nick' => $user->nick,
+                'login' => $user->login
+            ]
         ]);
     }
 }
