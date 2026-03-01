@@ -29,16 +29,13 @@ Route::post('/register', [RegisterController::class, 'store'])->name('user.store
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('user.login');
 
-// Route::get('/users/nicks', function () {
-//     return response()->json(
-//         User::select('nick')->get()
-//     );
-// });
-
-Route::post('api/login', [ApiLoginController::class, 'login']);
-Route::middleware('auth:sanctum')->get('/users/nicks', function () {
-    return \App\Models\User::pluck('nick');
+Route::get('/users/nicks', function () {
+    return response()->json(
+        User::select('nick')->get()
+    );
 });
+
+
 
 
 
