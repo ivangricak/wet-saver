@@ -45,7 +45,7 @@ class ApiLoginController extends Controller
             ]);
 
             // 🔥 Створення токена
-            $token = $user->createToken('extension-token')->plainTextToken;
+            $token = $user->createToken('extension-token', ['*'], now()->addYears(1))->plainTextToken;
 
             Log::info('TOKEN CREATED');
 
