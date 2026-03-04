@@ -13,7 +13,7 @@
 </head>
 <body>
   <!-- english -->
-<!-- <div class="form-container">
+<div class="form-container">
   <form class="row g-3 m-3 form-wrapper" action="{{ route('login.show') }}" method="post">
     @csrf
     <div class="duo">
@@ -31,14 +31,14 @@
       <a class="dropdown-item reg-btn-log" href="{{ route('user.create') }}">Register</a>
     </div>
     <div class="aditional1">
-      <a class="dropdown-item" href="{{ route('home.index') }}">Home</a>
-      <a class="dropdown-item main-btn-log" href="{{ route('home.welcome') }}">Main</a>
+      <!-- <a class="dropdown-item" href="{{ route('home.index') }}">Home</a> -->
+      <a class="dropdown-item main-btn-log" href="{{ route('home.welcome') }}">Home</a>
     </div>
   </form>
-</div> -->
+</div>
 
 <!-- Ukraine -->
-<div class="form-container">
+<!-- <div class="form-container">
   <form class="row g-3 m-3 form-wrapper" action="{{ route('login.show') }}" method="post">
     @csrf
     <div class="duo">
@@ -56,10 +56,9 @@
       <a class="dropdown-item reg-btn-log" href="{{ route('user.create') }}">Зареєструватись</a>
     </div>
     <div class="aditional1">
-      <!-- <a class="dropdown-item" href="{{ route('home.index') }}">Home</a> -->
       <a class="dropdown-item main-btn-log" href="{{ route('home.welcome') }}">Назад</a>
     </div>
   </form>
-</div>
+</div> -->
 </body>
 </html>

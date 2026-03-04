@@ -2240,9 +2240,9 @@ progress {
     -webkit-overflow-scrolling: touch;
   }
 }
-.form-label {
+/* .form-label {
   margin-bottom: 0.5rem;
-}
+} */
 
 .col-form-label {
   padding-top: calc(0.375rem + 1px);
