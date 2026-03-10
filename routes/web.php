@@ -29,11 +29,11 @@ Route::post('/register', [RegisterController::class, 'store'])->name('user.store
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('user.login');
 
-// Route::get('/users/nicks', function () {
-//     return response()->json(
-//         User::select('nick')->get()
-//     );
-// });
+Route::get('/users/nicks', function () {
+    return response()->json(
+        User::select('nick')->get()
+    );
+});
 
 
 
