@@ -9,8 +9,21 @@ Route::middleware('auth:sanctum')->get('/users/nicks', function () {
     return User::pluck('nick');
 });
 
-Route::get('/nicks', function () {
-    return response()->json(
-        User::select('nick')->get()
-    );
+Route::middleware('auth:sanctum')->get('user/groups', function () {
+
+    $user = auth()->user();
+
+    $groups = $user->groups ?? collect();
+
+    $items = $groups->flatMap(function ($group) {
+        return $group->items;
+    });
+
+    $defgroups = $user->defaultgroups ?? collect();
+
+    return response()->json([
+        'groups' => $groups,
+        'items' => $items,
+        'default_groups' => $defgroups
+    ]);
 });
