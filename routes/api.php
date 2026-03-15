@@ -5,6 +5,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ApiLoginController;
 
 Route::post('/login', [ApiLoginController::class, 'login']);
+//LOGOUT
+Route::post('/logout', function () {
+    $user = auth()->user();
+    if($user) {
+        $user()->tokens()->delete();
+    }
+    return response()->json(['mwssage' => 'Logged Out']);
+});
+
+
 Route::middleware('auth:sanctum')->get('/users/nicks', function () {
     return User::pluck('nick');
 });

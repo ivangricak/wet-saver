@@ -16,7 +16,6 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
 
-            // Генеруємо токен для API
             $token = $user->createToken('api-token')->plainTextToken;
 
             return response()->json([

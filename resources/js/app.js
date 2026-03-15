@@ -1,7 +1,7 @@
 import './bootstrap';
 import './groups';
 
-// // кеш для всіх груп
+// кеш для всіх груп
 window.groupItemsCache = {};
 console.log('con',groupItemsCache);
 
@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
             initOnlineItems();
             ShowOnlineItems();
             FollowGroup();
-            
         });
         button.addEventListener('click', async () => {
             await RenderOnlineGroups();
