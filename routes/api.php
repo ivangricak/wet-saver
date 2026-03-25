@@ -32,9 +32,21 @@ Route::middleware('auth:sanctum')->get('user/groups', function () {
 
     $defgroups = $user->defaultgroups ?? collect();
 
+    $defItems = $defgroups->flatMap(function ($defgroup) {
+        return $defgroup->items;
+    });
+
     return response()->json([
         'groups' => $groups,
         'items' => $items,
         'default_groups' => $defgroups
     ]);
 });
+
+// Route::middleware('auth:sanctum')->get('user/defgroup', function () {
+
+//     $user = auth()->user();
+
+//     $defgroup = $user->
+
+// });
