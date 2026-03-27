@@ -81,7 +81,7 @@ class MainOnlineController extends Controller
             ->with('tags')
             ->skip(($page - 1) * $perPage)
             ->take($perPage)
-            ->orderBy('id', 'desc'); // для стабільного порядку
+            ->orderBy('id', 'desc');
         }])->findOrFail($groupId);
 
         $total = \App\Models\Item::where('group_id', $groupId)->where('state', 1)->count();
