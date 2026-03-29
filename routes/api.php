@@ -4,6 +4,7 @@ use App\Models\Group;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Requests\Item\StoreRequest;
 use App\Http\Controllers\Auth\ApiLoginController;
 
 Route::post('/login', [ApiLoginController::class, 'login']);
@@ -73,7 +74,7 @@ Route::middleware('auth:sanctum')->get('online/group', function () {
     ]);
 });
 
-Route::middleware('authLsanctum'->get('create/item', function (Request $request) {
+Route::middleware('auth:sanctum')->post('create/item', function (StoreRequest $request) {
     $data = $request->validated();
 
     $data['state'] = $data['state'] ?? 1;
@@ -107,4 +108,9 @@ Route::middleware('authLsanctum'->get('create/item', function (Request $request)
             'item' => $item
         ]);
     }
-}));
+
+    return response()->json([
+        'success' => true,
+        'item' => $item
+    ]);
+});
