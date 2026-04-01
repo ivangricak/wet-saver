@@ -116,7 +116,7 @@ Route::middleware('auth:sanctum')->post('create/item', function (StoreRequest $r
     ]);
 });
 
-Route::middleware('auth:sanctum')->post('/defgroups/{id}/items', function () {
+Route::middleware('auth:sanctum')->post('/defgroups/{id}/items', function ($id) {
     $user = auth()->user();
     $defgroup = $user->defaultgroups()->with('items.tags')->findOrFail($id);
 
