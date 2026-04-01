@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Requests\Item\StoreRequest;
 use App\Http\Controllers\Auth\ApiLoginController;
 
+
 Route::post('/login', [ApiLoginController::class, 'login']);
 //LOGOUT
 
@@ -112,5 +113,14 @@ Route::middleware('auth:sanctum')->post('create/item', function (StoreRequest $r
     return response()->json([
         'success' => true,
         'item' => $item
+    ]);
+});
+
+Route::middleware('auth:sanctum')->post('/defgroups/{id}/items', function () {
+    $user = auth()->user();
+    $defgroup = $user->defaultgroups()->with('items.tags')->findOrFail($id);
+
+    return response()->json([
+        'items' => $defgroup->items
     ]);
 });

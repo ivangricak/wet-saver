@@ -42,9 +42,11 @@ document.addEventListener('click', function(e) {
 
             const formDiv = document.querySelector('.created-div');
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
+            console.log('csrf: ', csrfToken)
             formDiv.querySelector('.create').addEventListener('click', function() {
                 const formData = new FormData(formDiv);
+                console.log('show form: ', formData);
+                console.log('show form ather: ', formDiv);
 
                 fetch('/item/create', {
                     method: 'POST',
