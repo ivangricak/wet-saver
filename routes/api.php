@@ -124,3 +124,12 @@ Route::middleware('auth:sanctum')->post('/defgroups/{id}/items', function ($id) 
         'items' => $defgroup->items
     ]);
 });
+
+Route::middleware('auth:sanctum')->post('/groups/{id}/items', function ($id) {
+    $user = auth()->user();
+    $group = $user->groups()->with('items.tags')->findOrFail($id);
+
+    return response()->json([
+        'items' => $group->items
+    ]);
+});
