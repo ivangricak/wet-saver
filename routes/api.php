@@ -134,7 +134,10 @@ Route::middleware('auth:sanctum')->post('/groups/{id}/items', function ($id) {
     ]);
 });
 
-Route::middleware('auth:sanctum')->delete('/items/{item}', function ($item) {
+Route::middleware('auth:sanctum')->delete('/items/{item}', function (Item $item) {
+
+    $item = Item::findOrFail($itemId);
+
     $checkGroupId = $item->group_id ?? $item->default_group_id;
 
     $userRole = auth()->user()
