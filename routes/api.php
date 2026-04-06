@@ -50,7 +50,7 @@ Route::middleware('auth:sanctum')->get('user/groups', function () {
     ]);
 });
 
-Route::middleware('auth:sanctum')->delete('/groups/{group}', function ($group){
+Route::middleware('auth:sanctum')->delete('/groups/{group}', function (Group $group){
     $userId =  auth()->id();
     $userRole = $group->users()
     ->where('user_id', $userId)
@@ -74,10 +74,6 @@ Route::middleware('auth:sanctum')->delete('/groups/{group}', function ($group){
             'message' => 'Ваша участь у групі видалена'
         ]);
     }
-
-    // abort(403, 'Ви не належите до цієї групи.');
-    
-    // return redirect()->route('home.index')->with('status', 'Групу успішно видалено.');
 });
 
 
