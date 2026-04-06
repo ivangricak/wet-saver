@@ -8,8 +8,8 @@ use App\Http\Requests\Item\StoreRequest;
 use App\Http\Controllers\Auth\ApiLoginController;
 
 
+//USER
 Route::post('/login', [ApiLoginController::class, 'login']);
-//LOGOUT
 
 Route::post('/logout', function (Request $request) {
     $request->user()->currentAccessToken()->delete();
@@ -19,11 +19,13 @@ Route::post('/logout', function (Request $request) {
     ]);
 })->middleware('auth:sanctum');
 
-
 Route::middleware('auth:sanctum')->get('/users/nicks', function () {
     return User::pluck('nick');
 });
 
+
+
+//GROUP/DEFGROUP
 Route::middleware('auth:sanctum')->get('user/groups', function () {
 
     $user = auth()->user();
@@ -48,6 +50,39 @@ Route::middleware('auth:sanctum')->get('user/groups', function () {
     ]);
 });
 
+Route::middleware('auth:sanctum')->delete('/groups/{group}', function ($group){
+    $userId =  auth()->id();
+    $userRole = $group->users()
+    ->where('user_id', $userId)
+    ->value('role');
+
+    if($userRole === 0){
+        $group->users()->detach();
+        $group->items()->delete();
+        $group->delete();
+
+        return response()->json([
+            'success' => true,
+            'group_id' => $group->id
+        ]);
+    }
+
+    if($userRole === 1) {
+        $group->users()->detach($userId);
+        return response()->json([
+            'success' => true,
+            'message' => 'Ваша участь у групі видалена'
+        ]);
+    }
+
+    // abort(403, 'Ви не належите до цієї групи.');
+    
+    // return redirect()->route('home.index')->with('status', 'Групу успішно видалено.');
+});
+
+
+
+//ONLINE
 Route::middleware('auth:sanctum')->get('online/group', function () {
     $user = auth()->user(); 
 
@@ -75,6 +110,9 @@ Route::middleware('auth:sanctum')->get('online/group', function () {
     ]);
 });
 
+
+
+//ITEM
 Route::middleware('auth:sanctum')->post('create/item', function (StoreRequest $request) {
     $data = $request->validated();
 

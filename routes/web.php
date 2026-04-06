@@ -66,7 +66,6 @@ Route::delete('/groups/{group}', [GroupController::class, 'destroy'])->name('gro
 
 
 
-
 //DEFAULT GROUP MOVING
 //EDITING
 
