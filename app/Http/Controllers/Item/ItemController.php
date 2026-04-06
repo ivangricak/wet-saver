@@ -153,7 +153,7 @@ class ItemController extends Controller
         }
 
         try {
-            $item->delete(); // видаляємо з БД
+            $item->delete();
             return response()->json([
                 'success' => true,
                 'item_id' => $item->id

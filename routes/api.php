@@ -133,3 +133,30 @@ Route::middleware('auth:sanctum')->post('/groups/{id}/items', function ($id) {
         'items' => $group->items
     ]);
 });
+
+Route::middleware('auth:sanctum')->delete('/items/{item}', function ($item) {
+    $checkGroupId = $item->group_id ?? $item->default_group_id;
+
+    $userRole = auth()->user()
+        ->groups()
+        ->where('group_id', $checkGroupId)
+        ->value('role');
+
+    if(!in_array($userRole, [0, 2])) {
+        abort(403, 'Ви не маєте прав на видалення');
+    }
+
+    try {
+        $item->delete();
+        return response()->json([
+            'success' => true,
+            'item_id' => $item->id
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => $e->getMessage()
+        ], 500);
+    }
+
+});
