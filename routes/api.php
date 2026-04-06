@@ -134,7 +134,7 @@ Route::middleware('auth:sanctum')->post('/groups/{id}/items', function ($id) {
     ]);
 });
 
-Route::middleware('auth:sanctum')->delete('/items/{item}', function (Item $item) {
+Route::middleware('auth:sanctum')->delete('/items/{item}', function ($itemId) {
 
     $item = Item::findOrFail($itemId);
 
