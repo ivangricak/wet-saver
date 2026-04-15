@@ -50,7 +50,7 @@ Route::middleware('auth:sanctum')->get('user/groups', function () {
     ]);
 });
 
-Route::middleware('auth:sanctum')->delete('/groups/{group}', function (Group $group){
+Route::middleware('auth:sanctum')->delete('/groups/{group}', function (Group $group) {
     $userId =  auth()->id();
     $userRole = $group->users()
     ->where('user_id', $userId)
@@ -74,6 +74,26 @@ Route::middleware('auth:sanctum')->delete('/groups/{group}', function (Group $gr
             'message' => 'Ваша участь у групі видалена'
         ]);
     }
+});
+
+Route::middleware('auth:sanctum')->put('/groups/{group}', function (UpdateRequest $request, Group $group) {
+    $userRole = $group->users()
+    ->where('user_id', auth()->id())
+    ->value('role');
+
+    // перевіряємо, чи має роль 0 або 2
+    if (!in_array($userRole, [0, 2])) {
+        abort(403, 'Ви не маєте прав для редагування цієї групи.');
+    }
+
+    $data = $request->validated();
+
+    $group->update($data);
+
+    return response()->json([
+        'success' => true,
+        'group' => $group
+    ]);
 });
 
 
@@ -111,6 +131,7 @@ Route::middleware('auth:sanctum')->get('online/group', function () {
 Route::post('/categories', function() {
     return response()->json(\App\Models\Category::all());
 });
+
 
 
 //ITEM
