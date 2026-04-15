@@ -107,6 +107,11 @@ Route::middleware('auth:sanctum')->get('online/group', function () {
 });
 
 
+//CATEGORIES
+Route::post('/categories', function() {
+    return response()->json(\App\Models\Category::all());
+});
+
 
 //ITEM
 Route::middleware('auth:sanctum')->post('create/item', function (StoreRequest $request) {
