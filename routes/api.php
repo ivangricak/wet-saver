@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Requests\Item\StoreRequest;
 use App\Http\Requests\Group\UpdateRequest;
+// use App\Http\Requests\Group\StoreRequest;
 use App\Http\Controllers\Auth\ApiLoginController;
 
 
@@ -90,6 +91,18 @@ Route::middleware('auth:sanctum')->put('/groups/{group}', function (UpdateReques
     $data = $request->validated();
 
     $group->update($data);
+
+    return response()->json([
+        'success' => true,
+        'group' => $group
+    ]);
+});
+
+Route::middleware('auth:sanctum')->post('/group/create', function (App\Http\Requests\Group\StoreRequest $request) {
+    $data = $request->validated();
+    $group = Group::create($data);
+    $user = auth()->user();
+    $group->users()->attach($user->id, ['role' => 0]);
 
     return response()->json([
         'success' => true,
