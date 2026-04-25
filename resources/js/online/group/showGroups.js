@@ -49,8 +49,7 @@ function renderNextGroups(container, groups, me) {
 
     const conEdit = group.users.some(u => u.pivot && Number(u.id) === Number(me.id) && (u.pivot.role === 0 || u.pivot.role === null));
 
-
-      console.log(group);
+      console.log("groupsss: ",group);
       const owner = group.users && group.users.length > 0 ? group.users[0] : null;
       const profileUrl = owner ? `/online/profile/${owner.id}` : '#';
 
