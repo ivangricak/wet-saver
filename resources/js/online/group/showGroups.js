@@ -49,53 +49,55 @@ function renderNextGroups(container, groups, me) {
 
     const conEdit = group.users.some(u => u.pivot && Number(u.id) === Number(me.id) && (u.pivot.role === 0 || u.pivot.role === null));
 
-      console.log("groupsss: ",group);
-      const owner = group.users && group.users.length > 0 ? group.users[0] : null;
-      const profileUrl = owner ? `/online/profile/${owner.id}` : '#';
+    console.log("groupsss: ", group);
+    const owner = group.users?.find(
+      u => u.pivot && (u.pivot.role === 0 || u.pivot.role === null)
+    ) || null;
+    const profileUrl = owner ? `/online/profile/${owner.id}` : '#';
 
-      const dropdown = conEdit ? 
-      ` 
-        <ul class="dropdown-menu">
-          <li class="nav-item">
-            <a class="nav-link" href="${profileUrl}">Profile</a>
-          </li>
-        </ul>
-      `
-      :
-      `
-        <ul class="dropdown-menu">
-          <li class="nav-item">
-            <a class="nav-link" href="${profileUrl}">Profile</a>
-          </li>
-          <li>
-            <button type="submit" class="follow-btn-group" data-group-id="${group.id}">Follow Group</button>
-          </li>
-          <li>
-            <button onclick="copyGroup(${group.id})">Copy group</button>
-          </li>
-        </ul>
-      `;
+    const dropdown = conEdit ?
+    ` 
+      <ul class="dropdown-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="${profileUrl}">Profile</a>
+        </li>
+      </ul>
+    `
+    :
+    `
+      <ul class="dropdown-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="${profileUrl}">Profile</a>
+        </li>
+        <li>
+          <button type="submit" class="follow-btn-group" data-group-id="${group.id}">Follow Group</button>
+        </li>
+        <li>
+          <button onclick="copyGroup(${group.id})">Copy group</button>
+        </li>
+      </ul>
+    `;
 
-        container.insertAdjacentHTML('beforeend', `
-          <div class="card">
-            <div class="title-row">
-              <h5 class="group-title">${group.name}</h5>
-              <div class="dropdown">
-                <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-three-dots-vertical"></i>
-                </button>
-
-
-                    ${dropdown}
+      container.insertAdjacentHTML('beforeend', `
+        <div class="card">
+          <div class="title-row">
+            <h5 class="group-title">${group.name}</h5>
+            <div class="dropdown">
+              <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
 
 
-              </div>
-            </div>
-            <div class="scroll items-container" id="group-${group.id}" data-group-id="${group.id}">
+                  ${dropdown}
+
+
             </div>
           </div>
-      `);
-    });
+          <div class="scroll items-container" id="group-${group.id}" data-group-id="${group.id}">
+          </div>
+        </div>
+    `);
+  });
 }
 
 window.copyGroup = function (groupId) {
