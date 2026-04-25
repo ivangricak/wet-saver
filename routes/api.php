@@ -104,6 +104,8 @@ Route::middleware('auth:sanctum')->post('/group/create', function (App\Http\Requ
     $user = auth()->user();
     $group->users()->attach($user->id, ['role' => 0]);
 
+    $group->load('users');
+
     return response()->json([
         'success' => true,
         'group' => $group
