@@ -25,6 +25,25 @@ Route::middleware('auth:sanctum')->get('/users/nicks', function () {
     return User::pluck('nick');
 });
 
+Route::middleware('auth:sanctum')->post('/online/profile/{user}', function (User $user) {
+    $me = auth()->user();
+    $isFollowing = $me ? $me->isFollowing($user): false;
+
+    $FollowersCount = $user->follows()->count();
+    $FollowingCount = $user->followings()->count();
+    $GroupsCount = $user->groupsCount()->count();
+
+    return response()->json([
+        'user' => $me,
+        'isFollowing' => $isFollowing,
+        'FollowersCount' => $FollowersCount,
+        'FollowingCount' => $FollowingCount,
+        'GroupsCount' => $GroupsCount
+    ]);
+
+    // return view('online.profile', compact('user', 'isFollowing', 'FollowersCount', 'GroupsCount', 'FollowingCount'));
+});
+
 
 
 //GROUP/DEFGROUP

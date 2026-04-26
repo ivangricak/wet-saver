@@ -50,9 +50,7 @@ function renderNextGroups(container, groups, me) {
     const conEdit = group.users.some(u => u.pivot && Number(u.id) === Number(me.id) && (u.pivot.role === 0 || u.pivot.role === null));
 
     console.log("groupsss: ", group);
-    const owner = group.users?.find(
-      u => u.pivot && (u.pivot.role === 0 || u.pivot.role === null)
-    ) || null;
+    const owner = group.users?.find(u => u.pivot && (u.pivot.role === 0 || u.pivot.role === null)) || null;
     const profileUrl = owner ? `/online/profile/${owner.id}` : '#';
 
     const dropdown = conEdit ?
