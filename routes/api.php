@@ -25,13 +25,13 @@ Route::middleware('auth:sanctum')->get('/users/nicks', function () {
     return User::pluck('nick');
 });
 
-Route::middleware('auth:sanctum')->post('/online/profile/{owner}', function ($owner ,User $user) {
+Route::middleware('auth:sanctum')->post('/online/profile/{owner}', function ($owner, User $user) {
     $me = auth()->user();
-    $isFollowing = $me ? $me->isFollowing($user): false;
+    $isFollowing = $me ? $me->isFollowing($owner): false;
 
-    $FollowersCount = $user->follows()->count();
-    $FollowingCount = $user->followings()->count();
-    $GroupsCount = $user->groupsCount()->count();
+    $FollowersCount = $owner->follows()->count();
+    $FollowingCount = $owner->followings()->count();
+    $GroupsCount = $owner->groupsCount()->count();
 
     return response()->json([
         'user' => $me,
