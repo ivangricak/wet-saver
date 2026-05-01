@@ -8,6 +8,7 @@ use App\Http\Requests\Item\StoreRequest;
 use App\Http\Requests\Group\UpdateRequest;
 // use App\Http\Requests\Group\StoreRequest;
 use App\Http\Controllers\Auth\ApiLoginController;
+use App\Http\Controllers\Profile\FollowController;
 
 
 //USER
