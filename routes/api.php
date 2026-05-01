@@ -261,3 +261,6 @@ Route::middleware('auth:sanctum')->delete('/items/{item}', function ($itemId) {
     }
 
 });
+
+// FOLLOW
+Route::middleware('auth:sanctum')->post('/follow/group/add', [FollowController::class, 'add']);

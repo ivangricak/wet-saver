@@ -33,7 +33,7 @@ class FollowController extends Controller
             'group_id' => 'required|integer',
         ]);
 
-        // ✅ 1. Перевіряємо, чи запис уже існує
+        // 1. Перевіряємо, чи запис уже існує
         $exists = \DB::table('group_user')
             ->where('group_id', $data['group_id'])
             ->where('user_id', $userId)
@@ -46,7 +46,7 @@ class FollowController extends Controller
             ], 409);
         }
 
-        // ✅ 2. Якщо немає — створюємо новий
+        // 2. Якщо немає — створюємо новий
         \DB::table('group_user')->insert([
             'group_id' => $data['group_id'],
             'user_id'  => $userId,
