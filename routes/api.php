@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Requests\Item\StoreRequest;
 use App\Http\Requests\Group\UpdateRequest;
 // use App\Http\Requests\Group\StoreRequest;
+use App\Http\Controllers\Group\GroupController;
 use App\Http\Controllers\Auth\ApiLoginController;
 use App\Http\Controllers\Profile\FollowController;
 
@@ -42,8 +43,6 @@ Route::middleware('auth:sanctum')->post('/online/profile/{owner}', function (Use
         'FollowingCount' => $FollowingCount,
         'GroupsCount' => $GroupsCount
     ]);
-
-    // return view('online.profile', compact('user', 'isFollowing', 'FollowersCount', 'GroupsCount', 'FollowingCount'));
 });
 
 
@@ -265,3 +264,5 @@ Route::middleware('auth:sanctum')->delete('/items/{item}', function ($itemId) {
 
 // FOLLOW
 Route::middleware('auth:sanctum')->post('/follow/group/add', [FollowController::class, 'add']);
+
+Route::middleware('auth:sanctum')->post('/groups/{id}/copy', [GroupController::class, 'copyGroup']);
