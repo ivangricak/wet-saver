@@ -251,6 +251,7 @@ Route::middleware('auth:sanctum')->delete('/items/{item}', function ($itemId) {
         $item->delete();
         return response()->json([
             'success' => true,
+            'item' => $item,
             'item_id' => $item->id
         ]);
     } catch (\Exception $e) {
