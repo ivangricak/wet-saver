@@ -131,16 +131,15 @@ class GroupController extends Controller
             ]);
         }
 
-        $newGroup->load(['items', 'users']);
+        // $newGroup->load(['items', 'users']);
 
-        $groupWithPivot = $newUser->groups()
+        $newGroup = $newUser->groups()
         ->withPivot('role')
         ->with('items')
         ->find($newGroup->id);
 
         return response()->json([
             'group' => $newGroup,
-            'testgroup' => $groupWithPivot,
             'me' => auth()->user()
         ]);
     }
