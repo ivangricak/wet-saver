@@ -52,7 +52,7 @@ Route::middleware('auth:sanctum')->get('user/groups', function () {
 
     $user = auth()->user();
 
-    $groups = $user->groups ?? collect();
+    $groups = $user->groups;
 
     $items = $groups->flatMap(function ($group) {
         return $group->items;
