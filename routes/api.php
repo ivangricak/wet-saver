@@ -52,7 +52,14 @@ Route::middleware('auth:sanctum')->get('user/groups', function () {
 
     $user = auth()->user();
 
-    $groups = $user->groups;
+    $groups = $user->groups 
+        ->with([
+            'users' => function ($q) {
+                $q->withPivot('role');
+            },
+            'items'
+        ])
+        ->get();
 
     $items = $groups->flatMap(function ($group) {
         return $group->items;
