@@ -263,7 +263,7 @@ Route::middleware('auth:sanctum')->delete('/items/{item}', function ($itemId) {
 
 });
 
-Route::middleware('auth:sanctum')->post('/items/{item}', [ItemController::class, 'update']);
+Route::middleware('auth:sanctum')->put('/items/{item}', [ItemController::class, 'update']);
 
 // FOLLOW
 Route::middleware('auth:sanctum')->post('/follow/group/add', [FollowController::class, 'add']);
