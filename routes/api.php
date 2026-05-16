@@ -8,6 +8,7 @@ use App\Http\Requests\Item\StoreRequest;
 use App\Http\Requests\Group\UpdateRequest;
 // use App\Http\Requests\Group\StoreRequest;
 use App\Http\Controllers\Group\GroupController;
+use App\Http\Controllers\Item\ItemController;
 use App\Http\Controllers\Auth\ApiLoginController;
 use App\Http\Controllers\Profile\FollowController;
 
@@ -261,6 +262,8 @@ Route::middleware('auth:sanctum')->delete('/items/{item}', function ($itemId) {
     }
 
 });
+
+Route::middleware('auth:sanctum')->post('/items/{item}', [ItemController::class, 'update']);
 
 // FOLLOW
 Route::middleware('auth:sanctum')->post('/follow/group/add', [FollowController::class, 'add']);
