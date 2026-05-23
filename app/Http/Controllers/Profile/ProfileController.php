@@ -83,14 +83,15 @@ class ProfileController extends Controller
 
     public function updatebyjson(Request $request, User $user)
     {
-        $request->validate([
+        $data = $request->validate([
             'nick'=>'required|max:100',
         ]);
 
-        $user->update([$request]);
-        
+        $user->update($data);
+
         return response()->json([
-            'nick'=>$user
+            'message' => 'Profile updated successfully',
+            'user'=>$user
         ]);
     }
 
