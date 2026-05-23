@@ -81,6 +81,19 @@ class ProfileController extends Controller
         return redirect()->route('profile.index');
     }
 
+    public function updatebyjson(Request $request, User $user)
+    {
+        $request->validate([
+            'nick'=>'required|max:100',
+        ]);
+
+        $user->update([$request]);
+        
+        return response()->json([
+            'nick'=>$user
+        ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      */

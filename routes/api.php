@@ -11,6 +11,7 @@ use App\Http\Controllers\Group\GroupController;
 use App\Http\Controllers\Item\ItemController;
 use App\Http\Controllers\Auth\ApiLoginController;
 use App\Http\Controllers\Profile\FollowController;
+use App\Http\Controllers\Profile\ProfileController;
 
 
 //USER
@@ -28,6 +29,8 @@ Route::middleware('auth:sanctum')->get('/users/nicks', function () {
     return User::pluck('nick');
 });
 
+
+//PROFILE
 Route::middleware('auth:sanctum')->post('/online/profile/{owner}', function (User $owner) {
     $me = auth()->user();
     $isFollowing = $me ? $me->isFollowing($owner): false;
@@ -45,6 +48,8 @@ Route::middleware('auth:sanctum')->post('/online/profile/{owner}', function (Use
         'GroupsCount' => $GroupsCount
     ]);
 });
+
+Route::middleware('auth:sanctum')->patch('/profile/{user}', [ProfileController::class, 'update']);
 
 
 
