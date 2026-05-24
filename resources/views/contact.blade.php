@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Nexora",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Web",
+    "description": "Nexora helps users save links, organize bookmarks, and access important websites quickly.",
+    "url": "https://nexora.download"
+    }
+    </script>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
+        <meta name="description" content="Nexora helps you save links, organize bookmarks, and access important resources instantly. Stop losing tabs and keep everything in one place." />
         <meta name="author" content="" />
-        <title>Agency - Start Bootstrap Theme</title>
+        <meta name="keywords" content="save links, bookmark manager, organize bookmarks, save tabs, link organizer, bookmark collections, productivity tool, save websites, quick access links" />
+        <title>Nexora — Save Links, Organize Bookmarks & Access Them Fast</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -15,6 +27,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/style.css" rel="stylesheet" />
+        <link rel="canonical" href="https://nexora.download" />
         {{-- Vite assets --}}
         @vite([
             'resources/css/main/style.css',
@@ -25,7 +38,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><img src="assets/img/n.png" alt="..." /></a>
+                <a class="navbar-brand" href="#page-top"><img src="assets/img/n.webp" alt="..." /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -34,10 +47,6 @@
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="{{ route('login.show') }}">Log-in</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('user.create') }}">Register</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="#about">About</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="#team">Team</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -48,7 +57,10 @@
                 <div class="cont-left">
                     <div class="masthead-subheading">Too many open tabs?</div>
                     <!-- <div class="masthead-subheading">Забагато відкритих вкладок?</div> -->
-                    <div class="masthead-heading">Save links in one click and return later.</div>
+
+                    <!-- <div class="masthead-heading">Save links in one click and return later.</div> -->
+
+                    <h1 class="masthead-heading">Save Links in One Click and Access Them Anytime</h1>
                     <!-- <div class="masthead-heading">Зберігайте посилання в один клік <br> і повертайтеся до них пізніше.</div> -->
                     <!-- <div class="masthead-small-text">A simple service to save and organize links instead of keeping dozens of tabs open.</div> -->
                     <!-- <div class="masthead-small-text">Простий сервіс для збереження та впорядкування посилань замість того, щоб тримати відкритими десятки вкладок.</div> -->
@@ -56,8 +68,8 @@
                     <!-- <a class="btn btn-dark btn-xl text-uppercase" href="{{ route('home.index') }}">Почати</a> -->
                 </div>
                 <div class="cont-right">
-                    <img class="img-cont-right" src="qwe-portrait.png" alt="">
-                    <img class="img-cont-right-part" src="qwe-portrait-part.png" alt="">
+                    <img class="img-cont-right" src="qwe-portrait.webp" alt="Nexora bookmark manager dashboard">
+                    <img class="img-cont-right-part" src="qwe-portrait-part.webp" alt="Nexora bookmark manager dashboard">
                 </div>
             </div>
             <div class="btn-next-slide" onclick="location.href='#services'">
@@ -107,7 +119,7 @@
                 </div>
             </div>
             <img
-            src="macbookpage2.png"
+            src="macbookpage2.webp"
             alt="App preview"
             class="hero-image"
             >
@@ -154,8 +166,8 @@
 
             <!-- Image on the right -->
             <img
-                src="macbookpage2.png"
-                alt="App preview"
+                src="macbookpage2.webp"
+                alt="Save and organize links with Nexora"
                 class="hero-image"
             >
         </section>
@@ -325,7 +337,7 @@
 
                 <div class="row text-center">
                     <div class="col-md-4">
-                        <img class="img-service" src="n1.png" alt="">
+                        <img class="img-service" src="n1.webp" alt="">
                         <h4 class="my-3">Зберігай в один клік</h4>
                         <p class="text-muted">
                             Зберігайте будь-яке посилання за секунду — без хаосу і зайвих дій.
@@ -333,7 +345,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        <img class="img-service" src="n2.png" alt="">
+                        <img class="img-service" src="n2.webp" alt="">
                         <h4 class="my-3">Сортуйте за групами</h4>
                         <p class="text-muted">
                             Створюйте власні категорії для роботи, навчання або натхнення.
@@ -341,7 +353,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        <img class="img-service" src="n3.png" alt="">
+                        <img class="img-service" src="n3.webp" alt="">
                         <h4 class="my-3">Ділись підбірками</h4>
                         <p class="text-muted">
                             Діліться цілими підбірками, а не окремими посиланнями.
@@ -362,7 +374,7 @@
                 <div class="row text-center">
                     <!-- Saving -->
                     <div class="col-md-4">
-                        <img class="img-service" src="n1.png" alt="">
+                        <img class="img-service" src="n1.webp" alt="">
                         <h4 class="my-3">Save in one click</h4>
                         <p class="text-muted">
                             Save any link in seconds — without chaos or extra steps.
@@ -371,7 +383,7 @@
 
                     <!-- Organization -->
                     <div class="col-md-4">
-                        <img class="img-service" src="n2.png" alt="">
+                        <img class="img-service" src="n2.webp" alt="">
                         <h4 class="my-3">Organize by groups</h4>
                         <p class="text-muted">
                             Create your own categories for work, study, or inspiration.
@@ -380,13 +392,29 @@
 
                     <!-- Sharing -->
                     <div class="col-md-4">
-                        <img class="img-service" src="n3.png" alt="">
+                        <img class="img-service" src="n3.webp" alt="">
                         <h4 class="my-3">Share collections</h4>
                         <p class="text-muted">
                             Share entire collections, not just individual links.
                         </p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="seo-content">
+            <div class="container">
+                <h2>Smart Bookmark Manager</h2>
+
+                <p>
+                    Nexora is a productivity tool that helps you save websites,
+                    organize bookmarks, manage link collections, and access important resources quickly.
+                </p>
+
+                <p>
+                    Stop keeping dozens of tabs open. Save links in one click
+                    and return to them anytime.
+                </p>
             </div>
         </section>
 

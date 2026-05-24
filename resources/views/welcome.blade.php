@@ -2,10 +2,10 @@
 @section('content')
     <div class="section">
         <div class="main-block" onclick="location.href='{{ route('home.index') }}'" oncontextmenu="return false;">
-            <img src="/frame1.png" alt="">
+            <img src="/frame1.webp" alt="">
         </div>
         <div class="blog small-block" onclick="location.href='#blogPage'" oncontextmenu="return false;">
-            <img src="/frame2.png" alt="">
+            <img src="/frame2.webp" alt="">
         </div>
         <div class="about small-block" onclick="location.href='#about'">
             <p class="block-title">DISCOVER <br> OUR HISTORY</p>
@@ -21,7 +21,7 @@
             <h2>VIEW OUR BLOG</h2>
             <div class="blogBlockMain"> <!-- ширина 800px висота 500px -->
                 <div class="blogBlockMainLeft"> 
-                    <img src="/nexoraBaner.png" class="phone-img">
+                    <img src="/nexoraBaner.webp" class="phone-img">
                 </div>
                 <div class="blogBlockMainRight"> <!-- ширина 50% висота 100% -->
                 <h2 class="mt-4 ms-4 mb-2 fw-bold">WHAT WE OFFER</h2>
