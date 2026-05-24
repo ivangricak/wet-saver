@@ -30,6 +30,7 @@ Route::middleware('auth:sanctum')->get('/users/nicks', function () {
 });
 
 
+
 //PROFILE
 Route::middleware('auth:sanctum')->post('/online/profile/{owner}', function (User $owner) {
     $me = auth()->user();
@@ -49,8 +50,14 @@ Route::middleware('auth:sanctum')->post('/online/profile/{owner}', function (Use
     ]);
 });
 
-Route::middleware('auth:sanctum')->patch('/profile/{user}', [ProfileController::class, 'update']);
+Route::middleware('auth:sanctum')->patch('/profile/{user}', [ProfileController::class, 'updatebyjson']);
 
+
+
+// підписатися / відписатися (через контролер FollowController)
+Route::middleware('auth:sanctum')->post('/follow/{user}', [FollowController::class, 'store']);
+
+Route::middleware('auth:sanctum')->delete('/follow/{user}', [FollowController::class, 'destroy']);
 
 
 //GROUP/DEFGROUP
