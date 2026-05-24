@@ -1,21 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
-        @verbatim
-        <script type="application/ld+json">
-        {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Nexora",
-        "applicationCategory": "ProductivityApplication",
-        "operatingSystem": "Web",
-        "description": "Nexora helps users save links, organize bookmarks, and access important websites quickly.",
-        "url": "https://nexora.download"
-        }
-        </script>
-        @endverbatim
-
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Nexora helps you save links, organize bookmarks, and access important resources instantly. Stop losing tabs and keep everything in one place." />
@@ -132,7 +117,7 @@
             <div class="container">
                 <div class="hero-content">
                     <h2 class="fw-bold mb-4 hero-h1">
-                        You save useful things,<br>
+                        You save useful things, <br>
                         but don’t come back to them
                     </h2>
 
