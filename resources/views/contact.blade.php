@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+
+        <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Nexora",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Web",
+        "description": "Nexora helps users save links, organize bookmarks, and access important websites quickly.",
+        "url": "https://nexora.download"
+        }
+        </script>
+
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Nexora helps you save links, organize bookmarks, and access important resources instantly. Stop losing tabs and keep everything in one place." />
