@@ -38,7 +38,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><img src="assets/img/n.webp" alt="..." /></a>
+                <a class="navbar-brand" href="#page-top"><img src="assets/img/n.webp" alt="Nexora bookmark manager interface" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -75,7 +75,7 @@
             <div class="btn-next-slide" onclick="location.href='#services'">
                 <a href="#service">More</a>
                 <!-- <a href="#services">Більше</a> -->
-                <img src="/assets/arrow-down.svg" alt="">
+                <img src="/assets/arrow-down.svg" alt="Nexora bookmark manager interface">
             </div>
         </header>
         <!-- Masthead2-->
@@ -374,7 +374,7 @@
                 <div class="row text-center">
                     <!-- Saving -->
                     <div class="col-md-4">
-                        <img class="img-service" src="n1.webp" alt="">
+                        <img class="img-service" src="n1.webp" alt="Save any link in seconds">
                         <h4 class="my-3">Save in one click</h4>
                         <p class="text-muted">
                             Save any link in seconds — without chaos or extra steps.
@@ -383,7 +383,7 @@
 
                     <!-- Organization -->
                     <div class="col-md-4">
-                        <img class="img-service" src="n2.webp" alt="">
+                        <img class="img-service" src="n2.webp" alt="Nexora bookmark manager interface">
                         <h4 class="my-3">Organize by groups</h4>
                         <p class="text-muted">
                             Create your own categories for work, study, or inspiration.
@@ -392,7 +392,7 @@
 
                     <!-- Sharing -->
                     <div class="col-md-4">
-                        <img class="img-service" src="n3.webp" alt="">
+                        <img class="img-service" src="n3.webp" alt="Share entire collections, not just individual links">
                         <h4 class="my-3">Share collections</h4>
                         <p class="text-muted">
                             Share entire collections, not just individual links.
