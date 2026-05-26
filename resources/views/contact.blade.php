@@ -6,6 +6,17 @@
         <meta name="description" content="Nexora helps you save links, organize bookmarks, and access important resources instantly. Stop losing tabs and keep everything in one place." />
         <meta name="author" content="" />
         <meta name="keywords" content="save links, bookmark manager, organize bookmarks, save tabs, link organizer, bookmark collections, productivity tool, save websites, quick access links" />
+        
+        <meta property="og:title" content="Nexora — Save Links & Organize Bookmarks">
+        <meta property="og:description" content="Save links, organize bookmarks, and access resources instantly.">
+        <meta property="og:image" content="https://nexora.download/n.png">
+        <meta property="og:url" content="https://nexora.download">
+        <meta property="og:type" content="website">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Nexora">
+        <meta name="twitter:description" content="Save and organize bookmarks easily.">
+        <meta name="twitter:image" content="https://nexora.download/n.png">
         <title>Nexora — Save Links, Organize Bookmarks & Access Them Fast</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -22,6 +33,17 @@
             'resources/css/main/style.css',
             'resources/js/main_style/scripts.js',
         ])
+        <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Nexora",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome",
+        "description": "Save links and organize bookmarks.",
+        "url": "https://nexora.download"
+        }
+        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->

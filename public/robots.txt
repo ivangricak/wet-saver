@@ -1,2 +1,6 @@
 User-agent: *
 Disallow:
+
+Allow: /
+
+Sitemap: https://nexora.download/sitemap.xml
