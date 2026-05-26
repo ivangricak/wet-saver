@@ -33,17 +33,6 @@
             'resources/css/main/style.css',
             'resources/js/main_style/scripts.js',
         ])
-        <script type="application/ld+json">
-        {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Nexora",
-        "applicationCategory": "BrowserApplication",
-        "operatingSystem": "Chrome",
-        "description": "Save links and organize bookmarks.",
-        "url": "https://nexora.download"
-        }
-        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
