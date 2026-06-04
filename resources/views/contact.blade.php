@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -397,6 +397,33 @@
                         <p class="text-muted">
                             Share entire collections, not just individual links.
                         </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TUT -->
+         <section class="page-section bg-light" id="chrome-extension">
+            <div class="container">
+                <div class="row align-items-center py-5">
+                    <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                        <h2 class="section-heading text-uppercase fw-bold mb-3" style="font-size: 2.5rem; font-family: 'Montserrat', sans-serif;">
+                            Nexora Chrome Extension
+                        </h2>
+                        <p class="text-muted fs-5 mb-4" style="max-width: 500px;">
+                            Install Nexora directly in Chrome and access all features without opening the website.
+                        </p>
+                        <a class="btn btn-dark btn-xl text-uppercase fw-bold px-4 py-3" href="#" style="border-radius: 15px; letter-spacing: 0.5px;">
+                            Get more
+                        </a>
+                    </div>
+                    
+                    <div class="col-lg-6 text-center">
+                        <div class="d-inline-block w-100 position-relative" style="max-width: 500px; aspect-ratio: 4 / 3; background-color: #d9d9d9; border-radius: 4px;">
+                            <span class="position-absolute top-50 start-50 translate-middle fw-bold text-secondary" style="font-size: 2rem; font-family: 'Montserrat', sans-serif;">
+                                my photo
+                            </span>
+                            </div>
                     </div>
                 </div>
             </div>
