@@ -413,7 +413,7 @@
                         <p class="text-muted fs-5 mb-4" style="max-width: 500px;">
                             Install Nexora directly in Chrome and access all features without opening the website.
                         </p>
-                        <a class="btn btn-dark btn-xl text-uppercase fw-bold px-4 py-3" href="#" style="border-radius: 15px; letter-spacing: 0.5px;" alt="nexora chrome extension" title="nexora chrome extension">
+                        <a class="btn btn-dark btn-xl text-uppercase fw-bold px-4 py-3" href="{{ route('home.extension') }}" style="border-radius: 15px; letter-spacing: 0.5px;" alt="nexora chrome extension" title="nexora chrome extension">
                             Download
                         </a>
                     </div>
