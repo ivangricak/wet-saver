@@ -365,7 +365,7 @@
         <section class="page-section">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Solution</h2>
+                    <h2 class="section-heading text-uppercase">Features</h2>
                     <h3 class="section-subheading text-muted">
                         Everything you need to save and organize links
                     </h3>
@@ -466,6 +466,7 @@
                 </div>
             </div>
         </section>
+        <!-- <footer></footer> -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>

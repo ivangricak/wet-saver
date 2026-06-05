@@ -3,21 +3,21 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Nexora Chrome Extension helps you save links, organize bookmarks, and access important resources instantly. Stop losing tabs and keep everything in one place." />
+        <meta name="description" content="Install the Nexora Chrome Extension and access Nexora features directly from your browser. Fast, secure and easy to use." />
         <meta name="author" content="" />
         <meta name="keywords" content="save links, bookmark manager, organize bookmarks, save tabs, link organizer, bookmark collections, productivity tool, save websites, quick access links" />
         
-        <meta property="og:title" content="Nexora Chrome Extension — Save Links & Organize Bookmarks">
+        <meta property="og:title" content="Nexora Chrome Extension – Download for Google Chrome">
         <meta property="og:description" content="Save links, organize bookmarks, and access resources instantly. Nexora Chrome Extension">
         <meta property="og:image" content="https://nexora.download/n.png">
         <meta property="og:url" content="https://nexora.download">
         <meta property="og:type" content="website">
 
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Nexora">
+        <meta name="twitter:title" content="Nexora Chrome Extension">
         <meta name="twitter:description" content="Save and organize bookmarks easily.">
         <meta name="twitter:image" content="https://nexora.download/n.png">
-        <title>Nexora Chrome Extension — Save Links, Organize Bookmarks & Access Them Fast</title>
+        <title>Nexora Chrome Extension – Download for Google Chrome</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -76,7 +76,7 @@
             <div class="btn-next-slide" onclick="location.href='#services'">
                 <a href="#service">More</a>
                 <!-- <a href="#services">Більше</a> -->
-                <img src="/assets/arrow-down.svg" alt="Nexora bookmark manager interface">
+                <img src="/assets/arrow-down.svg" alt="Nexora Chrome Extension bookmark manager interface">
             </div>
         </header>
 
@@ -209,7 +209,7 @@
         <section class="page-section">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Solution</h2>
+                    <h2 class="section-heading text-uppercase">Features</h2>
                     <h3 class="section-subheading text-muted">
                         Everything you need to save and organize links
                     </h3>
@@ -219,27 +219,27 @@
                     <!-- Saving -->
                     <div class="col-md-4">
                         <img class="img-service" src="n1.webp" alt="Save any link in seconds">
-                        <h4 class="my-3">Save in one click</h4>
+                        <h4 class="my-3">Faster workflow</h4>
                         <p class="text-muted">
-                            Save any link in seconds — without chaos or extra steps.
+                            Work faster with instant browser access.
                         </p>
                     </div>
 
                     <!-- Organization -->
                     <div class="col-md-4">
                         <img class="img-service" src="n2.webp" alt="Nexora bookmark manager interface">
-                        <h4 class="my-3">Organize by groups</h4>
+                        <h4 class="my-3">Privacy Focused</h4>
                         <p class="text-muted">
-                            Create your own categories for work, study, or inspiration.
+                            Built with privacy and security in mind.
                         </p>
                     </div>
 
                     <!-- Sharing -->
                     <div class="col-md-4">
                         <img class="img-service" src="n3.webp" alt="Share entire collections, not just individual links">
-                        <h4 class="my-3">Share collections</h4>
+                        <h4 class="my-3">Lightweight</h4>
                         <p class="text-muted">
-                            Share entire collections, not just individual links.
+                            Fast, responsive, and resource-efficient.
                         </p>
                     </div>
                 </div>
@@ -247,7 +247,7 @@
         </section>
 
         <!-- TUT -->
-        <section class="page-section" id="chrome-extension">
+        <!-- <section class="page-section" id="chrome-extension">
             <div class="container">
                 <div class="row align-items-center py-5">
                     <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
@@ -271,9 +271,9 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
-        <section class="seo-content">
+        <!-- <section class="seo-content">
             <div class="container">
                 <h2>Smart Bookmark Manager</h2>
 
@@ -287,9 +287,9 @@
                     and return to them anytime.
                 </p>
             </div>
-        </section>
+        </section> -->
 
-        <section class="about">
+        <!-- <section class="about">
             <div class="container">
                 <div class="text-about">
                     <div class="title">
@@ -301,15 +301,9 @@
                         <p>Nexora was built to bring order to that chaos. <br>So you always know where your link is — and can find it in seconds.</p>
                         <p>It’s a tool for anyone who works with information <br>and wants quick access instead of constant searching.</p>
                     </div>  
-                    <!-- <div class="paragraf">
-                        <p>Nexora зʼявилась з простої ідеї — мати одне місце для всіх важливих посилань. </p>
-                        <p> Ми щодня зберігаємо сайти, статті, ресурси, ідеї. <br> Але з часом вони губляться серед вкладок, нотаток і чатів. </p>
-                        <p>  Nexora створена, щоб навести порядок у цьому хаосі. <br> Щоб ви завжди знали, де ваше посилання — і знаходили його за секунди.</p>
-                        <p> Це інструмент для всіх, хто працює з інформацією <br> і хоче мати швидкий доступ замість постійного пошуку.</p>
-                    </div> -->
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
