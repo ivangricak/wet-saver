@@ -29,6 +29,25 @@ Route::middleware('auth:sanctum')->get('/users/nicks', function () {
     return User::pluck('nick');
 });
 
+Route::middleware('auth:sanctum')->post('/register', function () {
+     $data = $request->validated();
+        $data['password'] = bcrypt($data['password']);
+
+        $user = User::create($data);
+
+        DefaultGroup::create([
+            'name' => 'default group',
+            'user_id' => $user->id,
+            'category_id' => 3
+        ]);
+
+        auth()->login($user);
+
+        return response()->json([
+            'success' => true
+        ]);
+});
+
 
 
 //PROFILE

@@ -52,12 +52,11 @@
 
 <div class="container">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: [insert date]</p>
+    <p class="updated">Last updated: 14.06.2026</p>
 
     <h2>1. Information we collect</h2>
     <ul>
         <li>Username or nickname</li>
-        <li>Email address (if used for authentication)</li>
         <li>Authentication handled via secure third-party services</li>
         <li>Saved URLs and optional metadata (titles, descriptions)</li>
     </ul>
@@ -98,7 +97,7 @@
 
     <h2>8. Contact</h2>
     <p>
-        Contact: [your email]
+        Contact: nexora.join@gmail.com
     </p>
 </div>
 
