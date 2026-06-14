@@ -2,6 +2,7 @@
 use App\Models\User;
 use App\Models\Group;
 use App\Models\Item;
+use App\Models\DefaultGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Requests\Item\StoreRequest;
