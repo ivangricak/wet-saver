@@ -32,7 +32,7 @@ Route::middleware('auth:sanctum')->get('/users/nicks', function () {
 
 Route::post('/register', function (Request $request) {
      $data = $request->validated([
-        'name' => 'required|string',
+        'nick' => 'required|string',
         'login' => 'required|string',
         'password' => 'required|string'
     ]);
