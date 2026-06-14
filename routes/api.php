@@ -30,7 +30,7 @@ Route::middleware('auth:sanctum')->get('/users/nicks', function () {
     return User::pluck('nick');
 });
 
-Route::post('/register', function () {
+Route::post('/register', function (Request $request) {
      $data = $request->validated();
         $data['password'] = bcrypt($data['password']);
 
