@@ -31,7 +31,11 @@ Route::middleware('auth:sanctum')->get('/users/nicks', function () {
 });
 
 Route::post('/register', function (Request $request) {
-     $data = $request->validated();
+     $data = $request->validated([
+        'name' => 'required|string',
+        'login' => 'required|string',
+        'password' => 'required|string'
+    ]);
         $data['password'] = bcrypt($data['password']);
 
         $user = User::create($data);
