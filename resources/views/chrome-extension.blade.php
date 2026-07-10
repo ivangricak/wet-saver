@@ -69,8 +69,8 @@
                     <!-- <a class="btn btn-dark btn-xl text-uppercase" href="{{ route('home.index') }}">Почати</a> -->
                 </div>
                 <div class="cont-right">
-                    <img class="img-cont-right" src="qwe-portrait.webp" alt="Nexora bookmark manager dashboard">
-                    <img class="img-cont-right-part" src="qwe-portrait-part.webp" alt="Nexora bookmark manager dashboard">
+                    <img class="img-cont-right" src="ex-first.png" alt="Nexora bookmark manager dashboard">
+                    <img class="img-cont-right-part" src="ex-first.png" alt="Nexora bookmark manager dashboard">
                 </div>
             </div>
             <div class="btn-next-slide" onclick="location.href='#services'">
@@ -128,13 +128,12 @@
             >
         </section>
 
-        <section class="page-section" id="hero-mobile">
+        <section class="hero" id="service">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Problem</h2>
+                    <h2 class="section-heading text-uppercase">Steps</h2>
                     <h3 class="section-subheading text-muted">
-                        You save useful things,
-                        but don’t come back to them
+                            -
                     </h3>
                 </div>
 

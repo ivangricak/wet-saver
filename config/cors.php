@@ -8,6 +8,7 @@ return [
 
     'allowed_origins' => [
         'chrome-extension://onknhellkichadbomnpbmdkhfjhkgegk',
+        'chrome-extension://clpnhfijbomcemhdaaoadkmjpppcfcip',
     ],
 
     'allowed_origins_patterns' => [],
