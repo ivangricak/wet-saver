@@ -8369,6 +8369,8 @@ textarea.form-control-lg {
 }
 
 .text-muted {
+  font-size: 25px;
+  margin-bottom: 30px;
   --bs-text-opacity: 1;
   color: #6c757d !important;
 }

@@ -83,38 +83,27 @@
         <section class="hero" id="service">
             <div class="container">
                 <div class="hero-content">
-                    <h2 class="fw-bold mb-4 hero-h1">
-                        You save useful things, <br>
-                        but don’t come back to them
-                    </h2>
+                    <h2 class="fw-bold mb-4 hero-h1">Your best links shouldn't<br>get lost in your browser.</h2>
 
                     <div class="row">
                         <div class="col-6 feature">
-                            <div class="feature-title">Tabs</div>
-                            <small class="text-muted">
-                                You work with a large number of links and keep dozens of tabs open.
-                            </small>
+                            <div class="feature-title">Too many tabs</div>
+                            <small class="text-muted">You keep useful pages open because you might need them later.</small>
                         </div>
 
                         <div class="col-6 feature">
-                            <div class="feature-title">Chaos</div>
-                            <small class="text-muted">
-                                Links are scattered across notes, messengers, and different services.
-                            </small>
+                            <div class="feature-title">Saved for later</div>
+                            <small class="text-muted">You bookmark things with good intentions, but often forget where they are.</small>
                         </div>
 
                         <div class="col-6 feature">
-                            <div class="feature-title">Later</div>
-                            <small class="text-muted">
-                                You save materials “for later,” but rarely return to them.
-                            </small>
+                            <div class="feature-title">Scattered everywhere</div>
+                            <small class="text-muted">Important links end up across browser bookmarks, notes, chats, and different apps.</small>
                         </div>
 
                         <div class="col-6 feature">
-                            <div class="feature-title">Sharing</div>
-                            <small class="text-muted">
-                                It’s hard to share materials when they’re not collected in one place.
-                            </small>
+                            <div class="feature-title">Too many steps</div>
+                            <small class="text-muted">Switching between tabs and apps just to save a link breaks your workflow.</small>
                         </div>
                     </div>
                 </div>
@@ -133,7 +122,7 @@
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Steps</h2>
                     <h3 class="section-subheading text-muted">
-                            -
+                        From browser to organized library in seconds.
                     </h3>
                 </div>
 
@@ -144,11 +133,11 @@
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>Tabs</h4>
+                                <h4>Find</h4>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted">
-                                    You work with a large number of links and keep <b>dozens of tabs</b> open.
+                                    Come across a page, article, tool, or resource worth keeping.
                                 </p>
                             </div>
                         </div>
@@ -160,11 +149,11 @@
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>Later</h4>
+                                <h4>Organize</h4>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted">
-                                    You save materials <b>“for later”</b>, but rarely return to them.
+                                    Choose where the link belongs and keep your library structured.
                                 </p>
                             </div>
                         </div>
@@ -176,11 +165,11 @@
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>Chaos</h4>
+                                <h4>Return</h4>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted">
-                                    <b>Links are scattered</b> across notes, messengers, and different services.
+                                    Come back to your saved resources whenever you need them.
                                 </p>
                             </div>
                         </div>
@@ -210,35 +199,29 @@
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Features</h2>
                     <h3 class="section-subheading text-muted">
-                        Everything you need to save and organize links
+                        Everything you need to save and organize links.
                     </h3>
                 </div>
-
                 <div class="row text-center">
-                    <!-- Saving -->
                     <div class="col-md-4">
-                        <img class="img-service" src="n1.webp" alt="Save any link in seconds">
-                        <h4 class="my-3">Faster workflow</h4>
+                        <img class="img-service" src="extension-frame3.png" alt="Share your collections publicly">
+                        <h4 class="my-3">Public Online</h4>
                         <p class="text-muted">
-                            Work faster with instant browser access.
+                            Share your collections with everyone.
                         </p>
                     </div>
-
-                    <!-- Organization -->
                     <div class="col-md-4">
-                        <img class="img-service" src="n2.webp" alt="Nexora bookmark manager interface">
-                        <h4 class="my-3">Privacy Focused</h4>
+                        <img class="img-service" src="extension-frame2.png" alt="Nexora Launchpad">
+                        <h4 class="my-3">Launchpad</h4>
                         <p class="text-muted">
-                            Built with privacy and security in mind.
+                            The fastest way to access your saved links.
                         </p>
                     </div>
-
-                    <!-- Sharing -->
                     <div class="col-md-4">
-                        <img class="img-service" src="n3.webp" alt="Share entire collections, not just individual links">
-                        <h4 class="my-3">Lightweight</h4>
+                        <img class="img-service" src="extension-frame1.png" alt="Flexible organization of your saved links">
+                        <h4 class="my-3">Flexible Organization</h4>
                         <p class="text-muted">
-                            Fast, responsive, and resource-efficient.
+                            Easily find what you really need.
                         </p>
                     </div>
                 </div>
